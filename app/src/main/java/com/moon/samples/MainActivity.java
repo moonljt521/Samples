@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
+
     private MainAdapter adapter;
 
     @Override

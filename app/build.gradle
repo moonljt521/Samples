@@ -15,6 +15,10 @@ android {
                 cppFlags ""
             }
         }
+
+        jackOptions{
+            enabled true   //启用jack编译器
+        }
     }
     buildTypes {
         release {
@@ -26,6 +30,11 @@ android {
         cmake {
             path "CMakeLists.txt"
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     packagingOptions {
@@ -43,4 +52,5 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:25.3.1'
     testCompile 'junit:junit:4.12'
     compile project(':annotationlib')
+    compile project(':basejavalib')
 }
