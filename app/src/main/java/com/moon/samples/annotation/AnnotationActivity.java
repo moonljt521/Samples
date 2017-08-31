@@ -1,10 +1,8 @@
 package com.moon.samples.annotation;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.support.v7.app.AppCompatActivity;
 
-import com.example.annotation.seriable.GeneratedClass;
 import com.moon.samples.R;
 
 public class AnnotationActivity extends AppCompatActivity {
@@ -14,9 +12,10 @@ public class AnnotationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_annotation);
 
-        new TestCar();
+//        new TestCar();
 
-        Toast.makeText(this, new GeneratedClass().getValue() ,Toast.LENGTH_LONG).show();
+
+//        Toast.makeText(this, new GeneratedClass().getValue() ,Toast.LENGTH_LONG).show();
 
 
     }

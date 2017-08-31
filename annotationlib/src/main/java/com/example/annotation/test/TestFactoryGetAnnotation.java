@@ -1,9 +1,6 @@
-package com.example.annotation.testannotation;
-
-import com.example.annotation.seriable.Seriable;
+package com.example.annotation.test;
 
 import java.io.Serializable;
-import java.lang.annotation.Annotation;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -13,20 +10,16 @@ import java.lang.annotation.RetentionPolicy;
  * created on: 17/8/23 下午6:45
  * description:
  */
-public class TestGetAnnotation {
+public class TestFactoryGetAnnotation {
 
 
     public static void main(String[] args) {
 
-        Annotation[] annotations = MoonBody.class.getAnnotations();
-        for (Annotation a : annotations) {
-            System.out.println(a);
 
-        }
 
         System.out.println("------------");
 
-        IFurit iFurit = new Apple();
+        IFurit iFurit = Factory.getInstance();
         iFurit.eat();
 
 

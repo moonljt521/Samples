@@ -110,9 +110,11 @@ public class BeanProcessor extends AbstractProcessor { // 元素操作的辅助�
     private void testGenerateJavaFile() {
 
         JavaFileObject source = null;
+
+
+
         try {
             source = processingEnv.getFiler().createSourceFile("com.example.annotation.seriable.GeneratedClass");
-
 
             StringBuilder builder = new StringBuilder()
                     .append("package com.example.annotation.seriable;\n\n")

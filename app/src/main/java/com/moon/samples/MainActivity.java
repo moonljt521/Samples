@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.moon.samples.annotation.AnnotationActivity;
+import com.moon.samples.dsbridge.DSBridgeActivity;
+import com.moon.samples.rxjava2.RxJava2Activity;
 import com.moon.samples.viewcomponent.ViewcomponentActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         System.loadLibrary("native-lib");
     }
 
-    private String [] arr = {"自定义view","注解"};
+    private String[] arr = {"自定义view", "注解", "rxJava2", "DSBridge"};
 
     private RecyclerView recyclerView;
 
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.main_fun_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter = new MainAdapter(this,arr));
+        recyclerView.setAdapter(adapter = new MainAdapter(this, arr));
         adapter.setMcListener(new MainAdapter.ViewItemListener() {
             @Override
             public void itemClick(View v, int position) {
@@ -49,20 +51,38 @@ public class MainActivity extends AppCompatActivity {
      */
     public native String stringFromJNI();
 
-    private void startIntent(int position){
+    private void startIntent(int position) {
 
         Intent intent = new Intent();
 
 
-        switch (position){
+        switch (position) {
             case 0:
-                intent.setClass(MainActivity.this,ViewcomponentActivity.class);
+                intent.setClass(MainActivity.this, ViewcomponentActivity.class);
 
                 break;
 
             case 1:
 
-                intent.setClass(MainActivity.this,AnnotationActivity.class);
+                intent.setClass(MainActivity.this, AnnotationActivity.class);
+
+
+                break;
+
+            case 2:
+
+                intent.setClass(MainActivity.this, RxJava2Activity.class);
+
+
+                break;
+            case 3:
+
+                intent.setClass(MainActivity.this, DSBridgeActivity.class);
+
+
+                break;
+
+            default:
 
 
                 break;
