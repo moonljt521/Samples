@@ -13,9 +13,8 @@ bin/
 gen/
 *target/
 *build/
-build/
 /com/
-.gradle/
+/.gradle/
 gradle/
 .idea/
 .idea/workspace.xml
@@ -38,3 +37,8 @@ local.properties
 
 # Mac os
 .DS_Store
+annotationlib/libs/
+app/src/main/res/drawable/
+autoservice/libs/
+autoservice/src/main/res/drawable/
+basejavalib/libs/

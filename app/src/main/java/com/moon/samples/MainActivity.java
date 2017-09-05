@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.TextView;
 
 import com.moon.samples.annotation.AnnotationActivity;
 import com.moon.samples.dsbridge.DSBridgeActivity;
+import com.moon.samples.jsoupcrawler.JsoupActivity;
+import com.moon.samples.main.MainAdapter;
+import com.moon.samples.main.MyDecoration;
 import com.moon.samples.rxjava2.RxJava2Activity;
 import com.moon.samples.viewcomponent.ViewcomponentActivity;
 
@@ -20,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         System.loadLibrary("native-lib");
     }
 
-    private String[] arr = {"自定义view", "注解", "rxJava2", "DSBridge"};
+    private String[] arr = {"自定义view", "注解", "rxJava2", "DSBridge","JSOUP抓取html并解析"};
 
     private RecyclerView recyclerView;
 
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.main_fun_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new MyDecoration(this,LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(adapter = new MainAdapter(this, arr));
         adapter.setMcListener(new MainAdapter.ViewItemListener() {
             @Override
@@ -66,19 +69,22 @@ public class MainActivity extends AppCompatActivity {
 
                 intent.setClass(MainActivity.this, AnnotationActivity.class);
 
-
                 break;
 
             case 2:
 
                 intent.setClass(MainActivity.this, RxJava2Activity.class);
 
-
                 break;
             case 3:
 
                 intent.setClass(MainActivity.this, DSBridgeActivity.class);
 
+                break;
+
+            case 4:
+
+                intent.setClass(MainActivity.this, JsoupActivity.class);
 
                 break;
 
