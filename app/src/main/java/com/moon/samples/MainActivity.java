@@ -8,21 +8,23 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.moon.samples.annotation.AnnotationActivity;
+import com.moon.samples.dsbridge.BaseActivity;
 import com.moon.samples.dsbridge.DSBridgeActivity;
 import com.moon.samples.jsoupcrawler.JsoupActivity;
 import com.moon.samples.main.MainAdapter;
 import com.moon.samples.main.MyDecoration;
+import com.moon.samples.propertyanimator.PropertyAnimatorActivity;
 import com.moon.samples.rxjava2.RxJava2Activity;
 import com.moon.samples.viewcomponent.ViewcomponentActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
     }
 
-    private String[] arr = {"自定义view", "注解", "rxJava2", "DSBridge","JSOUP抓取html并解析"};
+    private String[] arr = {"自定义view", "注解", "rxJava2", "DSBridge","rxjava2+retrofit2+JSOUP抓取html并解析","属性动画"};
 
     private RecyclerView recyclerView;
 
@@ -31,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        notLoadSlide = true;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -46,6 +51,11 @@ public class MainActivity extends AppCompatActivity {
         });
         // Example of a call to a native method
 
+    }
+
+    @Override
+    protected String getActionTitle() {
+        return "主页";
     }
 
     /**
@@ -82,6 +92,11 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
 
+            case 5:
+
+                intent.setClass(MainActivity.this, PropertyAnimatorActivity.class);
+
+                break;
             case 4:
 
                 intent.setClass(MainActivity.this, JsoupActivity.class);

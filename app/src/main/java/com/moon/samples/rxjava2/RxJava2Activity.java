@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.moon.samples.R;
+import com.moon.samples.dsbridge.BaseActivity;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -19,7 +20,7 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
-public class RxJava2Activity extends AppCompatActivity {
+public class RxJava2Activity extends BaseActivity {
     int p = 0;
 
     @Override
@@ -31,6 +32,10 @@ public class RxJava2Activity extends AppCompatActivity {
         testZip();
     }
 
+    @Override
+    protected String getActionTitle() {
+        return "rxJava2";
+    }
 
 
     private void testZip(){

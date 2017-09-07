@@ -7,11 +7,12 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.moon.samples.R;
+import com.moon.samples.utils.UDebug;
 
 import wendu.dsbridge.DWebView;
 import wendu.dsbridge.OnReturnValue;
 
-public class DSBridgeActivity extends AppCompatActivity {
+public class DSBridgeActivity extends BaseActivity {
 
 
     @Override
@@ -30,7 +31,7 @@ public class DSBridgeActivity extends AppCompatActivity {
                 webView.callHandler("addValue",new Object[]{1,"hello"},new OnReturnValue(){
                     @Override
                     public void onValue(String retValue) {
-                        Log.d("moon","call succeed,return value is "+retValue);
+                        UDebug.i("call succeed,return value is "+retValue);
                     }
                 });
 
@@ -40,4 +41,11 @@ public class DSBridgeActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    protected String getActionTitle() {
+        return "DSBridge";
+    }
+
+
 }

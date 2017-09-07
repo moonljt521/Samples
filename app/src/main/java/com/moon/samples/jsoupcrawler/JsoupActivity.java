@@ -2,17 +2,17 @@ package com.moon.samples.jsoupcrawler;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.moon.samples.MyApp;
 import com.moon.samples.R;
+import com.moon.samples.dsbridge.BaseActivity;
+import com.moon.samples.utils.UDebug;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -30,16 +30,13 @@ import java.util.List;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
-import retrofit2.Response;
 
 /**
  * jsoup 爬虫
  */
-public class JsoupActivity extends AppCompatActivity {
+public class JsoupActivity extends BaseActivity {
 
     private Banner banner ;
 
@@ -78,6 +75,11 @@ public class JsoupActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected String getActionTitle() {
+        return "JSoup爬取数据并解析";
+    }
+
     private void getHttpHtmlString() {
 
 
@@ -99,7 +101,8 @@ public class JsoupActivity extends AppCompatActivity {
                             Elements list = parse.getElementsByTag("link");
                             for (Element e : list){
                                 String png = e.attr("href");
-                                Log.i("moon","href = "+ png);
+                                UDebug.i("href = "+ png);
+
                                 if (!TextUtils.isEmpty(png) && png.endsWith("png")){
                                     urls.add("http:"+png);
                                 }
