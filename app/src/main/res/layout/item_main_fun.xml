@@ -1,13 +1,37 @@
-<TextView
-    android:id="@+id/item_main_textview"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center"
-    android:padding="10dp"
-    android:textSize="16dp"
-    tools:context="com.moon.samples.MainActivity"/>
+    tools:context="com.moon.samples.jsoupcrawler.JsoupActivity">
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/item_main_textview"
+        android:layout_width="328dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintHorizontal_weight="1"
+        android:padding="10dp"
+        android:textSize="16dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp" />
+
+
+    <ImageView
+        android:scaleType="centerInside"
+        android:src="@android:drawable/ic_delete"
+        android:id="@+id/item_main_dragview"
+        app:layout_constraintLeft_toRightOf="@+id/item_main_textview"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="5"
+
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteY="0dp" />
+
+</android.support.constraint.ConstraintLayout>
+
+
 
 
 
