@@ -1,1 +1,1 @@
-include ':app', ':autoservice', ':annotationlib'
+include ':app', ':annotationlib', ':basejavalib'

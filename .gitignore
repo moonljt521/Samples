@@ -13,11 +13,13 @@ bin/
 gen/
 *target/
 *build/
-build/
-.gradle/
+/com/
+/.gradle/
 gradle/
-.idea/
-*captures/
+
+
+/captures
+
 
 gen-external-apklibs/
 
@@ -30,3 +32,9 @@ local.properties
 
 # Mac os
 .DS_Store
+annotationlib/libs/
+app/src/main/res/drawable/
+autoservice/libs/
+autoservice/src/main/res/drawable/
+basejavalib/libs/
+/.idea/

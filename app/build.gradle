@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "com.moon.samples"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -14,6 +14,10 @@ android {
             cmake {
                 cppFlags ""
             }
+        }
+
+        jackOptions {
+            enabled true   //启用jack编译器
         }
     }
     buildTypes {
@@ -28,6 +32,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     packagingOptions {
         exclude 'META-INF/services/javax.annotation.processing.Processor'
     }
@@ -38,9 +47,26 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile project(':annotationlib')
+    compile project(':basejavalib')
+    //rxjava2
+    // ds bridge
+    //rxjava2
+    // retrofit2
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.github.wendux:DSBridge-Android:2.0-SNAPSHOT'
+    compile 'org.jsoup:jsoup:1.10.1'
+    compile 'com.youth.banner:banner:1.4.9'
+    compile 'com.github.bumptech.glide:glide:4.0.0'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.0.7'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
     testCompile 'junit:junit:4.12'
-    compile project(':annotationlib')
+    // 扩展：使页面可滑动
+    compile 'com.komi.slider:slider:0.4.0'
 }

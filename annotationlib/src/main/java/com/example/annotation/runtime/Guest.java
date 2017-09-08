@@ -29,6 +29,7 @@ public class Guest {
 
         System.out.println(">"+annotationValue);
         System.out.println(">"+annotationValue.value());
+        System.out.println(">"+annotationValue.getClass().getName());
     }
 
     public void printValue(Object obj) {

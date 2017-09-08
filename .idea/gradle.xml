@@ -10,7 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/annotationlib" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/autoservice" />
+            <option value="$PROJECT_DIR$/basejavalib" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
