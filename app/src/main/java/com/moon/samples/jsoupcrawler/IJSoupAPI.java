@@ -9,9 +9,9 @@ import retrofit2.http.GET;
  * created on: 17/9/5 上午10:07
  * description:
  */
-public interface IJsoupAPI {
+public interface IJSoupAPI {
 
-    @GET("c501ec8ec7f5")
+    @GET(" ")
     Observable<ResponseBody> getList();
 
 

@@ -1,7 +1,6 @@
 package com.moon.samples;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,7 +11,7 @@ import com.moon.samples.dsbridge.BaseActivity;
 import com.moon.samples.dsbridge.DSBridgeActivity;
 import com.moon.samples.jsoupcrawler.JsoupActivity;
 import com.moon.samples.main.MainAdapter;
-import com.moon.samples.main.MyDecoration;
+import com.moon.samples.main.ItemDecoration;
 import com.moon.samples.propertyanimator.PropertyAnimatorActivity;
 import com.moon.samples.rxjava2.RxJava2Activity;
 import com.moon.samples.viewcomponent.ViewcomponentActivity;
@@ -41,7 +40,7 @@ public class MainActivity extends BaseActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.main_fun_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.addItemDecoration(new MyDecoration(this,LinearLayoutManager.VERTICAL));
+        recyclerView.addItemDecoration(new ItemDecoration(2));
         recyclerView.setAdapter(adapter = new MainAdapter(this, arr));
         adapter.setMcListener(new MainAdapter.ViewItemListener() {
             @Override

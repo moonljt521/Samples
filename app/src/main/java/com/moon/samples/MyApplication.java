@@ -3,9 +3,6 @@ package com.moon.samples;
 import android.app.Application;
 
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -18,14 +15,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * created on: 17/9/4 下午4:31
  * description:
  */
-public class MyApp extends Application {
+public class MyApplication extends Application {
 
-    private String baseUrl = "http://www.jianshu.com/p/";
+    private String baseUrl = "http://www.jianshu.com/";
 //    private String baseUrl = "http://api.laifudao.com/open/";
 
     private Retrofit retrofit;
 
-    private static MyApp myApp;
+    private static MyApplication myApp;
 
     @Override
     public void onCreate() {
@@ -52,7 +49,7 @@ public class MyApp extends Application {
         return retrofit;
     }
 
-    public static MyApp getMyApp() {
+    public static MyApplication getMyApp() {
         return myApp;
     }
 }
