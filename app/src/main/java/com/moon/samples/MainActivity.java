@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 
 import com.moon.samples.annotation.AnnotationActivity;
 import com.moon.samples.dsbridge.BaseActivity;
 import com.moon.samples.dsbridge.DSBridgeActivity;
 import com.moon.samples.jsoupcrawler.JsoupActivity;
+import com.moon.samples.main.ItemTouchHelperAdapter;
 import com.moon.samples.main.MainAdapter;
 import com.moon.samples.main.ItemDecoration;
 import com.moon.samples.propertyanimator.PropertyAnimatorActivity;
@@ -49,6 +51,40 @@ public class MainActivity extends BaseActivity {
             }
         });
         // Example of a call to a native method
+
+        ItemTouchHelperAdapter touchHelperAdapter = new ItemTouchHelperAdapter() {
+            @Override
+            public boolean onItemMove(int fromPos, int toPos) {
+                return false;
+            }
+
+            @Override
+            public void onItemDismiss(int pos) {
+
+            }
+        };
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.Callback() {
+
+
+
+            @Override
+            public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+
+                return 0;
+            }
+
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+            }
+        });
+
+        itemTouchHelper.attachToRecyclerView(recyclerView);
 
     }
 

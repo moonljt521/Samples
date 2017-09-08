@@ -3,7 +3,8 @@ package com.moon.samples.jsoupcrawler;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
+import android.support.v7.widget.helper.ItemTouchHelper;
+import android.view.MotionEvent;
 
 import com.moon.samples.MyApplication;
 import com.moon.samples.R;
@@ -30,9 +31,9 @@ import okhttp3.ResponseBody;
  */
 public class JsoupActivity extends BaseActivity {
 
-    private List<String> urls = new ArrayList<>();
+    private List<String> mBannerUrls = new ArrayList<>();
 
-    private IJSoupAPI api ;
+    private IJSoupAPI api;
 
     private List<JSoupBody> dataList = new ArrayList<>();
 
@@ -47,7 +48,9 @@ public class JsoupActivity extends BaseActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.jSoupRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter = new JSoupAdapter(this,urls,dataList));
+        recyclerView.setAdapter(adapter = new JSoupAdapter(this, mBannerUrls, dataList));
+
+
 
         initConfig();
 
@@ -74,35 +77,27 @@ public class JsoupActivity extends BaseActivity {
                     public void onNext(ResponseBody responseBody) {
                         try {
                             Document parse = Jsoup.parse(responseBody.string());
-
-                            Elements list = parse.getElementsByClass("banner");
-                            for (Element e : list){
+                            Elements bannerElements = parse.getElementsByClass("banner");
+                            for (Element e : bannerElements) {
                                 String png = e.getElementsByTag("img").attr("src");
-
-                                UDebug.i("src = "+ png);
-
-                                if (!TextUtils.isEmpty(png)){
-                                    urls.add("http:"+png);
-                                }
+                                UDebug.i("src = " + png);
+                                mBannerUrls.add("http:" + png);
                             }
 
-                            Elements contentList = parse.getElementsByClass("content");
-                            for (Element e : contentList){
-
+                            Elements contentElements = parse.getElementsByClass("content");
+                            for (Element e : contentElements) {
                                 JSoupBody body = new JSoupBody();
                                 body.setTitle(e.getElementsByClass("title").text());
                                 body.setContent(e.getElementsByClass("abstract").text());
                                 dataList.add(body);
                             }
 
-                            if (adapter!=null){
+                            if (adapter != null) {
                                 adapter.notifyDataSetChanged();
                             }
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-
-
                     }
 
                     @Override
@@ -115,13 +110,9 @@ public class JsoupActivity extends BaseActivity {
 
                     }
                 });
-
-
-
-
     }
 
-    private void initConfig(){
+    private void initConfig() {
         //沉浸式状态栏
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 //            //透明状态栏
@@ -143,7 +134,7 @@ public class JsoupActivity extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if (adapter!=null){
+        if (adapter != null) {
             adapter.startBanner();
         }
     }
@@ -151,7 +142,7 @@ public class JsoupActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        if (adapter!=null){
+        if (adapter != null) {
             adapter.stopBanner();
         }
     }
