@@ -20,14 +20,16 @@
 
     <ImageView
         android:scaleType="centerInside"
-        android:src="@android:drawable/ic_delete"
+        android:src="@mipmap/main_item_drag"
         android:id="@+id/item_main_dragview"
-        app:layout_constraintLeft_toRightOf="@+id/item_main_textview"
         android:layout_width="0dp"
         app:layout_constraintHorizontal_weight="5"
-
+        android:padding="7dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintLeft_toRightOf="@+id/item_main_textview"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
 </android.support.constraint.ConstraintLayout>
 

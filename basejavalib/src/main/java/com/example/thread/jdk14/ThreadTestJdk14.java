@@ -58,7 +58,6 @@ class Resource {
 
     }
 
-
     public void eatApple() {
 
         synchronized (this) {
@@ -84,7 +83,9 @@ class Resource {
     }
 }
 
-
+/**
+ * 生产者
+ */
 class Producer implements Runnable {
 
     private Resource r;
@@ -111,7 +112,9 @@ class Producer implements Runnable {
     }
 }
 
-
+/**
+ * 消费者
+ */
 class Consumer implements Runnable {
 
     private Resource r;
