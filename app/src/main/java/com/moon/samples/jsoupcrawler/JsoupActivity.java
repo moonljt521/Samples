@@ -3,8 +3,6 @@ package com.moon.samples.jsoupcrawler;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
-import android.view.MotionEvent;
 
 import com.moon.samples.MyApplication;
 import com.moon.samples.R;
@@ -18,9 +16,11 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -56,6 +56,65 @@ public class JsoupActivity extends BaseActivity {
         initConfig();
 
         retrofit2Request();
+
+//        test();
+
+    }
+
+    private void test() {
+
+        Observable.create((ObservableOnSubscribe<String>) o -> {
+
+            try {
+                Document parse = Jsoup.connect("http://www.jianshu.com/").get();
+                Elements bannerElements = parse.getElementsByClass("banner");
+                for (Element e : bannerElements) {
+                    String png = e.getElementsByTag("img").attr("src");
+                    o.onNext(png);
+                }
+            } catch (IOException e) {
+                o.onError(null);
+                e.printStackTrace();
+            }
+        }).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        UDebug.i("s = " + s);
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        UDebug.i("??????报错了");
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
+
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                System.out.println(111);
+                System.out.println(111222);
+
+            }
+        });
+
+
+
     }
 
     @Override
@@ -81,7 +140,7 @@ public class JsoupActivity extends BaseActivity {
                             Elements bannerElements = parse.getElementsByClass("banner");
                             for (Element e : bannerElements) {
                                 String png = e.getElementsByTag("img").attr("src");
-                                UDebug.i("src = " + png);
+//                                UDebug.i("src = " + png);
                                 mBannerUrls.add("http:" + png);
                             }
 

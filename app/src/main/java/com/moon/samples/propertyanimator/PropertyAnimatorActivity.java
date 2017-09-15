@@ -1,23 +1,22 @@
 package com.moon.samples.propertyanimator;
 
+import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.constraint.ConstraintLayout;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
 
 import com.moon.samples.R;
 import com.moon.samples.dsbridge.BaseActivity;
-import com.moon.samples.utils.UDebug;
 
 public class PropertyAnimatorActivity extends BaseActivity {
 
     private Button propertyBtn;
     private CirclePathProgressView view;
+    private TestArgbEvaluatorView argbEvaluatorView;
     private ObjectAnimator objectAnimator;
 
     @Override
@@ -30,6 +29,8 @@ public class PropertyAnimatorActivity extends BaseActivity {
         propertyBtn.animate().rotationX(10f).translationX(200f).translationY(500f).alpha(0.8f).setDuration(5000);
 
         view = new CirclePathProgressView(this);
+
+        argbEvaluatorView = new TestArgbEvaluatorView(this);
 
         ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
@@ -44,6 +45,15 @@ public class PropertyAnimatorActivity extends BaseActivity {
                 startCircleAnimation();
             }
         });
+
+        addContentView(argbEvaluatorView,params);
+
+//        ObjectAnimator o1 = ObjectAnimator.ofInt(argbEvaluatorView,"color",0xffff0000,0xff00ff00);
+        ObjectAnimator o1 = ObjectAnimator.ofArgb(argbEvaluatorView,"color", Color.BLUE, Color.GREEN);
+//        o1.setEvaluator(new ArgbEvaluator());
+        o1.setDuration(5000);
+        o1.start();
+
 
     }
 
