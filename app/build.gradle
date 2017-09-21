@@ -57,6 +57,8 @@ dependencies {
     // ds bridge
     //rxjava2
     // retrofit2
+    //
+    // 扩展：使页面可滑动
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:recyclerview-v7:25.3.1'
@@ -70,7 +72,7 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.2.0'
     compile 'com.squareup.retrofit2:converter-gson:2.2.0'
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
-    testCompile 'junit:junit:4.12'
-    // 扩展：使页面可滑动
+    compile 'com.android.support:design:25.3.1'
     compile 'com.komi.slider:slider:0.4.0'
+    testCompile 'junit:junit:4.12'
 }

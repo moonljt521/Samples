@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.moon.samples.bottomsheet.BottomSheetActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:text="弹出"
+            android:id="@+id/expandeBottomSheetBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <LinearLayout
+        android:id="@+id/bottom_sheet"
+        app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:paddingTop="20dp"
+            android:text="sdfsdf"
+            android:layout_width="match_parent"
+            android:layout_height="700dp" />
+
+        </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

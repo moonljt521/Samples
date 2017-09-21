@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.moon.samples.annotation.AnnotationActivity;
+import com.moon.samples.bottomsheet.BottomSheetActivity;
 import com.moon.samples.dsbridge.BaseActivity;
 import com.moon.samples.dsbridge.DSBridgeActivity;
 import com.moon.samples.itemtouchhelper.ItemDragListener;
@@ -61,7 +62,7 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
             @Override
             public void itemClick(View v, int position) {
 
-                UDebug.i(">>>>>"+arr.get(position).index);
+                UDebug.i(">>>>>" + arr.get(position).index);
 
                 startIntent(arr.get(position).index);
             }
@@ -78,17 +79,19 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
 
     private void setData() {
 
-        MainBody body = new MainBody(0,"自定义view");
+        MainBody body = new MainBody(0, "自定义view");
         arr.add(body);
-        body = new MainBody(1,"注解");
+        body = new MainBody(1, "注解");
         arr.add(body);
-        body = new MainBody(2,"rxJava2");
+        body = new MainBody(2, "rxJava2");
         arr.add(body);
-        body = new MainBody(3,"DSBridge");
+        body = new MainBody(3, "DSBridge");
         arr.add(body);
-        body = new MainBody(4,"rxjava2+retrofit2+JSOUP抓取html并解析");
+        body = new MainBody(4, "rxjava2+retrofit2+JSOUP抓取html并解析");
         arr.add(body);
-        body = new MainBody(5,"属性动画");
+        body = new MainBody(5, "属性动画");
+        arr.add(body);
+        body = new MainBody(6, "bottomSheet");
         arr.add(body);
 
     }
@@ -126,12 +129,17 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
 
                 break;
 
+
+            case 4:
+                intent.setClass(MainActivity.this, JsoupActivity.class);
+
+                break;
             case 5:
                 intent.setClass(MainActivity.this, PropertyAnimatorActivity.class);
 
                 break;
-            case 4:
-                intent.setClass(MainActivity.this, JsoupActivity.class);
+            case 6:
+                intent.setClass(MainActivity.this, BottomSheetActivity.class);
 
                 break;
 
