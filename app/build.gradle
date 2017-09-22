@@ -44,6 +44,11 @@ android {
     lintOptions {
         abortOnError false
     }
+
+    //添加插件  databinding
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {

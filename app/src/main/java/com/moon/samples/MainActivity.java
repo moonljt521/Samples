@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.moon.samples.annotation.AnnotationActivity;
 import com.moon.samples.bottomsheet.BottomSheetActivity;
+import com.moon.samples.databinding.DataBindingDemoActivity;
 import com.moon.samples.dsbridge.BaseActivity;
 import com.moon.samples.dsbridge.DSBridgeActivity;
 import com.moon.samples.itemtouchhelper.ItemDragListener;
@@ -93,6 +94,8 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
         arr.add(body);
         body = new MainBody(6, "bottomSheet");
         arr.add(body);
+        body = new MainBody(7, "dataBinding");
+        arr.add(body);
 
     }
 
@@ -142,6 +145,12 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
                 intent.setClass(MainActivity.this, BottomSheetActivity.class);
 
                 break;
+
+            case 7:
+                intent.setClass(MainActivity.this, DataBindingDemoActivity.class);
+
+                break;
+
 
             default:
                 Toast.makeText(getApplicationContext(), "不知道你点了什么，反正不起作用", Toast.LENGTH_SHORT).show();

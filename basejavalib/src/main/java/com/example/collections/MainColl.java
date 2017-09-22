@@ -1,18 +1,5 @@
 package com.example.collections;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
-
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import static sun.util.calendar.CalendarUtils.mod;
-
 /**
  * Created by moon on 2017/9/8.
  */
