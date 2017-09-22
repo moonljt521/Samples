@@ -2,6 +2,7 @@ package com.example.collections;
 
 import com.sun.org.apache.xpath.internal.operations.Mod;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -69,7 +70,6 @@ public class MainColl {
 
         coll.sequentialSearch();
 
-
     }
 
 
@@ -87,7 +87,8 @@ public class MainColl {
 
         System.out.println("索引为： "+ i);
     }
-
-
-
 }
+
+
+
+
