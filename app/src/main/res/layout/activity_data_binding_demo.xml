@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
@@ -19,9 +18,13 @@
             name="task"
             type="com.moon.samples.databinding.Task"/>
 
+        <!--<variable-->
+            <!--name="imageModel"-->
+            <!--type="com.moon.samples.databinding.DataBindingGlide"/>-->
+
         <variable
-            name="imageModel"
-            type="com.moon.samples.databinding.ProfileViewModel"/>
+            name="url"
+            type="String" />
     </data>
 
 
@@ -29,7 +32,7 @@
 <android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.moon.samples.databinding.DataBindingDemoActivity">
+    >
 
     <Button
         app:layout_constraintTop_toTopOf="parent"
@@ -45,16 +48,22 @@
         />
 
 
+
     <ImageView
-        app:layout_constraintTop_toBottomOf="@+id/databind_tv"
-        app:imageUrl="@{imageModel.imageUrl}"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:background="@android:color/holo_purple"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:imageUrl="@{url}"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/transparent"
         android:layout_width="200dp"
         android:layout_height="200dp"
-
         />
+
+    <ImageView
+        app:layout_constraintTop_toBottomOf="parent"
+        android:layout_marginTop="240dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:imageUrl="@{url}" />
 
 </android.support.constraint.ConstraintLayout>
 

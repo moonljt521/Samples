@@ -8,7 +8,9 @@ import android.support.constraint.ConstraintLayout;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.moon.samples.R;
 import com.moon.samples.dsbridge.BaseActivity;
 
@@ -18,6 +20,8 @@ public class PropertyAnimatorActivity extends BaseActivity {
     private CirclePathProgressView view;
     private TestArgbEvaluatorView argbEvaluatorView;
     private ObjectAnimator objectAnimator;
+
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,9 @@ public class PropertyAnimatorActivity extends BaseActivity {
         o1.setDuration(5000);
         o1.start();
 
+
+        Glide.with(this).load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZxZcaaglkzRWSK7HeQiqGkDSSjV6qRyzOCaxbstxQmreUC2mxQg")
+                .into(imageView);
 
     }
 
