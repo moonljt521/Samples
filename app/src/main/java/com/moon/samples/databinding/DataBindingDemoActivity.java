@@ -14,7 +14,7 @@ import com.moon.samples.R;
  */
 public class DataBindingDemoActivity extends AppCompatActivity {
 
-    private com.moon.samples.databinding.ActivityDataBindingDemoBinding binding;
+    private ActivityDataBindingDemoBinding binding;
     private NameBody name;
 
 
@@ -33,7 +33,7 @@ public class DataBindingDemoActivity extends AppCompatActivity {
 
         binding.setName1(name);
 
-        binding.setUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZxZcaaglkzRWSK7HeQiqGkDSSjV6qRyzOCaxbstxQmreUC2mxQg");
+//        binding.setUrl("http://i7.qhmsg.com/t01b48a6f15bf0cf5c1.jpg");
 
         new Thread(new Runnable() {
             @Override
@@ -41,15 +41,24 @@ public class DataBindingDemoActivity extends AppCompatActivity {
                 try {
                     Thread.sleep(2000);
                     name.name.set("xxx");
-                    name.imageUrl.set("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6YQR9G2znaeh1jNxFXmRUC5ZSM4T_AUBhVDKPXJ7BCz4CHpx62w");
+//                    name.imageUrl.set("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6YQR9G2znaeh1jNxFXmRUC5ZSM4T_AUBhVDKPXJ7BCz4CHpx62w");
 
-                    binding.setUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6YQR9G2znaeh1jNxFXmRUC5ZSM4T_AUBhVDKPXJ7BCz4CHpx62w");
+                    binding.setUrl("http://i7.qhmsg.com/t01b48a6f15bf0cf5c1.jpg");
+
+//                    runOnUiThread(new Runnable() {
+//                        @Override
+//                        public void run() {
+//
+//                        }
+//                    });
+
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         }).start();
+//                .start();
     }
 
     public void  onTaskClick() {

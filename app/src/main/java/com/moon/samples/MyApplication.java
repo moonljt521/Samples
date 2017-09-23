@@ -2,7 +2,6 @@ package com.moon.samples;
 
 import android.app.Application;
 
-
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -42,6 +41,8 @@ public class MyApplication extends Application {
                 .client(client)
                 .baseUrl(baseUrl)
                 .build();
+
+        //让Glide能用HTTPS
 
     }
 
