@@ -24,6 +24,7 @@ public class DSBridgeActivity extends BaseActivity {
         webView.setJavascriptInterface(new JsApi());
         webView.clearCache(true);
         webView.loadUrl("file:///android_asset/test.html");
+//        webView.loadUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6YQR9G2znaeh1jNxFXmRUC5ZSM4T_AUBhVDKPXJ7BCz4CHpx62w");
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public void onPageFinished(WebView view, String url) {

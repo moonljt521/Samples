@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.moon.samples">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
     <application
         android:name=".MyApplication"
@@ -29,6 +29,13 @@
         <activity android:name=".propertyanimator.PropertyAnimatorActivity"/>
         <activity android:name=".bottomsheet.BottomSheetActivity"/>
         <activity android:name=".databinding.DataBindingDemoActivity">
+        </activity>
+
+        <meta-data
+            android:name="com.moon.samples.databinding.fixglidehttps.SimpleGlideModule"
+            android:value="GlideModule"/>
+
+        <activity android:name=".webview.NativeWebViewActivity">
         </activity>
     </application>
 

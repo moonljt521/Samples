@@ -23,6 +23,7 @@ import com.moon.samples.propertyanimator.PropertyAnimatorActivity;
 import com.moon.samples.rxjava2.RxJava2Activity;
 import com.moon.samples.utils.UDebug;
 import com.moon.samples.viewcomponent.ViewcomponentActivity;
+import com.moon.samples.webview.NativeWebViewActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,6 +97,8 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
         arr.add(body);
         body = new MainBody(7, "dataBinding");
         arr.add(body);
+        body = new MainBody(8, "webView");
+        arr.add(body);
 
     }
 
@@ -151,6 +154,10 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
 
                 break;
 
+            case 8:
+                intent.setClass(MainActivity.this, NativeWebViewActivity.class);
+
+                break;
 
             default:
                 Toast.makeText(getApplicationContext(), "不知道你点了什么，反正不起作用", Toast.LENGTH_SHORT).show();

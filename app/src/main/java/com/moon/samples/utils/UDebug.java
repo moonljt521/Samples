@@ -16,6 +16,12 @@ public class UDebug {
         }
     }
 
+    public static void i(String TAG,String value) {
+        if (Constant.DEBUG) {
+            Log.e(TAG, value);
+        }
+    }
+
 
     public static void i(Object value){
         if (Constant.DEBUG) {
