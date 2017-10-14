@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 import java.text.DecimalFormat;
@@ -78,6 +79,11 @@ public class CirclePathProgressView extends View {
     public void setProgressDepth(float progressDepth) {
         this.progressDepth = progressDepth;
         invalidate();
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return super.onTouchEvent(event);
     }
 
 }

@@ -64,7 +64,8 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//        exclude group: 'com.android.support'
     })
     compile project(':annotationlib')
     compile project(':basejavalib')
@@ -74,7 +75,7 @@ dependencies {
     //
     // 扩展：使页面可滑动
     compile('com.android.support:appcompat-v7:25.3.1') {
-        exclude module: 'support-v4'
+//        exclude module: 'support-v4'
     }
     //    compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
     /*提供的Module  glide 默认加载https 图片会失败  。。。 */
@@ -94,4 +95,60 @@ dependencies {
     compile 'com.komi.slider:slider:0.4.0'
     testCompile 'junit:junit:4.12'
     provided 'com.android.support:support-v4:25.3.1'
+
+    //注解包
+//    compile 'com.android.support:support-annotations:25.3.1'
+
+    project.gradle.addListener(new BuildTimeListener());
 }
+
+
+public class BuildTimeListener implements TaskExecutionListener, BuildListener {
+    private Clock clock
+    private times = []
+
+    @Override
+    void beforeExecute(Task task) {
+        clock = new org.gradle.util.Clock()
+    }
+
+    @Override
+    void afterExecute(Task task, TaskState taskState) {
+        def ms = clock.timeInMs
+        times.add([ms, task.path])
+
+        //task.project.logger.warn "${task.path} spend ${ms}ms"
+    }
+
+    @Override
+    void buildStarted(Gradle gradle) {
+
+    }
+
+    @Override
+    void settingsEvaluated(Settings settings) {
+
+    }
+
+    @Override
+    void projectsLoaded(Gradle gradle) {
+
+    }
+
+    @Override
+    void projectsEvaluated(Gradle gradle) {
+
+    }
+
+    @Override
+    void buildFinished(BuildResult result) {
+        println "Task spend time:"
+        for (time in times) {
+            if (time[0] >= 50) {
+                printf "%7sms  %s\n", time
+            }
+        }
+    }
+
+}
+

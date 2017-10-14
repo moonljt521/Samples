@@ -172,4 +172,14 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
     public void onStartDrags(RecyclerView.ViewHolder viewHolder) {
         itemTouchHelper.startDrag(viewHolder);
     }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+
+        MyApplication application = (MyApplication) getApplication();
+
+        UDebug.i(">>>>"+ (System.currentTimeMillis() - application.getStart()));
+
+    }
 }

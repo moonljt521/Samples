@@ -1,6 +1,7 @@
 package com.moon.samples;
 
 import android.app.Application;
+import android.content.Context;
 
 import java.util.concurrent.TimeUnit;
 
@@ -22,6 +23,8 @@ public class MyApplication extends Application {
     private Retrofit retrofit;
 
     private static MyApplication myApp;
+
+    private long start =0;
 
     @Override
     public void onCreate() {
@@ -52,5 +55,15 @@ public class MyApplication extends Application {
 
     public static MyApplication getMyApp() {
         return myApp;
+    }
+
+    public long getStart() {
+        return start;
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        start = System.currentTimeMillis();
     }
 }

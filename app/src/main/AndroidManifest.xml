@@ -37,6 +37,8 @@
 
         <activity android:name=".webview.NativeWebViewActivity">
         </activity>
+        <activity android:name=".support_annotations.SupportAnnotationDemoActivity">
+        </activity>
     </application>
 
 </manifest>

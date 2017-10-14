@@ -1,6 +1,4 @@
-package com.example.algorithm;
-
-import java.util.HashMap;
+package com.example.sort_algorithm;
 
 /**
  * author: moon

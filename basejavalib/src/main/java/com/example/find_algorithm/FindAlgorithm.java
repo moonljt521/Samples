@@ -1,4 +1,4 @@
-package com.example.algorithm;
+package com.example.find_algorithm;
 
 /**
  * author: moon
