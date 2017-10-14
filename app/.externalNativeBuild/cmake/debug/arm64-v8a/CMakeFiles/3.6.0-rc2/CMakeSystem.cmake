@@ -1,9 +1,9 @@
-set(CMAKE_HOST_SYSTEM "Linux-3.10.0-229.4.2.el7.x86_64")
-set(CMAKE_HOST_SYSTEM_NAME "Linux")
-set(CMAKE_HOST_SYSTEM_VERSION "3.10.0-229.4.2.el7.x86_64")
+set(CMAKE_HOST_SYSTEM "Darwin-15.4.0")
+set(CMAKE_HOST_SYSTEM_NAME "Darwin")
+set(CMAKE_HOST_SYSTEM_VERSION "15.4.0")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
-include("/home/houquan/ljt/android/ndk/android-ndk-r15c/build/cmake/android.toolchain.cmake")
+include("/Users/moon/Library/Android/sdk/ndk-bundle/build/cmake/android.toolchain.cmake")
 
 set(CMAKE_SYSTEM "Android-21")
 set(CMAKE_SYSTEM_NAME "Android")

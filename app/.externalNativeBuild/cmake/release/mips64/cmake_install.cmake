@@ -1,4 +1,4 @@
-# Install script for directory: /home/houquan/ljt/workspace/Samples/app
+# Install script for directory: /Users/moon/Documents/demo/MoonSamples/app
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/houquan/ljt/workspace/Samples/app/.externalNativeBuild/cmake/release/mips64/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/moon/Documents/demo/MoonSamples/app/.externalNativeBuild/cmake/release/mips64/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
