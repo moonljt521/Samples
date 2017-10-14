@@ -21,4 +21,10 @@
 
 
 
+    <ImageView
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/property_imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"/>
+
 </android.support.constraint.ConstraintLayout>

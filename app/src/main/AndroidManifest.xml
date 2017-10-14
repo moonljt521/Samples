@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.moon.samples">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -17,21 +20,22 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".viewcomponent.ViewcomponentActivity">
+        <activity android:name=".viewcomponent.ViewcomponentActivity"/>
+        <activity android:name=".annotation.AnnotationActivity"/>
+        <activity android:name=".rxjava2.RxJava2Activity"/>
+        <activity android:name=".dsbridge.DSBridgeActivity"/>
+        <activity android:name=".lottie.LottieAnimationActivity"/>
+        <activity android:name=".jsoupcrawler.JsoupActivity"/>
+        <activity android:name=".propertyanimator.PropertyAnimatorActivity"/>
+        <activity android:name=".bottomsheet.BottomSheetActivity"/>
+        <activity android:name=".databinding.DataBindingDemoActivity">
         </activity>
-        <activity android:name=".annotation.AnnotationActivity">
-        </activity>
-        <activity android:name=".rxjava2.RxJava2Activity">
-        </activity>
-        <activity android:name=".dsbridge.DSBridgeActivity">
-        </activity>
-        <activity android:name=".lottie.LottieAnimationActivity">
-        </activity>
-        <activity android:name=".jsoupcrawler.JsoupActivity">
-        </activity>
-        <activity android:name=".propertyanimator.PropertyAnimatorActivity">
-        </activity>
-        <activity android:name=".dsbridge.BaseActivity">
+
+        <meta-data
+            android:name="com.moon.samples.databinding.fixglidehttps.SimpleGlideModule"
+            android:value="GlideModule"/>
+
+        <activity android:name=".webview.NativeWebViewActivity">
         </activity>
     </application>
 

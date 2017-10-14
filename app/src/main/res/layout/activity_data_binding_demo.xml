@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="name1"
+            type="com.moon.samples.databinding.NameBody"/>
+
+        <variable
+            name="name2"
+            type="com.moon.samples.databinding.Name2Body"/>
+
+        <variable
+            name="myHandler"
+            type="com.moon.samples.databinding.MyHandlers"/>
+
+        <variable
+            name="url"
+            type="String" />
+    </data>
+
+
+
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <Button
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/databind_tv"
+        android:padding="10dp"
+        android:background="@android:color/darker_gray"
+        android:onClick="@{myHandler::onClickHandler}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{name1.name}"
+        />
+
+
+
+    <ImageView
+        app:layout_constraintTop_toBottomOf="parent"
+        app:imageUrl="@{url}"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/transparent"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        />
+
+</android.support.constraint.ConstraintLayout>
+
+
+</layout>

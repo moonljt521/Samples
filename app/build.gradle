@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion 25
@@ -16,9 +17,10 @@ android {
             }
         }
 
-        jackOptions {
-            enabled true   //启用jack编译器
-        }
+        multiDexEnabled true
+//        jackOptions {
+//            enabled true   //启用jack编译器
+//        }
     }
     buildTypes {
         release {
@@ -44,6 +46,19 @@ android {
     lintOptions {
         abortOnError false
     }
+
+    //添加插件  databinding
+    dataBinding {
+        enabled = true
+    }
+
+    dexOptions {
+//        incremental true
+        javaMaxHeapSize "4g"
+        preDexLibraries = false
+//        incremental true
+    }
+
 }
 
 dependencies {
@@ -53,24 +68,30 @@ dependencies {
     })
     compile project(':annotationlib')
     compile project(':basejavalib')
-    //rxjava2
-    // ds bridge
-    //rxjava2
-    // retrofit2
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    //    compile ('com.android.support:support-v4:25.3.1'){
+    //        exclude module: 'support-annotations'
+    //    }
+    //
+    // 扩展：使页面可滑动
+    compile('com.android.support:appcompat-v7:25.3.1') {
+        exclude module: 'support-v4'
+    }
+    //    compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
+    /*提供的Module  glide 默认加载https 图片会失败  。。。 */
+    //    compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'com.github.wendux:DSBridge-Android:2.0-SNAPSHOT'
     compile 'org.jsoup:jsoup:1.10.1'
     compile 'com.youth.banner:banner:1.4.9'
-    compile 'com.github.bumptech.glide:glide:4.0.0'
-    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'io.reactivex.rxjava2:rxjava:2.0.7'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'com.squareup.retrofit2:retrofit:2.2.0'
     compile 'com.squareup.retrofit2:converter-gson:2.2.0'
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
-    testCompile 'junit:junit:4.12'
-    // 扩展：使页面可滑动
+    compile 'com.android.support:design:25.3.1'
     compile 'com.komi.slider:slider:0.4.0'
+    testCompile 'junit:junit:4.12'
+    provided 'com.android.support:support-v4:25.3.1'
 }

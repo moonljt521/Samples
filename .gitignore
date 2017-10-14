@@ -38,3 +38,4 @@ autoservice/libs/
 autoservice/src/main/res/drawable/
 basejavalib/libs/
 /.idea/
+/app/.externalNativeBuild/

@@ -1,5 +1,7 @@
 package com.example.algorithm;
 
+import java.util.HashMap;
+
 /**
  * author: moon
  * created on: 17/9/5 下午4:55
@@ -21,6 +23,7 @@ public class MergeSort {
         for (int x : res){
             System.out.println(x);
         }
+
     }
 
     public void merge(int[] a, int alentth, int [] b, int blength, int [] result ){
@@ -45,6 +48,7 @@ public class MergeSort {
         while (j<= blength){
             result [k++] = b[j++];
         }
+
 
 
     }
