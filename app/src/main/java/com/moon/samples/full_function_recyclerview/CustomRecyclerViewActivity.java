@@ -1,6 +1,7 @@
 package com.moon.samples.full_function_recyclerview;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,7 +15,7 @@ import com.moon.samples.utils.UDebug;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FullFunctionRecyclerViewActivity extends BaseActivity {
+public class CustomRecyclerViewActivity extends BaseActivity {
 
     private XRecyclerView recyclerView;
 
@@ -78,7 +79,6 @@ public class FullFunctionRecyclerViewActivity extends BaseActivity {
 
     private void addData() {
         totalSize = list.size();
-        UDebug.i(" .... addData() ......totalSize = " + totalSize);
 
         if (totalSize >= 100) {
             recyclerView.loadingComplete();
@@ -91,13 +91,19 @@ public class FullFunctionRecyclerViewActivity extends BaseActivity {
             list.add("第 " + (totalSize + i) + " 项目");
         }
 
-        adapter.notifyDataSetChanged();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                adapter.notifyDataSetChanged();
 
-        recyclerView.refreshComplete();
+                recyclerView.refreshComplete();
+            }
+        },2000);
+
+
     }
 
     private void refreshData() {
-        UDebug.i(" .... refreshData() ......");
 
         recyclerView.loading();
 
@@ -107,11 +113,18 @@ public class FullFunctionRecyclerViewActivity extends BaseActivity {
             list.add("第 " + i + " 项目");
         }
 
-        totalSize = list.size();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                totalSize = list.size();
 
-        adapter.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();
 
-        recyclerView.refreshComplete();
+                recyclerView.refreshComplete();
+            }
+        },2000);
+
+
 
     }
 

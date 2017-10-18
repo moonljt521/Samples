@@ -6,19 +6,15 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.moon.samples.R;
 
 
-/**
- * @author 开源中国
- */
-public class EmptyLayout extends LinearLayout implements View.OnClickListener {
+public class EmptyLayout extends RelativeLayout implements View.OnClickListener {
     //加载成功 不显示emptylayout了
     public static final int HIDE_LAYOUT = 4;
     //网络没有连接
@@ -37,6 +33,8 @@ public class EmptyLayout extends LinearLayout implements View.OnClickListener {
     private String strNoDataContent = "";
     private TextView tv;
 
+    private WindowManager wm;
+
     public EmptyLayout(Context context) {
         super(context);
         this.context = context;
@@ -50,10 +48,11 @@ public class EmptyLayout extends LinearLayout implements View.OnClickListener {
     }
 
     private void init() {
+        wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
+
         View view = View.inflate(context, R.layout.view_error_layout, null);
         img = (ImageView) view.findViewById(R.id.errorLayout_imageView);
         tv = (TextView) view.findViewById(R.id.errorLayout_text);
-        RelativeLayout mLayout = (RelativeLayout) view.findViewById(R.id.pageerrLayout);
         setBackgroundColor(-1);
         setOnClickListener(this);
         img.setOnClickListener(new OnClickListener() {
@@ -68,6 +67,14 @@ public class EmptyLayout extends LinearLayout implements View.OnClickListener {
         });
         addView(view);
         changeErrorLayoutBgMode(context);
+
+        setVisibility(INVISIBLE);
+    }
+
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
     public void changeErrorLayoutBgMode(Context context1) {
@@ -160,7 +167,7 @@ public class EmptyLayout extends LinearLayout implements View.OnClickListener {
             case NODATA:
                 mErrorState = NODATA;
                 img.setBackgroundResource(R.mipmap.page_icon_empty);
-                img.setVisibility(View.GONE);
+                img.setVisibility(View.VISIBLE);
 //                animProgress.setVisibility(View.GONE);
                 setTvNoDataContent();
                 clickEnable = true;

@@ -13,7 +13,7 @@ import com.moon.samples.bottomsheet.BottomSheetActivity;
 import com.moon.samples.databinding.DataBindingDemoActivity;
 import com.moon.samples.dsbridge.BaseActivity;
 import com.moon.samples.dsbridge.DSBridgeActivity;
-import com.moon.samples.full_function_recyclerview.FullFunctionRecyclerViewActivity;
+import com.moon.samples.full_function_recyclerview.CustomRecyclerViewActivity;
 import com.moon.samples.itemtouchhelper.ItemDragListener;
 import com.moon.samples.itemtouchhelper.MyItemTouchHelperCallBack;
 import com.moon.samples.jsoupcrawler.JsoupActivity;
@@ -161,7 +161,7 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
                 break;
 
             case 9:
-                intent.setClass(MainActivity.this, FullFunctionRecyclerViewActivity.class);
+                intent.setClass(MainActivity.this, CustomRecyclerViewActivity.class);
 
                 break;
 

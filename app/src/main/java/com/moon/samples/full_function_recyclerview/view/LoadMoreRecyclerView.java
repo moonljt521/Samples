@@ -25,12 +25,6 @@ public class LoadMoreRecyclerView extends RecyclerView {
     private int[] location = new int[2];
     private int[] location_listview = new int[2];
 
-    public void setiRecyclerViewDataChangeListener(IRecyclerViewDataChangeListener iRecyclerViewDataChangeListener) {
-        this.iRecyclerViewDataChangeListener = iRecyclerViewDataChangeListener;
-    }
-
-    private IRecyclerViewDataChangeListener iRecyclerViewDataChangeListener;
-
     // multistate view
     private View emptyView;
 
@@ -95,8 +89,8 @@ public class LoadMoreRecyclerView extends RecyclerView {
                     //System.out.println(location[1]+childAt.getHeight()+ moreItemDecoration.getFootHeight()+"getBottom()" + (location_listview[1]+height));
                     if (location[1] + childAt.getHeight() + moreItemDecoration.getFootHeight() <= location_listview[1] + height) {
                         isLoadingMore = true;
-                        if (onLoadMoreListener != null) {
-                            onLoadMoreListener.onLoading();
+                        if (onLoadMoreListener.get() != null) {
+                            onLoadMoreListener.get().onLoading();
                         }
                     }
                 }
@@ -124,12 +118,12 @@ public class LoadMoreRecyclerView extends RecyclerView {
 
 
 
-    public interface OnLoadMoreListener {
+    interface OnLoadMoreListener {
         void onLoading();
     }
 
     public void setOnLoadMoreListener(OnLoadMoreListener onLoadMoreListener) {
-        this.onLoadMoreListener = onLoadMoreListener;
+        this.onLoadMoreListener.set(onLoadMoreListener);
     }
 
     public void hideLoadMore() {
@@ -166,7 +160,7 @@ public class LoadMoreRecyclerView extends RecyclerView {
 
                 emptyView.setVisibility(VISIBLE);
                 ((EmptyLayout)emptyView).setErrorType(EmptyLayout.NODATA);
-                setVisibility(GONE);
+                setVisibility(View.GONE);
             }else {
                 emptyView.setVisibility(GONE);
                 ((EmptyLayout)emptyView).setErrorType(EmptyLayout.HIDE_LAYOUT);
@@ -176,12 +170,7 @@ public class LoadMoreRecyclerView extends RecyclerView {
         }
     }
 
-    private OnLoadMoreListener onLoadMoreListener;
+    private final ThreadLocal<OnLoadMoreListener> onLoadMoreListener = new ThreadLocal<>();
 
-    interface IRecyclerViewDataChangeListener {
-
-        void dataEmptyChanged();
-
-    }
 
 }

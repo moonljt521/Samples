@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<in.srain.cube.views.ptr.PtrClassicFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<in.srain.cube.views.ptr.PtrClassicFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<com.moon.samples.full_function_recyclerview.view.XRParallaxPrtFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/ptr_refresh"
     android:layout_width="match_parent"
@@ -18,4 +19,4 @@
         android:layout_height="match_parent"
         android:overScrollMode="never"/>
 
-</in.srain.cube.views.ptr.PtrClassicFrameLayout>
+</com.moon.samples.full_function_recyclerview.view.XRParallaxPrtFrameLayout>

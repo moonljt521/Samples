@@ -20,7 +20,8 @@ import in.srain.cube.views.ptr.PtrHandler;
 public class XRecyclerView extends FrameLayout implements LoadMoreRecyclerView.OnLoadMoreListener {
 
     private LoadMoreRecyclerView recyclerview;
-    private PtrClassicFrameLayout ptr_freash;
+//    private PtrClassicFrameLayout ptr_freash;
+    private XRParallaxPrtFrameLayout ptr_freash;
     private boolean isRefreshing = false;
 
     public void setEmptyLayout(View emptyLayout) {
@@ -45,15 +46,17 @@ public class XRecyclerView extends FrameLayout implements LoadMoreRecyclerView.O
     }
 
     private void init() {
-        View.inflate(getContext(), R.layout.view_refresh_more, this);
+        View.inflate(getContext(), R.layout.xrefreshview, this);
         recyclerview = (LoadMoreRecyclerView) findViewById(R.id.recyclervieww);
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerview.setMyLayoutManager(linearLayoutManager);
         recyclerview.setOnLoadMoreListener(this);
+        // TODO: 17/10/18
 
-        ptr_freash = (PtrClassicFrameLayout) findViewById(R.id.ptr_refresh);
-        ptr_freash.setLastUpdateTimeRelateObject(this);
+//        ptr_freash = (PtrClassicFrameLayout) findViewById(R.id.ptr_refresh);
+        ptr_freash = (XRParallaxPrtFrameLayout) findViewById(R.id.ptr_refresh);
+//        ptr_freash.setLastUpdateTimeRelateObject(this);
         ptr_freash.setPtrHandler(new PtrHandler() {
             @Override
             public boolean checkCanDoRefresh(PtrFrameLayout ptrFrameLayout, View view, View view1) {
@@ -72,12 +75,14 @@ public class XRecyclerView extends FrameLayout implements LoadMoreRecyclerView.O
             }
         });
 
-        recyclerview.setEmptyView(emptyLayout);
     }
 
 
     public void setAdapter(RecyclerView.Adapter adapter) {
         recyclerview.setAdapter(adapter);
+
+        recyclerview.setEmptyView(emptyLayout);
+
     }
 
     @Override
