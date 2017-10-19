@@ -1,4 +1,4 @@
-package com.moon.samples.full_function_recyclerview.view;
+package com.moon.xultrarecycle;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -11,10 +11,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.moon.samples.R;
-
 
 public class EmptyLayout extends RelativeLayout implements View.OnClickListener {
+
+    private Context context;
     //加载成功 不显示emptylayout了
     public static final int HIDE_LAYOUT = 4;
     //网络没有连接
@@ -26,7 +26,6 @@ public class EmptyLayout extends RelativeLayout implements View.OnClickListener 
     public static final int NODATA_ENABLE_CLICK = 5;
 
     private boolean clickEnable = true;
-    private final Context context;
     public ImageView img;
     private OnClickListener listener;
     private int mErrorState;
@@ -37,22 +36,22 @@ public class EmptyLayout extends RelativeLayout implements View.OnClickListener 
 
     public EmptyLayout(Context context) {
         super(context);
-        this.context = context;
-        init();
+        init(context);
     }
 
     public EmptyLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.context = context;
-        init();
+        init(context);
     }
 
-    private void init() {
-        wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
+    private void init(Context context) {
+        this.context = context;
+        wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
 
-        View view = View.inflate(context, R.layout.view_error_layout, null);
-        img = (ImageView) view.findViewById(R.id.errorLayout_imageView);
-        tv = (TextView) view.findViewById(R.id.errorLayout_text);
+        View.inflate(context,R.layout.view_error_layout,this);
+
+        img = (ImageView)findViewById(R.id.errorLayout_imageView);
+        tv = (TextView) findViewById(R.id.errorLayout_text);
         setBackgroundColor(-1);
         setOnClickListener(this);
         img.setOnClickListener(new OnClickListener() {
@@ -65,10 +64,10 @@ public class EmptyLayout extends RelativeLayout implements View.OnClickListener 
                 }
             }
         });
-        addView(view);
+//        addView(view,new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         changeErrorLayoutBgMode(context);
 
-        setVisibility(INVISIBLE);
+        setErrorType(HIDE_LAYOUT);
     }
 
 
@@ -138,6 +137,7 @@ public class EmptyLayout extends RelativeLayout implements View.OnClickListener 
             img.setBackgroundResource(imgResource);
             tv.setText(msg);
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -229,5 +229,8 @@ public class EmptyLayout extends RelativeLayout implements View.OnClickListener 
                 .getActiveNetworkInfo().getState() == NetworkInfo.State.CONNECTED) || telephonyManager
                 .getNetworkType() == TelephonyManager.NETWORK_TYPE_UMTS);
     }
+
+
+
 
 }

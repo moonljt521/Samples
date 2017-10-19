@@ -1,4 +1,4 @@
-package com.moon.samples.full_function_recyclerview.view;
+package com.moon.xultrarecycle;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -10,8 +10,6 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.WindowManager;
-
-import com.moon.samples.utils.UDebug;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -27,9 +25,8 @@ import in.srain.cube.views.ptr.indicator.PtrIndicator;
  */
 public class XHeadView extends View implements PtrUIHandler {
 
-    private Paint darkColorCirclePaint; // 深色paint
+    private Paint mPaint; //
 
-    private Paint lightColorCirclePaint; //  浅色paint
 
     private static final float RADIUS = 10;
 
@@ -68,22 +65,15 @@ public class XHeadView extends View implements PtrUIHandler {
     }
 
     /**
-     * 初始化 paint 等
+     * 初始化 ** 等
      */
     private void init() {
-        // 初始化深色画笔
-        darkColorCirclePaint = new Paint();
-        darkColorCirclePaint.setStrokeWidth(4);
-        darkColorCirclePaint.setStyle(Paint.Style.FILL);
-        darkColorCirclePaint.setAntiAlias(true);
-        darkColorCirclePaint.setColor(Color.BLACK);
-
-        // 初始化浅色画笔
-        lightColorCirclePaint = new Paint();
-        lightColorCirclePaint.setStrokeWidth(4);
-        lightColorCirclePaint.setAntiAlias(true);
-        lightColorCirclePaint.setStyle(Paint.Style.FILL);
-        lightColorCirclePaint.setColor(Color.GRAY);
+        // 初始化画笔
+        mPaint = new Paint();
+        mPaint.setStrokeWidth(4);
+        mPaint.setStyle(Paint.Style.FILL);
+        mPaint.setAntiAlias(true);
+        mPaint.setColor(Color.BLACK);
 
         WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
         limitHeadViewMarginLeftDimen = (wm.getDefaultDisplay().getWidth() - 60) / 2;
@@ -96,19 +86,21 @@ public class XHeadView extends View implements PtrUIHandler {
 
         int centX = limitHeadViewMarginLeftDimen + 10;
 
-        int centY = 30;
+        int centY = 40;
 
         int darkPosX = 0;
 
+        mPaint.setColor(Color.GRAY);
         for (int i = 0; i < SIZE; i++) {
             if (index % 3 == i) {
                 darkPosX = centX;
             }
-            canvas.drawCircle(centX, centY, RADIUS, lightColorCirclePaint);
+            canvas.drawCircle(centX, centY, RADIUS, mPaint);
             centX += 50;
         }
 
-        canvas.drawCircle(darkPosX, centY, RADIUS, darkColorCirclePaint);
+        mPaint.setColor(Color.BLACK);
+        canvas.drawCircle(darkPosX, centY, RADIUS, mPaint);
 
         index++;
     }

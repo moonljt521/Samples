@@ -7,10 +7,9 @@ import android.widget.Button;
 
 import com.moon.samples.R;
 import com.moon.samples.dsbridge.BaseActivity;
-import com.moon.samples.full_function_recyclerview.adapter.MulRecyclerViewAdapter;
-import com.moon.samples.full_function_recyclerview.view.EmptyLayout;
-import com.moon.samples.full_function_recyclerview.view.XRecyclerView;
-import com.moon.samples.utils.UDebug;
+import com.moon.xultrarecycle.EmptyLayout;
+import com.moon.xultrarecycle.XRecyclerView;
+import com.moon.xultrarecycle.utils.XUltraLog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,10 +34,11 @@ public class CustomRecyclerViewActivity extends BaseActivity {
 
         recyclerView = (XRecyclerView) findViewById(R.id.mulRecyclerVieww);
 
-//        emptyLayout = (EmptyLayout) View.inflate(this,R.layout.view_error_layout,null);
         emptyLayout = (EmptyLayout) findViewById(R.id.emptyView);
 
-        recyclerView.setEmptyLayout(emptyLayout);
+//        emptyLayout = View.inflate(this,R.layout.view_error_layout,null);
+
+//        recyclerView.setEmptyLayout(emptyLayout);
 
         Button clearBtn = (Button) findViewById(R.id.mulRecyclerViewwClearBtn);
         clearBtn.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +52,7 @@ public class CustomRecyclerViewActivity extends BaseActivity {
             }
         });
 
-        // loading -----
+        //  监听  刷新 和 加载更多
         recyclerView.setOnListListener(new XRecyclerView.OnListListener() {
             @Override
             public void onLoadingMore() {
@@ -67,9 +67,15 @@ public class CustomRecyclerViewActivity extends BaseActivity {
 
         recyclerView.setAdapter(adapter = new MulRecyclerViewAdapter(this, list, null));
 
+        recyclerView.setDataChangeListener(new XRecyclerView.DataChangeListener() {
+            @Override
+            public void change(boolean isEmpty) {
+                XUltraLog.i("empty = " + isEmpty);
+                 emptyLayout.setErrorType(isEmpty ? EmptyLayout.NODATA : EmptyLayout.HIDE_LAYOUT);
+            }
+        });
 
         refreshData();
-
     }
 
     @Override
@@ -84,8 +90,6 @@ public class CustomRecyclerViewActivity extends BaseActivity {
             recyclerView.loadingComplete();
             return;
         }
-
-        recyclerView.loading();
 
         for (int i = 0; i < 20; i++) {
             list.add("第 " + (totalSize + i) + " 项目");
@@ -105,8 +109,6 @@ public class CustomRecyclerViewActivity extends BaseActivity {
 
     private void refreshData() {
 
-        recyclerView.loading();
-
         list.clear();
 
         for (int i = 0; i < 20; i++) {
@@ -122,7 +124,7 @@ public class CustomRecyclerViewActivity extends BaseActivity {
 
                 recyclerView.refreshComplete();
             }
-        },2000);
+        },10000);
 
 
 

@@ -1,5 +1,6 @@
-package com.moon.samples.full_function_recyclerview.view;
+package com.moon.xultrarecycle;
 
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -8,8 +9,7 @@ import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.moon.samples.MyApplication;
-import com.moon.samples.utils.UiUtils;
+import com.moon.xultrarecycle.utils.UiUtils;
 
 
 /**
@@ -19,14 +19,17 @@ public class MoreItemDecoration extends RecyclerView.ItemDecoration {
     private Paint mPaint;
     private Paint mValuePaint;
 
+    private Context mContext;
+
     public int getFootHeight() {
         return footHeight;
     }
 
-    private int footHeight = UiUtils.dip2px(MyApplication.getMyApp(),40);
+    private int footHeight ;
 
 
-    public MoreItemDecoration() {
+    public MoreItemDecoration(Context context) {
+        this.mContext = context;
         mPaint = new Paint();
         mPaint.setColor(Color.TRANSPARENT);//画出脚背景的颜色
         mPaint.setAntiAlias(true);
@@ -35,17 +38,21 @@ public class MoreItemDecoration extends RecyclerView.ItemDecoration {
         mValuePaint = new Paint();
         mValuePaint.setAntiAlias(true);
         mValuePaint.setColor(Color.parseColor("#666666"));
-        mValuePaint.setTextSize(UiUtils.dip2px(MyApplication.getMyApp(),14));
+        mValuePaint.setTextSize(UiUtils.dip2px(mContext,14));
         mValuePaint.setStyle(Paint.Style.FILL);
         //该方法即为设置基线上那个点究竟是left,center,还是right  这里我设置为center
         mValuePaint.setTextAlign(Paint.Align.CENTER);
+
+        footHeight = UiUtils.dip2px(mContext,40);
+
+        loadDes = mContext.getResources().getString(R.string.error_view_loading);
     }
 
     public void setLoadDes(String loadDes) {
         this.loadDes = loadDes;
     }
 
-    private String loadDes = "加载中...";
+    private String loadDes ;
 
     @Override
     public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {

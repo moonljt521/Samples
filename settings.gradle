@@ -1,1 +1,1 @@
-include ':app', ':annotationlib', ':basejavalib'
+include ':app', ':annotationlib', ':basejavalib', ':xultrarecycle'

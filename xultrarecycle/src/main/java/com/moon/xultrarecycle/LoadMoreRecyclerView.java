@@ -1,4 +1,4 @@
-package com.moon.samples.full_function_recyclerview.view;
+package com.moon.xultrarecycle;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -7,8 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.moon.samples.R;
-import com.moon.samples.utils.UDebug;
+import com.moon.xultrarecycle.utils.XUltraLog;
+
 
 /**
  * Created by L.K.X on 2017/3/30.
@@ -24,9 +24,6 @@ public class LoadMoreRecyclerView extends RecyclerView {
     private int height;
     private int[] location = new int[2];
     private int[] location_listview = new int[2];
-
-    // multistate view
-    private View emptyView;
 
     public LoadMoreRecyclerView(Context context) {
         super(context);
@@ -45,12 +42,8 @@ public class LoadMoreRecyclerView extends RecyclerView {
     }
 
     private void init() {
-        moreItemDecoration = new MoreItemDecoration();
+        moreItemDecoration = new MoreItemDecoration(getContext().getApplicationContext());
         addItemDecoration(moreItemDecoration);
-    }
-
-    public void setEmptyView(View emptyView) {
-        this.emptyView = emptyView;
     }
 
     public void loading() {
@@ -140,7 +133,7 @@ public class LoadMoreRecyclerView extends RecyclerView {
 
         @Override
         public void onItemRangeInserted(int positionStart, int itemCount) {
-            UDebug.i("onItemRangeInserted" + itemCount);
+            XUltraLog.i("onItemRangeInserted" + itemCount);
             checkIfEmpty();
         }
 
@@ -152,19 +145,24 @@ public class LoadMoreRecyclerView extends RecyclerView {
 
 
     private void checkIfEmpty() {
-        if (emptyView != null && getAdapter() != null) {
+        if (getAdapter() != null) {
             final boolean emptyViewVisible =
                     getAdapter().getItemCount() == 0;
 
-            if (emptyViewVisible){
 
-                emptyView.setVisibility(VISIBLE);
-                ((EmptyLayout)emptyView).setErrorType(EmptyLayout.NODATA);
-                setVisibility(View.GONE);
-            }else {
-                emptyView.setVisibility(GONE);
-                ((EmptyLayout)emptyView).setErrorType(EmptyLayout.HIDE_LAYOUT);
-                setVisibility(VISIBLE);
+//            if (emptyViewVisible){
+//
+//                emptyView.setVisibility(VISIBLE);
+//                ((EmptyLayout)emptyView).setErrorType(EmptyLayout.NODATA);
+//                setVisibility(View.GONE);
+//            }else {
+//                emptyView.setVisibility(GONE);
+//                ((EmptyLayout)emptyView).setErrorType(EmptyLayout.HIDE_LAYOUT);
+//                setVisibility(VISIBLE);
+//            }
+
+            if (dataChangeObserver!=null){
+                dataChangeObserver.dataChange(emptyViewVisible);
             }
 
         }
@@ -172,5 +170,15 @@ public class LoadMoreRecyclerView extends RecyclerView {
 
     private final ThreadLocal<OnLoadMoreListener> onLoadMoreListener = new ThreadLocal<>();
 
+    public void setDataChangeObserver(IDataChangeObserver dataChangeObserver) {
+        this.dataChangeObserver = dataChangeObserver;
+    }
+
+    private IDataChangeObserver dataChangeObserver;
+
+    interface IDataChangeObserver {
+
+        void dataChange(boolean isEmpty) ;
+    }
 
 }

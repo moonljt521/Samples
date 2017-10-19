@@ -1,4 +1,4 @@
-package com.moon.samples.full_function_recyclerview.view;
+package com.moon.xultrarecycle;
 
 import android.content.Context;
 import android.util.AttributeSet;

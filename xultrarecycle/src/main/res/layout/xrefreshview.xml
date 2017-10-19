@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<in.srain.cube.views.ptr.PtrClassicFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<com.moon.samples.full_function_recyclerview.view.XRParallaxPrtFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.moon.xultrarecycle.XRParallaxPrtFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/ptr_refresh"
     android:layout_width="match_parent"
@@ -13,10 +12,10 @@
     app:ptr_ratio_of_header_height_to_refresh="1.2"
     app:ptr_resistance="1.7">
 
-    <com.moon.samples.full_function_recyclerview.view.LoadMoreRecyclerView
+    <com.moon.xultrarecycle.LoadMoreRecyclerView
         android:id="@+id/recyclervieww"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:overScrollMode="never"/>
 
-</com.moon.samples.full_function_recyclerview.view.XRParallaxPrtFrameLayout>
+</com.moon.xultrarecycle.XRParallaxPrtFrameLayout >

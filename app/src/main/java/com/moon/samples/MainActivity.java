@@ -100,7 +100,7 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
         arr.add(body);
         body = new MainBody(8, "webView");
         arr.add(body);
-        body = new MainBody(9, "全功能RecyclerView");
+        body = new MainBody(9, "定制RecyclerView");
         arr.add(body);
     }
 
