@@ -33,5 +33,6 @@ public class XRParallaxPrtFrameLayout extends PtrFrameLayout {
         setHeaderView(xHeadView);
 
         addPtrUIHandler(xHeadView);
+
     }
 }

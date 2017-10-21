@@ -61,7 +61,7 @@ public class MulRecyclerViewAdapter extends RecyclerView.Adapter<MulRecyclerView
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int arg1) {
         return new MyViewHolder(LayoutInflater.from(mContext).
-                inflate(R.layout.item_main_fun, parent, false));
+                inflate(R.layout.item_xrecy, parent, false));
     }
 
     @Override

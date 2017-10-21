@@ -1,14 +1,23 @@
-package com.moon.samples.dsbridge;
+package com.moon.samples;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.komi.slider.ISlider;
+import com.komi.slider.SliderConfig;
 import com.komi.slider.SliderUtils;
 import com.moon.samples.R;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
     protected boolean notLoadSlide ;
+
+    private SliderConfig mConfig = new SliderConfig.Builder()
+            .secondaryColor(Color.TRANSPARENT)
+            .edge(true)
+            .build();
+    protected ISlider iSlider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +28,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
 
         if (!notLoadSlide){
-            SliderUtils.attachActivity(this, null);
+            SliderUtils.attachActivity(this, mConfig);
         }
     }
 

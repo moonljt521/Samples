@@ -2,6 +2,7 @@ package com.example;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * author: moon
@@ -16,6 +17,8 @@ public class Test {
         String[] b = new String[4];
                 b = a.split(",");
         System.out.println(Arrays.toString(b));
+
+        ConcurrentHashMap map;
 
     }
 

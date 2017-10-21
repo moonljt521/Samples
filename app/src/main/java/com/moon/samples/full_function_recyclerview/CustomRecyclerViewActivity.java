@@ -3,13 +3,11 @@ package com.moon.samples.full_function_recyclerview;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.Button;
 
 import com.moon.samples.R;
-import com.moon.samples.dsbridge.BaseActivity;
+import com.moon.samples.BaseActivity;
 import com.moon.xultrarecycle.EmptyLayout;
 import com.moon.xultrarecycle.XRecyclerView;
-import com.moon.xultrarecycle.utils.XUltraLog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,8 +38,7 @@ public class CustomRecyclerViewActivity extends BaseActivity {
 
 //        recyclerView.setEmptyLayout(emptyLayout);
 
-        Button clearBtn = (Button) findViewById(R.id.mulRecyclerViewwClearBtn);
-        clearBtn.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.mulRecyclerViewwClearBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 list.clear();
@@ -49,6 +46,16 @@ public class CustomRecyclerViewActivity extends BaseActivity {
                 adapter.notifyDataSetChanged();
 
                 recyclerView.refreshComplete();
+            }
+        });
+
+        findViewById(R.id.mulRecyclerViewwReLoadBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                emptyLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
+
+                recyclerView.autoRefresh();
             }
         });
 
@@ -65,15 +72,18 @@ public class CustomRecyclerViewActivity extends BaseActivity {
             }
         });
 
+
+
         recyclerView.setAdapter(adapter = new MulRecyclerViewAdapter(this, list, null));
 
         recyclerView.setDataChangeListener(new XRecyclerView.DataChangeListener() {
             @Override
             public void change(boolean isEmpty) {
-                XUltraLog.i("empty = " + isEmpty);
                  emptyLayout.setErrorType(isEmpty ? EmptyLayout.NODATA : EmptyLayout.HIDE_LAYOUT);
             }
         });
+
+        recyclerView.canCelLoadMore();
 
         refreshData();
     }
@@ -107,6 +117,9 @@ public class CustomRecyclerViewActivity extends BaseActivity {
 
     }
 
+    /**
+     * 刷新
+     */
     private void refreshData() {
 
         list.clear();

@@ -11,7 +11,9 @@ import com.moon.xultrarecycle.utils.XUltraLog;
 
 
 /**
- * Created by L.K.X on 2017/3/30.
+ * author: moon
+ * created on: 17/10/18 下午12:27
+ * description:
  */
 public class LoadMoreRecyclerView extends RecyclerView {
 
@@ -24,6 +26,12 @@ public class LoadMoreRecyclerView extends RecyclerView {
     private int height;
     private int[] location = new int[2];
     private int[] location_listview = new int[2];
+
+    public boolean isCanCelLoadMore() {
+        return canCelLoadMore;
+    }
+
+    private boolean canCelLoadMore;
 
     public LoadMoreRecyclerView(Context context) {
         super(context);
@@ -47,6 +55,9 @@ public class LoadMoreRecyclerView extends RecyclerView {
     }
 
     public void loading() {
+        if (canCelLoadMore){
+            return;
+        }
         isHaveMore = true;
         isLoadingMore = false;
         moreItemDecoration.setLoadDes(getContext().getResources().getString(R.string.error_view_loading));
@@ -68,7 +79,7 @@ public class LoadMoreRecyclerView extends RecyclerView {
     @Override
     protected void onScrollChanged(int l, int t, int oldl, int oldt) {
         super.onScrollChanged(l, t, oldl, oldt);
-        if(isFirst){
+        if(isFirst ){
             isFirst = false;
             return;
         }
@@ -122,6 +133,8 @@ public class LoadMoreRecyclerView extends RecyclerView {
     public void hideLoadMore() {
         if (moreItemDecoration != null) {
             moreItemDecoration.setLoadDes("");
+            // TODO: 17/10/21  add
+            canCelLoadMore  = true;
         }
     }
 
@@ -149,22 +162,9 @@ public class LoadMoreRecyclerView extends RecyclerView {
             final boolean emptyViewVisible =
                     getAdapter().getItemCount() == 0;
 
-
-//            if (emptyViewVisible){
-//
-//                emptyView.setVisibility(VISIBLE);
-//                ((EmptyLayout)emptyView).setErrorType(EmptyLayout.NODATA);
-//                setVisibility(View.GONE);
-//            }else {
-//                emptyView.setVisibility(GONE);
-//                ((EmptyLayout)emptyView).setErrorType(EmptyLayout.HIDE_LAYOUT);
-//                setVisibility(VISIBLE);
-//            }
-
             if (dataChangeObserver!=null){
                 dataChangeObserver.dataChange(emptyViewVisible);
             }
-
         }
     }
 

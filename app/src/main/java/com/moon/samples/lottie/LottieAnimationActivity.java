@@ -1,12 +1,11 @@
 package com.moon.samples.lottie;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.moon.samples.R;
-import com.moon.samples.dsbridge.BaseActivity;
+import com.moon.samples.BaseActivity;
 
 public class LottieAnimationActivity extends BaseActivity {
 

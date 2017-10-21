@@ -12,7 +12,9 @@ import in.srain.cube.views.ptr.PtrHandler;
 
 
 /**
- * Created by L.K.X on 2017/3/30.
+ * author: moon
+ * created on: 17/10/18 下午12:29
+ * description:
  */
 public class XRecyclerView extends FrameLayout implements LoadMoreRecyclerView.OnLoadMoreListener ,
         LoadMoreRecyclerView.IDataChangeObserver{
@@ -73,6 +75,10 @@ public class XRecyclerView extends FrameLayout implements LoadMoreRecyclerView.O
         });
     }
 
+    // TODO: 17/10/21
+    public void setCanRefresh(boolean canRefresh){
+        ptr_freash.setPullToRefresh(canRefresh);
+    }
 
     public void setAdapter(RecyclerView.Adapter adapter) {
         recyclerview.setAdapter(adapter);
@@ -81,13 +87,9 @@ public class XRecyclerView extends FrameLayout implements LoadMoreRecyclerView.O
     }
 
 
-    private void handleEmptyView(){
-
-    }
-
     @Override
     public void onLoading() {
-        if (onListListener != null && !isRefreshing) {
+        if (onListListener != null && !isRefreshing && !recyclerview.isCanCelLoadMore()) {
             onListListener.onLoadingMore();
 
             loading();
@@ -133,7 +135,10 @@ public class XRecyclerView extends FrameLayout implements LoadMoreRecyclerView.O
         recyclerview.setPadding(0, topPading, 0, 0);
     }
 
-    public void hideLoadMore() {
+    /**
+     * 取消上拉加载更多功能
+     */
+    public void canCelLoadMore() {
         if (recyclerview != null) {
             recyclerview.hideLoadMore();
         }
@@ -145,5 +150,9 @@ public class XRecyclerView extends FrameLayout implements LoadMoreRecyclerView.O
 
     }
 
+
+    public void autoRefresh(){
+        ptr_freash.autoRefresh();
+    }
 
 }

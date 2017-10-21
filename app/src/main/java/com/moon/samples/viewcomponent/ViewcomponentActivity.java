@@ -1,10 +1,9 @@
 package com.moon.samples.viewcomponent;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.moon.samples.R;
-import com.moon.samples.dsbridge.BaseActivity;
+import com.moon.samples.BaseActivity;
 
 public class ViewcomponentActivity extends BaseActivity {
 

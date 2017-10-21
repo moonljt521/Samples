@@ -32,7 +32,7 @@ public class XHeadView extends View implements PtrUIHandler {
 
     private static final int SIZE = 3;
 
-    private static final int HEAD_VIEW_HEIGHT = 70;
+    private static final int HEAD_VIEW_HEIGHT = 100;
 
     private Timer timer;
 
@@ -86,7 +86,7 @@ public class XHeadView extends View implements PtrUIHandler {
 
         int centX = limitHeadViewMarginLeftDimen + 10;
 
-        int centY = 40;
+        int centY = 50;
 
         int darkPosX = 0;
 

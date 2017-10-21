@@ -1,6 +1,5 @@
 package com.moon.samples.propertyanimator;
 
-import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,7 +12,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.moon.samples.R;
-import com.moon.samples.dsbridge.BaseActivity;
+import com.moon.samples.BaseActivity;
 
 public class PropertyAnimatorActivity extends BaseActivity {
 

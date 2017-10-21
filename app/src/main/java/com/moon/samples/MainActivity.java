@@ -11,7 +11,6 @@ import android.widget.Toast;
 import com.moon.samples.annotation.AnnotationActivity;
 import com.moon.samples.bottomsheet.BottomSheetActivity;
 import com.moon.samples.databinding.DataBindingDemoActivity;
-import com.moon.samples.dsbridge.BaseActivity;
 import com.moon.samples.dsbridge.DSBridgeActivity;
 import com.moon.samples.full_function_recyclerview.CustomRecyclerViewActivity;
 import com.moon.samples.itemtouchhelper.ItemDragListener;

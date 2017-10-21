@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.moon.samples.MyApplication;
 import com.moon.samples.R;
-import com.moon.samples.dsbridge.BaseActivity;
+import com.moon.samples.BaseActivity;
 import com.moon.samples.utils.UDebug;
 
 import org.jsoup.Jsoup;
@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;

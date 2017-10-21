@@ -1,11 +1,10 @@
 package com.moon.samples.dsbridge;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.moon.samples.BaseActivity;
 import com.moon.samples.R;
 import com.moon.samples.utils.UDebug;
 
