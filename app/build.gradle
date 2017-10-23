@@ -17,6 +17,13 @@ android {
             }
         }
 
+        ndk {
+            moduleName "libencrypt" //生成的so名字
+            ldLibs "log", "z", "m"
+            abiFilters "armeabi", "armeabi-v7a", "x86"  //输出指定三种abi体系结构下的so库。
+        }
+
+
         multiDexEnabled true
 //        jackOptions {
 //            enabled true   //启用jack编译器
@@ -81,6 +88,8 @@ dependencies {
     //    compile 'com.android.support:support-annotations:25.3.1'
     //    project.gradle.addListener(new BuildTimeListener
     //    ());
+    // 加载更多
+    compile project(':xultrarecycle')
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'com.github.wendux:DSBridge-Android:2.0-SNAPSHOT'
@@ -94,12 +103,10 @@ dependencies {
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
     compile 'com.android.support:design:25.3.1'
     compile 'com.komi.slider:slider:0.4.0'
-    testCompile 'junit:junit:4.12'
-    provided 'com.android.support:support-v4:25.3.1'
-    // 加载更多
     compile 'com.mylhyl:commonrefreshlayout:2.0'
     compile 'in.srain.cube:ultra-ptr:1.0.11'
-    compile project(':xultrarecycle')
+    testCompile 'junit:junit:4.12'
+    provided 'com.android.support:support-v4:25.3.1'
 }
 
 

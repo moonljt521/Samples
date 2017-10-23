@@ -15,6 +15,7 @@ import com.moon.samples.dsbridge.DSBridgeActivity;
 import com.moon.samples.full_function_recyclerview.CustomRecyclerViewActivity;
 import com.moon.samples.itemtouchhelper.ItemDragListener;
 import com.moon.samples.itemtouchhelper.MyItemTouchHelperCallBack;
+import com.moon.samples.jni.JniActivity;
 import com.moon.samples.jsoupcrawler.JsoupActivity;
 import com.moon.samples.main.ItemDecoration;
 import com.moon.samples.main.MainAdapter;
@@ -31,9 +32,7 @@ import java.util.List;
 public class MainActivity extends BaseActivity implements ItemDragListener {
 
     // Used to load the 'native-lib' library on application startup.
-    static {
-        System.loadLibrary("native-lib");
-    }
+
 
 //    private String[] arr = {"自定义view", "注解", "rxJava2", "DSBridge", "rxjava2+retrofit2+JSOUP抓取html并解析", "属性动画"};
 
@@ -70,6 +69,7 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
             }
         });
 
+
         callBack = new MyItemTouchHelperCallBack(adapter);
 
         itemTouchHelper = new ItemTouchHelper(callBack);
@@ -101,6 +101,8 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
         arr.add(body);
         body = new MainBody(9, "定制RecyclerView");
         arr.add(body);
+        body = new MainBody(10, "JNI和Java互调");
+        arr.add(body);
     }
 
     @Override
@@ -112,7 +114,6 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
      * A native method that is implemented by the 'native-lib' native library,
      * which is packaged with this application.
      */
-    public native String stringFromJNI();
 
     private void startIntent(int position) {
         Intent intent = new Intent();
@@ -161,6 +162,11 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
 
             case 9:
                 intent.setClass(MainActivity.this, CustomRecyclerViewActivity.class);
+
+                break;
+
+            case 10:
+                intent.setClass(MainActivity.this, JniActivity.class);
 
                 break;
 

@@ -59,8 +59,8 @@ public class PropertyAnimatorActivity extends BaseActivity {
         o1.start();
 
 
-        Glide.with(this).load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZxZcaaglkzRWSK7HeQiqGkDSSjV6qRyzOCaxbstxQmreUC2mxQg")
-                .into(imageView);
+//        Glide.with(this).load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZxZcaaglkzRWSK7HeQiqGkDSSjV6qRyzOCaxbstxQmreUC2mxQg")
+//                .into(imageView);
 
     }
 

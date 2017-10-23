@@ -17,6 +17,7 @@ import java.util.TimerTask;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrUIHandler;
 import in.srain.cube.views.ptr.indicator.PtrIndicator;
+import in.srain.cube.views.ptr.util.PtrLocalDisplay;
 
 /**
  * author: moon
@@ -39,6 +40,8 @@ public class XHeadView extends View implements PtrUIHandler {
     private int index;
 
     private boolean isKeepRefresh;
+
+    private static final int SPLASH_DURING = 300;
 
     private int limitHeadViewMarginLeftDimen;
 
@@ -117,7 +120,7 @@ public class XHeadView extends View implements PtrUIHandler {
                     postInvalidate();
                 }
             }
-        }, 0, 800);
+        }, 0, SPLASH_DURING);
     }
 
 

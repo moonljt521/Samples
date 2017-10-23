@@ -41,6 +41,8 @@
         </activity>
         <activity android:name=".full_function_recyclerview.CustomRecyclerViewActivity">
         </activity>
+        <activity android:name=".jni.JniActivity">
+        </activity>
     </application>
 
 </manifest>

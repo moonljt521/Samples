@@ -8,22 +8,22 @@
 	"cppFileExtensions" : [ "cpp" ],
 	"libraries" : 
 	{
-		"native-lib-Debug-mips" : 
+		"encrypt-Debug-mips" : 
 		{
 			"abi" : "mips",
-			"artifactName" : "native-lib",
-			"buildCommand" : "/Users/moon/Library/Android/sdk/cmake/3.6.3155560/bin/cmake --build /Users/moon/Documents/demo/MoonSamples/app/.externalNativeBuild/cmake/debug/mips --target native-lib",
+			"artifactName" : "encrypt",
+			"buildCommand" : "/Users/moon/Library/Android/sdk/cmake/3.6.3155560/bin/cmake --build /Users/moon/Documents/demo/MoonSamples/app/.externalNativeBuild/cmake/debug/mips --target encrypt",
 			"buildType" : "debug",
 			"files" : 
 			[
 				
 				{
-					"flags" : "  -target mipsel-none-linux-android -gcc-toolchain /Users/moon/Library/Android/sdk/ndk-bundle/toolchains/mipsel-linux-android-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/moon/Library/Android/sdk/ndk-bundle/platforms/android-17/arch-mips  -Dnative_lib_EXPORTS -isystem /Users/moon/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /Users/moon/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/mips/include -isystem /Users/moon/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mips32 -Wa,--noexecstack -Wformat -Werror=format-security -fno-exceptions -fno-rtti -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mips32 -Wa,--noexecstack -Wformat -Werror=format-security -fno-exceptions -fno-rtti  -O0 -fno-limit-debug-info -O0 -fno-limit-debug-info  -fPIC    -c ",
-					"src" : "/Users/moon/Documents/demo/MoonSamples/app/src/main/cpp/native-lib.cpp",
+					"flags" : "  -target mipsel-none-linux-android -gcc-toolchain /Users/moon/Library/Android/sdk/ndk-bundle/toolchains/mipsel-linux-android-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/moon/Library/Android/sdk/ndk-bundle/platforms/android-17/arch-mips  -Dencrypt_EXPORTS -isystem /Users/moon/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /Users/moon/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/mips/include -isystem /Users/moon/Library/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mips32 -Wa,--noexecstack -Wformat -Werror=format-security -fno-exceptions -fno-rtti -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mips32 -Wa,--noexecstack -Wformat -Werror=format-security -fno-exceptions -fno-rtti  -O0 -fno-limit-debug-info -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "/Users/moon/Documents/demo/MoonSamples/app/src/main/cpp/encrypt.cpp",
 					"workingDirectory" : "/Users/moon/Documents/demo/MoonSamples/app/.externalNativeBuild/cmake/debug/mips"
 				}
 			],
-			"output" : "/Users/moon/Documents/demo/MoonSamples/app/build/intermediates/cmake/debug/obj/mips/libnative-lib.so",
+			"output" : "/Users/moon/Documents/demo/MoonSamples/app/build/intermediates/cmake/debug/obj/mips/libencrypt.so",
 			"toolchain" : "12593487680679624294"
 		}
 	},

@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.moon.samples.R;
 import com.moon.samples.BaseActivity;
+import com.moon.samples.utils.UDebug;
 import com.moon.xultrarecycle.EmptyLayout;
 import com.moon.xultrarecycle.XRecyclerView;
 
@@ -53,8 +54,6 @@ public class CustomRecyclerViewActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-                emptyLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
-
                 recyclerView.autoRefresh();
             }
         });
@@ -73,19 +72,21 @@ public class CustomRecyclerViewActivity extends BaseActivity {
         });
 
 
-
         recyclerView.setAdapter(adapter = new MulRecyclerViewAdapter(this, list, null));
 
         recyclerView.setDataChangeListener(new XRecyclerView.DataChangeListener() {
             @Override
             public void change(boolean isEmpty) {
-                 emptyLayout.setErrorType(isEmpty ? EmptyLayout.NODATA : EmptyLayout.HIDE_LAYOUT);
+                emptyLayout.setErrorType(isEmpty ? EmptyLayout.NODATA : EmptyLayout.HIDE_LAYOUT);
             }
         });
 
         recyclerView.canCelLoadMore();
 
-        refreshData();
+        emptyLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
+
+
+        recyclerView.autoRefresh();
     }
 
     @Override
@@ -112,7 +113,7 @@ public class CustomRecyclerViewActivity extends BaseActivity {
 
                 recyclerView.refreshComplete();
             }
-        },2000);
+        }, 2000);
 
 
     }
@@ -137,8 +138,7 @@ public class CustomRecyclerViewActivity extends BaseActivity {
 
                 recyclerView.refreshComplete();
             }
-        },10000);
-
+        }, 1000);
 
 
     }
