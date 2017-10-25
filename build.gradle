@@ -10,6 +10,8 @@ buildscript {
         classpath 'me.tatarka:gradle-retrolambda:3.3.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        //阿里 atlas
+//        classpath "com.taobao.android:atlasplugin:2.3.3.beta2"
     }
 }
 
