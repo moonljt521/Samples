@@ -1,8 +1,12 @@
 package com.example;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * author: moon
@@ -12,13 +16,17 @@ import java.util.concurrent.ConcurrentHashMap;
 public class Test {
     public static void main(String[] args) {
 
-        String a = "12,2,5,4,5,6,7,8,8";
+        int i = 2;
 
-        String[] b = new String[4];
-                b = a.split(",");
-        System.out.println(Arrays.toString(b));
+        int a = i++;
 
-        ConcurrentHashMap map;
+
+        System.out.println("i = "+ i);
+        System.out.println("a = "+ a);
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+
+        executorService.shutdown();
 
     }
 

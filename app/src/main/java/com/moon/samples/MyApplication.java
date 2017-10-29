@@ -2,6 +2,10 @@ package com.moon.samples;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Debug;
+
+import com.moon.samples.uncaughthandler.CrashHandler;
 
 import java.util.concurrent.TimeUnit;
 
@@ -29,7 +33,26 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
         myApp = this;
+
+        if (!BuildConfig.DEBUG){
+            new CrashHandler(){
+
+                @Override
+                public void doWithAfterCrash() {
+
+                    Intent intent = new Intent(myApp,MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    myApp.startActivity(intent);
+
+                }
+            }.init(this);
+        }
+
+
+
+
 
 //        Gson gson = new GsonBuilder()
 //                //配置你的Gson

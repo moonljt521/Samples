@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.moon.samples.annotation.AnnotationActivity;
 import com.moon.samples.bottomsheet.BottomSheetActivity;
 import com.moon.samples.databinding.DataBindingDemoActivity;
+import com.moon.samples.dispatch_event.TestDispatchTouchEventActivity;
 import com.moon.samples.dsbridge.DSBridgeActivity;
 import com.moon.samples.full_function_recyclerview.CustomRecyclerViewActivity;
 import com.moon.samples.itemtouchhelper.ItemDragListener;
@@ -113,6 +114,8 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
         arr.add(body);
         body = new MainBody(10, "JNI和Java互调");
         arr.add(body);
+        body = new MainBody(11, "android 事件分发机制");
+        arr.add(body);
     }
 
     @Override
@@ -171,7 +174,14 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
                 break;
 
             case 10:
+
                 intent.setClass(MainActivity.this, JniActivity.class);
+
+                break;
+
+            case 11:
+
+                intent.setClass(MainActivity.this, TestDispatchTouchEventActivity.class);
 
                 break;
 

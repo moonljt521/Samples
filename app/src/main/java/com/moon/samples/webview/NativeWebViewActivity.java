@@ -5,6 +5,7 @@ import android.webkit.WebView;
 
 import com.moon.samples.R;
 import com.moon.samples.BaseActivity;
+import com.moon.samples.utils.UDebug;
 
 public class NativeWebViewActivity extends BaseActivity {
 
@@ -20,5 +21,10 @@ public class NativeWebViewActivity extends BaseActivity {
     @Override
     protected String getActionTitle() {
         return "webview";
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

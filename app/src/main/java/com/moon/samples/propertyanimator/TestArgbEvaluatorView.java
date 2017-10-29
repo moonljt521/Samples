@@ -17,6 +17,10 @@ public class TestArgbEvaluatorView extends View {
 
     private Paint paint = new Paint();
 
+    @Override
+    protected void dispatchDraw(Canvas canvas) {
+        super.dispatchDraw(canvas);
+    }
 
 
     private int color;
