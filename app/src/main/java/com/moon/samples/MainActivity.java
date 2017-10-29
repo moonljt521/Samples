@@ -1,26 +1,35 @@
 package com.moon.samples;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.moon.samples.annotation.AnnotationActivity;
 import com.moon.samples.bottomsheet.BottomSheetActivity;
 import com.moon.samples.databinding.DataBindingDemoActivity;
-import com.moon.samples.dsbridge.BaseActivity;
+import com.moon.samples.dispatch_event.TestDispatchTouchEventActivity;
 import com.moon.samples.dsbridge.DSBridgeActivity;
+import com.moon.samples.full_function_recyclerview.CustomRecyclerViewActivity;
 import com.moon.samples.itemtouchhelper.ItemDragListener;
 import com.moon.samples.itemtouchhelper.MyItemTouchHelperCallBack;
+import com.moon.samples.jni.JniActivity;
 import com.moon.samples.jsoupcrawler.JsoupActivity;
 import com.moon.samples.main.ItemDecoration;
 import com.moon.samples.main.MainAdapter;
 import com.moon.samples.main.MainBody;
 import com.moon.samples.propertyanimator.PropertyAnimatorActivity;
 import com.moon.samples.rxjava2.RxJava2Activity;
+import com.moon.samples.utils.CacheDataManager;
+import com.moon.samples.utils.CacheManager;
 import com.moon.samples.utils.UDebug;
 import com.moon.samples.viewcomponent.ViewcomponentActivity;
 import com.moon.samples.webview.NativeWebViewActivity;
@@ -29,13 +38,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends BaseActivity implements ItemDragListener {
-
-    // Used to load the 'native-lib' library on application startup.
-    static {
-        System.loadLibrary("native-lib");
-    }
-
-//    private String[] arr = {"自定义view", "注解", "rxJava2", "DSBridge", "rxjava2+retrofit2+JSOUP抓取html并解析", "属性动画"};
 
     private List<MainBody> arr = new ArrayList<>();
 
@@ -46,6 +48,8 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
 
     private MyItemTouchHelperCallBack callBack;
 
+    private String totalSize ="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -55,6 +59,12 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
         setContentView(R.layout.activity_main);
 
         setData();
+
+        // setactionbar icon
+        if (getSupportActionBar()!=null){
+            getSupportActionBar().setLogo(R.mipmap.page_icon_network);
+            getSupportActionBar().setDisplayUseLogoEnabled(true);
+        }
 
         recyclerView = (RecyclerView) findViewById(R.id.main_fun_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -69,6 +79,7 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
                 startIntent(arr.get(position).index);
             }
         });
+
 
         callBack = new MyItemTouchHelperCallBack(adapter);
 
@@ -99,19 +110,18 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
         arr.add(body);
         body = new MainBody(8, "webView");
         arr.add(body);
-
+        body = new MainBody(9, "定制RecyclerView");
+        arr.add(body);
+        body = new MainBody(10, "JNI和Java互调");
+        arr.add(body);
+        body = new MainBody(11, "android 事件分发机制");
+        arr.add(body);
     }
 
     @Override
     protected String getActionTitle() {
         return "主页";
     }
-
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-    public native String stringFromJNI();
 
     private void startIntent(int position) {
         Intent intent = new Intent();
@@ -134,7 +144,6 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
                 intent.setClass(MainActivity.this, DSBridgeActivity.class);
 
                 break;
-
 
             case 4:
                 intent.setClass(MainActivity.this, JsoupActivity.class);
@@ -159,6 +168,23 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
 
                 break;
 
+            case 9:
+                intent.setClass(MainActivity.this, CustomRecyclerViewActivity.class);
+
+                break;
+
+            case 10:
+
+                intent.setClass(MainActivity.this, JniActivity.class);
+
+                break;
+
+            case 11:
+
+                intent.setClass(MainActivity.this, TestDispatchTouchEventActivity.class);
+
+                break;
+
             default:
                 Toast.makeText(getApplicationContext(), "不知道你点了什么，反正不起作用", Toast.LENGTH_SHORT).show();
 
@@ -171,5 +197,90 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
     @Override
     public void onStartDrags(RecyclerView.ViewHolder viewHolder) {
         itemTouchHelper.startDrag(viewHolder);
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        UDebug.i("main onStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        UDebug.i("main onResume");
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        UDebug.i("main onPause");
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        UDebug.i("main onStop");
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+
+        return super.onCreateOptionsMenu(menu);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_compose:
+
+                break;
+
+            case R.id.action_delete:
+
+
+
+                try {
+                    totalSize = CacheDataManager.getTotalCacheSizeWithGlide(getApplicationContext());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+                new AlertDialog.Builder(MainActivity.this).setTitle("清理缓存？")
+                        .setMessage("当前缓存大小为："+totalSize )
+                        .setPositiveButton("清除", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                CacheDataManager.clearAllCache(getApplicationContext());
+
+                                Toast.makeText(getApplicationContext(),"清理结束。。。",Toast.LENGTH_LONG).show();
+
+                            }
+                        }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                }).show();
+
+
+                break;
+        }
+
+        return true ;
     }
 }

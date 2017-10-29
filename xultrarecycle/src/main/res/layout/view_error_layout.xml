@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/pageerrLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#f6f6f6">
+
+
+    <ImageView
+        android:layout_centerInParent="true"
+        android:id="@+id/errorLayout_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/pagefailed_bg"
+        android:layout_marginBottom="10dp"/>
+
+
+    <TextView
+        android:layout_below="@+id/errorLayout_imageView"
+        android:id="@+id/errorLayout_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:lines="2"
+        android:text="加载失败"
+        android:textColor="#999999"
+        android:textSize="16.0dp"/>
+    <!--<ProgressBar-->
+    <!--android:id="@+id/animProgress"-->
+    <!--android:layout_width="30dip"-->
+    <!--android:layout_height="30dip"-->
+    <!--style="@style/loading"-->
+    <!--/>-->
+
+</RelativeLayout>

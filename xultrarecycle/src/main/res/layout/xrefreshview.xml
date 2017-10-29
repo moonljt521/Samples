@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.moon.xultrarecycle.XRParallaxPrtFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ptr_refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#33ffffff"
+    app:ptr_duration_to_close="200"
+    app:ptr_duration_to_close_header="1000"
+    app:ptr_keep_header_when_refresh="true"
+    app:ptr_pull_to_fresh="false"
+    app:ptr_ratio_of_header_height_to_refresh="1.2"
+    app:ptr_resistance="1.7">
+
+    <com.moon.xultrarecycle.LoadMoreRecyclerView
+        android:id="@+id/recyclervieww"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"/>
+
+</com.moon.xultrarecycle.XRParallaxPrtFrameLayout >

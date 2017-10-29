@@ -1,9 +1,9 @@
 apply plugin: 'com.android.application'
-apply plugin: 'me.tatarka.retrolambda'
+//apply plugin: 'me.tatarka.retrolambda'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.moon.samples"
         minSdkVersion 17
@@ -14,6 +14,18 @@ android {
         externalNativeBuild {
             cmake {
                 cppFlags ""
+            }
+        }
+
+        ndk {
+            moduleName "libencrypt" //生成的so名字
+            ldLibs "log", "z", "m"
+            abiFilters "armeabi", "armeabi-v7a", "x86"  //输出指定三种abi体系结构下的so库。
+        }
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
             }
         }
 
@@ -53,18 +65,16 @@ android {
     }
 
     dexOptions {
-//        incremental true
-        javaMaxHeapSize "4g"
+        javaMaxHeapSize "2g"
         preDexLibraries = false
-//        incremental true
     }
-
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//        exclude group: 'com.android.support'
     })
     compile project(':annotationlib')
     compile project(':basejavalib')
@@ -74,11 +84,17 @@ dependencies {
     //
     // 扩展：使页面可滑动
     compile('com.android.support:appcompat-v7:25.3.1') {
-        exclude module: 'support-v4'
+//        exclude module: 'support-v4'
     }
     //    compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
     /*提供的Module  glide 默认加载https 图片会失败  。。。 */
     //    compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
+    //注解包
+    //    compile 'com.android.support:support-annotations:25.3.1'
+    //    project.gradle.addListener(new BuildTimeListener
+    //    ());
+    // 加载更多
+    compile project(':xultrarecycle')
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'com.github.wendux:DSBridge-Android:2.0-SNAPSHOT'
@@ -92,6 +108,59 @@ dependencies {
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
     compile 'com.android.support:design:25.3.1'
     compile 'com.komi.slider:slider:0.4.0'
+    compile 'com.mylhyl:commonrefreshlayout:2.0'
+    compile 'in.srain.cube:ultra-ptr:1.0.11'
     testCompile 'junit:junit:4.12'
     provided 'com.android.support:support-v4:25.3.1'
 }
+
+
+public class BuildTimeListener implements TaskExecutionListener, BuildListener {
+    private Clock clock
+    private times = []
+
+    @Override
+    void beforeExecute(Task task) {
+        clock = new org.gradle.util.Clock()
+    }
+
+    @Override
+    void afterExecute(Task task, TaskState taskState) {
+        def ms = clock.timeInMs
+        times.add([ms, task.path])
+
+        //task.project.logger.warn "${task.path} spend ${ms}ms"
+    }
+
+    @Override
+    void buildStarted(Gradle gradle) {
+
+    }
+
+    @Override
+    void settingsEvaluated(Settings settings) {
+
+    }
+
+    @Override
+    void projectsLoaded(Gradle gradle) {
+
+    }
+
+    @Override
+    void projectsEvaluated(Gradle gradle) {
+
+    }
+
+    @Override
+    void buildFinished(BuildResult result) {
+        println "Task spend time:"
+        for (time in times) {
+            if (time[0] >= 50) {
+                printf "%7sms  %s\n", time
+            }
+        }
+    }
+
+}
+

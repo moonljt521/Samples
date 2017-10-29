@@ -1,10 +1,10 @@
 package com.moon.samples.propertyanimator;
 
-import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -12,7 +12,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.moon.samples.R;
-import com.moon.samples.dsbridge.BaseActivity;
+import com.moon.samples.BaseActivity;
 
 public class PropertyAnimatorActivity extends BaseActivity {
 
@@ -59,9 +59,20 @@ public class PropertyAnimatorActivity extends BaseActivity {
         o1.start();
 
 
-        Glide.with(this).load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZxZcaaglkzRWSK7HeQiqGkDSSjV6qRyzOCaxbstxQmreUC2mxQg")
-                .into(imageView);
+//        Glide.with(this).load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZxZcaaglkzRWSK7HeQiqGkDSSjV6qRyzOCaxbstxQmreUC2mxQg")
+//                .into(imageView);
 
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        return super.dispatchTouchEvent(ev);
+    }
+
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return super.onTouchEvent(event);
     }
 
     @Override
