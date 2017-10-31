@@ -1,3 +1,0 @@
-/Users/moon/Documents/demo/MoonSamples/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/edit_cache.dir
-/Users/moon/Documents/demo/MoonSamples/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/rebuild_cache.dir
-/Users/moon/Documents/demo/MoonSamples/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/encrypt.dir

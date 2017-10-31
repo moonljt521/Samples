@@ -46,8 +46,8 @@ public class MyLinearLayout extends LinearLayout {
                 break;
 
         }
-//        return super.dispatchTouchEvent(ev);
-        return false;
+        return super.dispatchTouchEvent(ev);
+//        return true;
     }
 
     @Override
@@ -66,8 +66,8 @@ public class MyLinearLayout extends LinearLayout {
                 break;
 
         }
-        return super.onInterceptTouchEvent(ev);
-//        return true;
+//        return super.onInterceptTouchEvent(ev);
+        return true;
     }
 
 
@@ -78,6 +78,10 @@ public class MyLinearLayout extends LinearLayout {
             case MotionEvent.ACTION_DOWN:
 
                 UDebug.i( "CustomLayout-onTouchEvent-ACTION_DOWN");
+
+                // TODO: 2017/10/29  
+                performClick();
+                
                 break;
             case MotionEvent.ACTION_UP:
                 UDebug.i("CustomLayout-onTouchEvent-ACTION_UP");
@@ -90,6 +94,8 @@ public class MyLinearLayout extends LinearLayout {
 //        return false;
     }
 
-
-
+    @Override
+    public boolean performClick() {
+        return super.performClick();
+    }
 }

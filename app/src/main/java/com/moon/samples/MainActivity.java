@@ -73,9 +73,6 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
         adapter.setMcListener(new MainAdapter.ViewItemListener() {
             @Override
             public void itemClick(View v, int position) {
-
-                UDebug.i(">>>>>" + arr.get(position).index);
-
                 startIntent(arr.get(position).index);
             }
         });
