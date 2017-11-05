@@ -9,7 +9,7 @@ import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.moon.xultrarecycle.utils.UiUtils;
+import com.moon.xultrarecycle.utils.XRecyclerViewUtils;
 
 
 /**
@@ -38,12 +38,12 @@ public class MoreItemDecoration extends RecyclerView.ItemDecoration {
         mValuePaint = new Paint();
         mValuePaint.setAntiAlias(true);
         mValuePaint.setColor(Color.parseColor("#666666"));
-        mValuePaint.setTextSize(UiUtils.dip2px(mContext,14));
+        mValuePaint.setTextSize(XRecyclerViewUtils.dip2px(mContext,14));
         mValuePaint.setStyle(Paint.Style.FILL);
         //该方法即为设置基线上那个点究竟是left,center,还是right  这里我设置为center
         mValuePaint.setTextAlign(Paint.Align.CENTER);
 
-        footHeight = UiUtils.dip2px(mContext,40);
+        footHeight = XRecyclerViewUtils.dip2px(mContext,40);
 
         loadDes = mContext.getResources().getString(R.string.error_view_loading);
     }

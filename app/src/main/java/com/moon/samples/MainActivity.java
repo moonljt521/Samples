@@ -31,6 +31,7 @@ import com.moon.samples.rxjava2.RxJava2Activity;
 import com.moon.samples.utils.CacheDataManager;
 import com.moon.samples.utils.CacheManager;
 import com.moon.samples.utils.UDebug;
+import com.moon.samples.utils.UiUtils;
 import com.moon.samples.viewcomponent.ViewcomponentActivity;
 import com.moon.samples.webview.NativeWebViewActivity;
 
@@ -85,7 +86,11 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
         // 将 recyclerview 与 itemtouchhelper 绑定
         itemTouchHelper.attachToRecyclerView(recyclerView);
 
+
+
+
     }
+
 
     private void setData() {
 
@@ -204,27 +209,28 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
     @Override
     protected void onStart() {
         super.onStart();
-        UDebug.i("main onStart");
+
+
+//        UiUtils.traversalView(findViewById(R.id.main_layout));
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        UDebug.i("main onResume");
+
 
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        UDebug.i("main onPause");
 
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        UDebug.i("main onStop");
 
     }
 

@@ -9,7 +9,11 @@ import android.view.ViewParent;
 /**
  * Created by lichuang on 16/11/15.
  */
-public class UiUtils {
+public class XRecyclerViewUtils {
+    private XRecyclerViewUtils(){
+
+    }
+
     //判断当前的线程是不是在主线程
     public static boolean isRunInMainThread() {
         return Thread.currentThread() == Looper.getMainLooper().getThread();
