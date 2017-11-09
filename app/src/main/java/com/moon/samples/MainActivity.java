@@ -3,6 +3,7 @@ package com.moon.samples;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,6 +27,7 @@ import com.moon.samples.jsoupcrawler.JsoupActivity;
 import com.moon.samples.main.ItemDecoration;
 import com.moon.samples.main.MainAdapter;
 import com.moon.samples.main.MainBody;
+import com.moon.samples.onmeasure_onlayout.OnMeasure2OnLayoutActivity;
 import com.moon.samples.propertyanimator.PropertyAnimatorActivity;
 import com.moon.samples.rxjava2.RxJava2Activity;
 import com.moon.samples.utils.CacheDataManager;
@@ -118,6 +120,8 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
         arr.add(body);
         body = new MainBody(11, "android 事件分发机制");
         arr.add(body);
+        body = new MainBody(12, "onMeasure onLayout");
+        arr.add(body);
     }
 
     @Override
@@ -187,6 +191,12 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
 
                 break;
 
+            case 12:
+
+                intent.setClass(MainActivity.this, OnMeasure2OnLayoutActivity.class);
+
+                break;
+
             default:
                 Toast.makeText(getApplicationContext(), "不知道你点了什么，反正不起作用", Toast.LENGTH_SHORT).show();
 
@@ -218,7 +228,6 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
     @Override
     protected void onResume() {
         super.onResume();
-
 
     }
 
