@@ -1,5 +1,0 @@
-# ninja log v5
-0	300	0	CMakeFiles/encrypt.dir/src/main/cpp/encrypt.cpp.o	fcfc85598d210bef
-300	421	0	../../../../build/intermediates/cmake/debug/obj/x86_64/libencrypt.so	b3b889a1cf35065c
-0	331	0	CMakeFiles/encrypt.dir/src/main/cpp/encrypt.cpp.o	fcfc85598d210bef
-331	459	0	../../../../build/intermediates/cmake/debug/obj/x86_64/libencrypt.so	b3b889a1cf35065c
