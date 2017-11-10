@@ -1,0 +1,5 @@
+# ninja log v5
+0	261	0	CMakeFiles/encrypt.dir/src/main/cpp/encrypt.cpp.o	2e1119a6ac2b43d5
+261	347	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libencrypt.so	b7c10e75d91bb390
+1	292	0	CMakeFiles/encrypt.dir/src/main/cpp/encrypt.cpp.o	2e1119a6ac2b43d5
+293	397	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libencrypt.so	b7c10e75d91bb390

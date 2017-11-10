@@ -1,0 +1,5 @@
+# ninja log v5
+0	327	0	CMakeFiles/encrypt.dir/src/main/cpp/encrypt.cpp.o	e87c70090023fae5
+328	422	0	../../../../build/intermediates/cmake/debug/obj/mips/libencrypt.so	70888e0e6bc146bd
+1	297	0	CMakeFiles/encrypt.dir/src/main/cpp/encrypt.cpp.o	e87c70090023fae5
+297	367	0	../../../../build/intermediates/cmake/debug/obj/mips/libencrypt.so	70888e0e6bc146bd

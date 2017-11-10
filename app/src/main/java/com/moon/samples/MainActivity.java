@@ -199,7 +199,7 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
                 intent.setClass(MainActivity.this, ConstaintlayoutActivity.class);
 
                 break;
-                
+
             case 13:
                 intent.setClass(MainActivity.this, OnMeasure2OnLayoutActivity.class);
 

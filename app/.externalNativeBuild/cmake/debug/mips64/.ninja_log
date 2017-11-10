@@ -1,0 +1,5 @@
+# ninja log v5
+0	799	0	CMakeFiles/encrypt.dir/src/main/cpp/encrypt.cpp.o	d2596ed7d1ae3b2
+799	881	0	../../../../build/intermediates/cmake/debug/obj/mips64/libencrypt.so	c1f4fee05225ba84
+0	215	0	CMakeFiles/encrypt.dir/src/main/cpp/encrypt.cpp.o	d2596ed7d1ae3b2
+215	283	0	../../../../build/intermediates/cmake/debug/obj/mips64/libencrypt.so	c1f4fee05225ba84
