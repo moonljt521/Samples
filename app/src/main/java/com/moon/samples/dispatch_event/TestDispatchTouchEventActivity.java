@@ -13,6 +13,7 @@ public class TestDispatchTouchEventActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        notLoadSlide = true;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_dispatch_touch_event);
 
@@ -24,7 +25,7 @@ public class TestDispatchTouchEventActivity extends BaseActivity {
 
             }
         });
-
+//        getWindow().getDecorView().dispatchTouchEvent(new MotionEvent())
 
         findViewById(R.id.button1).setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -65,6 +66,8 @@ public class TestDispatchTouchEventActivity extends BaseActivity {
                 break;
         }
         return super.dispatchTouchEvent(ev);
+
+//        return onTouchEvent(ev);
 //        return true;
     }
 

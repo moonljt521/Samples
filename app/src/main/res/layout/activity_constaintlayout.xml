@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#8f8f8f"
+    tools:context="com.moon.samples.constraintlayout.ConstaintlayoutActivity">
+
+
+    <!--<TextView-->
+        <!--android:id="@+id/textView"-->
+        <!--style="@style/setting_text"-->
+        <!--android:layout_marginBottom="8dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:text="排课"-->
+        <!--app:layout_constraintBottom_toBottomOf="@+id/paikeIv"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="@+id/paikeIv"/>-->
+
+
+    <!--<ImageView-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--android:id="@+id/paikeIv"-->
+
+        <!--android:src="@mipmap/ic_launcher"/>-->
+
+    <!--&lt;!&ndash;<include layout="@layout/line"/>&ndash;&gt;-->
+
+    <!--<View-->
+          <!--app:layout_constraintLeft_toLeftOf="parent"-->
+          <!--app:layout_constraintRight_toRightOf="parent"-->
+          <!--app:layout_constraintTop_toBottomOf="@+id/paikeIv"-->
+          <!--android:layout_width="match_parent"-->
+          <!--android:layout_height="0.5dp"-->
+          <!--android:layout_marginLeft="30dp"-->
+          <!--android:layout_marginRight="30dp"-->
+          <!--android:background="#F86420"-->
+          <!--/>-->
+
+
+
+
+        <!-- 中间 大标题 布局 -->
+    <!--<TextView-->
+        <!--android:id="@+id/settingHead_mainTitle"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center"-->
+        <!--android:text="我"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="@+id/titlebar_Qcode"-->
+        <!--app:layout_constraintBottom_toBottomOf="@+id/titlebar_Qcode"-->
+        <!--android:textSize="17dp"-->
+        <!--/>-->
+
+        <!--<ImageView-->
+            <!--app:layout_constraintRight_toRightOf="parent"-->
+            <!--android:id="@+id/titlebar_Qcode"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="15dp"-->
+            <!--android:padding="4dp"-->
+            <!--android:src="@mipmap/ic_launcher"/>-->
+
+
+    <!--<ImageView-->
+        <!--android:id="@+id/setting_user_head"-->
+        <!--android:layout_width="80dp"-->
+        <!--android:layout_height="80dp"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--android:background="@mipmap/ic_launcher"-->
+        <!--android:padding="1dp"-->
+        <!--/>-->
+
+
+    <!--<TextView-->
+        <!--android:layout_marginTop="10dp"-->
+
+        <!--app:layout_constraintTop_toBottomOf="@+id/setting_user_head"-->
+        <!--app:layout_constraintHorizontal_chainStyle="packed"-->
+        <!--app:layout_constraintHorizontal_weight="1"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toLeftOf="@+id/setting_user_name"-->
+        <!--android:id="@+id/userinfo_level"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--android:layout_marginRight="13dp"-->
+        <!--android:text="111"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:textSize="13.5dp"/>-->
+
+
+    <!--<TextView-->
+        <!--android:layout_marginTop="10dp"-->
+
+
+        <!--app:layout_constraintTop_toBottomOf="@+id/setting_user_head"-->
+        <!--android:id="@+id/setting_user_name"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintLeft_toRightOf="@+id/userinfo_level"-->
+        <!--app:layout_constraintRight_toLeftOf="@+id/setting_user_tel"-->
+        <!--android:layout_marginRight="13dp"-->
+        <!--android:alpha="100"-->
+        <!--android:text="用户名"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:textSize="13.5dp"/>-->
+
+
+    <!--<TextView-->
+        <!--android:layout_marginTop="10dp"-->
+
+
+        <!--app:layout_constraintTop_toBottomOf="@+id/setting_user_head"-->
+        <!--android:id="@+id/setting_user_tel"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--app:layout_constraintLeft_toRightOf="@+id/setting_user_name"-->
+        <!--app:layout_constraintHorizontal_weight="1"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--android:text="手机号码"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:textSize="13.5dp"/>-->
+
+
+
+</android.support.constraint.ConstraintLayout>

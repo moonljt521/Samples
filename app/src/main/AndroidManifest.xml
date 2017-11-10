@@ -59,6 +59,8 @@
         </activity>
         <activity android:name=".dispatch_event.TestDispatchTouchEventActivity">
         </activity>
+        <activity android:name=".constraintlayout.ConstaintlayoutActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.moon.samples.annotation.AnnotationActivity;
 import com.moon.samples.bottomsheet.BottomSheetActivity;
+import com.moon.samples.constraintlayout.ConstaintlayoutActivity;
 import com.moon.samples.databinding.DataBindingDemoActivity;
 import com.moon.samples.dispatch_event.TestDispatchTouchEventActivity;
 import com.moon.samples.dsbridge.DSBridgeActivity;
@@ -116,6 +117,8 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
         arr.add(body);
         body = new MainBody(11, "android 事件分发机制");
         arr.add(body);
+        body = new MainBody(12, "constraintLayout布局测试");
+        arr.add(body);
     }
 
     @Override
@@ -185,6 +188,11 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
 
                 break;
 
+            case 12:
+
+                intent.setClass(MainActivity.this, ConstaintlayoutActivity.class);
+
+                break;
             default:
                 Toast.makeText(getApplicationContext(), "不知道你点了什么，反正不起作用", Toast.LENGTH_SHORT).show();
 
