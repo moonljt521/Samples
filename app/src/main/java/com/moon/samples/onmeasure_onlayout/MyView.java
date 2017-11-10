@@ -54,8 +54,8 @@ public class MyView extends View {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-        int width = getMySize(100, widthMeasureSpec);
-        int height = getMySize(100, heightMeasureSpec);
+        int width = getMySize(200, widthMeasureSpec);
+        int height = getMySizeHeight(200, heightMeasureSpec);
 
 //        if (width < height) {
 //            height = width;
@@ -74,7 +74,34 @@ public class MyView extends View {
         int mode = MeasureSpec.getMode(measureSpec);
         int size = MeasureSpec.getSize(measureSpec);
 
-        UDebug.i("myview," + "mode = " + mode + ",size = " + size);
+        UDebug.i("myview, width ------------> " + "mode = " + mode + ",size = " + size);
+
+        switch (mode) {
+            case MeasureSpec.UNSPECIFIED: {//如果没有指定大小，就设置为默认大小
+                mySize = defaultSize;
+                break;
+            }
+            case MeasureSpec.AT_MOST: {//如果测量模式是最大取值为size     表现为  wrap_content
+                //我们将大小取最大值,你也可以取其他值
+                mySize = defaultSize;
+                break;
+            }
+            case MeasureSpec.EXACTLY: { //如果是固定的大小，那就不要去改变它    ~~~~~~~~  表现为：match_parent 或具体值
+                mySize = size;
+                break;
+            }
+        }
+        return mySize;
+    }
+
+
+    private int getMySizeHeight(int defaultSize, int measureSpec) {
+        int mySize = defaultSize;
+
+        int mode = MeasureSpec.getMode(measureSpec);
+        int size = MeasureSpec.getSize(measureSpec);
+
+        UDebug.i("myview,height =============> " + "mode = " + mode + ",size = " + size);
 
         switch (mode) {
             case MeasureSpec.UNSPECIFIED: {//如果没有指定大小，就设置为默认大小
@@ -83,7 +110,7 @@ public class MyView extends View {
             }
             case MeasureSpec.AT_MOST: {//如果测量模式是最大取值为size
                 //我们将大小取最大值,你也可以取其他值
-                mySize = size;
+                mySize = defaultSize;
                 break;
             }
             case MeasureSpec.EXACTLY: {//如果是固定的大小，那就不要去改变它
