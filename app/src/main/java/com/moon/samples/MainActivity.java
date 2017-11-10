@@ -3,6 +3,7 @@ package com.moon.samples;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,11 +28,13 @@ import com.moon.samples.jsoupcrawler.JsoupActivity;
 import com.moon.samples.main.ItemDecoration;
 import com.moon.samples.main.MainAdapter;
 import com.moon.samples.main.MainBody;
+import com.moon.samples.onmeasure_onlayout.OnMeasure2OnLayoutActivity;
 import com.moon.samples.propertyanimator.PropertyAnimatorActivity;
 import com.moon.samples.rxjava2.RxJava2Activity;
 import com.moon.samples.utils.CacheDataManager;
 import com.moon.samples.utils.CacheManager;
 import com.moon.samples.utils.UDebug;
+import com.moon.samples.utils.UiUtils;
 import com.moon.samples.viewcomponent.ViewcomponentActivity;
 import com.moon.samples.webview.NativeWebViewActivity;
 
@@ -74,9 +77,6 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
         adapter.setMcListener(new MainAdapter.ViewItemListener() {
             @Override
             public void itemClick(View v, int position) {
-
-                UDebug.i(">>>>>" + arr.get(position).index);
-
                 startIntent(arr.get(position).index);
             }
         });
@@ -89,7 +89,11 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
         // 将 recyclerview 与 itemtouchhelper 绑定
         itemTouchHelper.attachToRecyclerView(recyclerView);
 
+
+
+
     }
+
 
     private void setData() {
 
@@ -118,6 +122,8 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
         body = new MainBody(11, "android 事件分发机制");
         arr.add(body);
         body = new MainBody(12, "constraintLayout布局测试");
+        arr.add(body);
+        body = new MainBody(13, "onMeasure onLayout");
         arr.add(body);
     }
 
@@ -193,6 +199,12 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
                 intent.setClass(MainActivity.this, ConstaintlayoutActivity.class);
 
                 break;
+                
+            case 13:
+                intent.setClass(MainActivity.this, OnMeasure2OnLayoutActivity.class);
+
+                break;
+
             default:
                 Toast.makeText(getApplicationContext(), "不知道你点了什么，反正不起作用", Toast.LENGTH_SHORT).show();
 
@@ -215,27 +227,27 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
     @Override
     protected void onStart() {
         super.onStart();
-        UDebug.i("main onStart");
+
+
+//        UiUtils.traversalView(findViewById(R.id.main_layout));
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        UDebug.i("main onResume");
 
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        UDebug.i("main onPause");
 
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        UDebug.i("main onStop");
 
     }
 

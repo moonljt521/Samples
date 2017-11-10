@@ -27,23 +27,23 @@ public class TestDispatchTouchEventActivity extends BaseActivity {
         });
 //        getWindow().getDecorView().dispatchTouchEvent(new MotionEvent())
 
-        findViewById(R.id.button1).setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent event) {
-
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        UDebug.i( "CustomButton-onTouch-ACTION_DOWN");
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        UDebug.i( "CustomButton-onTouch-ACTION_UP");
-                        break;
-                    default:
-                        break;
-                }
-                return false;
-            }
-        });
+//        findViewById(R.id.button1).setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent event) {
+//
+//                switch (event.getAction()) {
+//                    case MotionEvent.ACTION_DOWN:
+//                        UDebug.i( "CustomButton-onTouch-ACTION_DOWN");
+//                        break;
+//                    case MotionEvent.ACTION_UP:
+//                        UDebug.i( "CustomButton-onTouch-ACTION_UP");
+//                        break;
+//                    default:
+//                        break;
+//                }
+//                return false;
+//            }
+//        });
 
     }
 
@@ -83,8 +83,7 @@ public class TestDispatchTouchEventActivity extends BaseActivity {
             default:
                 break;
         }
-//        return super.onTouchEvent(event);
-
-        return true;
+        return super.onTouchEvent(event);
+//        return true;
     }
 }
