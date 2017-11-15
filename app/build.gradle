@@ -7,7 +7,7 @@ android {
 //    buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "com.moon.samples"
-        minSdkVersion 17
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -30,6 +30,7 @@ android {
             }
         }
 
+        vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
 //        jackOptions {
 //            enabled true   //启用jack编译器

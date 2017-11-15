@@ -2,9 +2,11 @@ package com.moon.samples;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -33,6 +35,7 @@ import com.moon.samples.propertyanimator.PropertyAnimatorActivity;
 import com.moon.samples.rxjava2.RxJava2Activity;
 import com.moon.samples.utils.CacheDataManager;
 import com.moon.samples.utils.CacheManager;
+import com.moon.samples.utils.SettingUtil;
 import com.moon.samples.utils.UDebug;
 import com.moon.samples.utils.UiUtils;
 import com.moon.samples.viewcomponent.ViewcomponentActivity;
@@ -264,6 +267,11 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
+
+            case R.id.action_night_Mode:
+                changeNightMode();
+                break;
+
             case R.id.action_compose:
 
                 break;
@@ -302,5 +310,19 @@ public class MainActivity extends BaseActivity implements ItemDragListener {
         }
 
         return true ;
+    }
+
+    private void changeNightMode(){
+
+        int mode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        if (mode == Configuration.UI_MODE_NIGHT_YES) {
+            SettingUtil.setIsNightMode(false);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        } else {
+            SettingUtil.setIsNightMode(true);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
+        getWindow().setWindowAnimations(R.style.WindowAnimationFadeInOut);
+        recreate();
     }
 }
