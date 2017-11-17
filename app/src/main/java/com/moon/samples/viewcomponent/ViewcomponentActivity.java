@@ -7,9 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-import android.support.v4.view.ViewPager;
 
-import com.moon.samples.BaseActivity;
+import com.moon.samples.base.BaseActivity;
 import com.moon.samples.R;
 import com.moon.samples.utils.UDebug;
 

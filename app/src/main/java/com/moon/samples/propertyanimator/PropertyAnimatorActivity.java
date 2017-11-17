@@ -10,9 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
 import com.moon.samples.R;
-import com.moon.samples.BaseActivity;
+import com.moon.samples.base.BaseActivity;
 
 public class PropertyAnimatorActivity extends BaseActivity {
 

@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.moon.samples.R;
-import com.moon.samples.BaseActivity;
+import com.moon.samples.base.BaseActivity;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;

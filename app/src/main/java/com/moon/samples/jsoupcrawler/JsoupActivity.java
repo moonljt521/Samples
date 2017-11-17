@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.moon.samples.MyApplication;
+import com.moon.samples.base.MyApplication;
 import com.moon.samples.R;
-import com.moon.samples.BaseActivity;
+import com.moon.samples.base.BaseActivity;
 import com.moon.samples.utils.UDebug;
 
 import org.jsoup.Jsoup;

@@ -1,11 +1,10 @@
 package com.moon.samples.dispatch_event;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.moon.samples.BaseActivity;
+import com.moon.samples.base.BaseActivity;
 import com.moon.samples.R;
 import com.moon.samples.utils.UDebug;
 

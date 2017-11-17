@@ -1,14 +1,12 @@
 package com.moon.samples.jni;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.moon.samples.BaseActivity;
+import com.moon.samples.base.BaseActivity;
 import com.moon.samples.R;
 import com.moon.samples.jni.util.JniUtil;
-import com.moon.samples.utils.UDebug;
 
 public class JniActivity extends BaseActivity {
 

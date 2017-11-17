@@ -3,7 +3,7 @@ package com.moon.samples.annotation;
 import android.os.Bundle;
 
 import com.moon.samples.R;
-import com.moon.samples.BaseActivity;
+import com.moon.samples.base.BaseActivity;
 
 public class AnnotationActivity extends BaseActivity {
 

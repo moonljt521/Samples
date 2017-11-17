@@ -1,10 +1,12 @@
-package com.moon.samples;
+package com.moon.samples.base;
 
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Debug;
+import android.support.multidex.MultiDex;
 
+import com.moon.samples.BuildConfig;
+import com.moon.samples.MainActivity;
 import com.moon.samples.uncaughthandler.CrashHandler;
 
 import java.util.concurrent.TimeUnit;
@@ -88,5 +90,6 @@ public class MyApplication extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         start = System.currentTimeMillis();
+        MultiDex.install(this);
     }
 }
