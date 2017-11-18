@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
 
-import com.moon.samples.utils.UDebug;
+import com.moon.samples.utils.Logger;
 
 /**
  * author: moon
@@ -35,11 +35,11 @@ public class MyLinearLayout extends LinearLayout {
         switch (ev.getAction()) {
 
             case MotionEvent.ACTION_DOWN:
-                UDebug.i( "CustomLayout-dispatchTouchEvent-ACTION_DOWN");
+                Logger.i( "CustomLayout-dispatchTouchEvent-ACTION_DOWN");
                 break;
 
             case MotionEvent.ACTION_UP:
-                UDebug.i("CustomLayout-dispatchTouchEvent-ACTION_UP");
+                Logger.i("CustomLayout-dispatchTouchEvent-ACTION_UP");
                 break;
 
             default:
@@ -55,11 +55,11 @@ public class MyLinearLayout extends LinearLayout {
         switch (ev.getAction()) {
 
             case MotionEvent.ACTION_DOWN:
-                UDebug.i( "CustomLayout-onInterceptTouchEvent-ACTION_DOWN");
+                Logger.i( "CustomLayout-onInterceptTouchEvent-ACTION_DOWN");
                 break;
 
             case MotionEvent.ACTION_UP:
-                UDebug.i( "CustomLayout-onInterceptTouchEvent-ACTION_UP");
+                Logger.i( "CustomLayout-onInterceptTouchEvent-ACTION_UP");
                 break;
 
             default:
@@ -77,14 +77,14 @@ public class MyLinearLayout extends LinearLayout {
 
             case MotionEvent.ACTION_DOWN:
 
-                UDebug.i( "CustomLayout-onTouchEvent-ACTION_DOWN");
+                Logger.i( "CustomLayout-onTouchEvent-ACTION_DOWN");
 
                 // TODO: 2017/10/29  
                 performClick();
                 
                 break;
             case MotionEvent.ACTION_UP:
-                UDebug.i("CustomLayout-onTouchEvent-ACTION_UP");
+                Logger.i("CustomLayout-onTouchEvent-ACTION_UP");
                 break;
             default:
                 break;

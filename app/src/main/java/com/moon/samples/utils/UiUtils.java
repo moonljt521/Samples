@@ -112,7 +112,7 @@ public class UiUtils {
             //dosomething
         }
 
-        UDebug.i("size" + queue.size());
+        Logger.i("size" + queue.size());
     }
 
 }

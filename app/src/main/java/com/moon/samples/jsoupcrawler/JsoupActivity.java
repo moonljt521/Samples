@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import com.moon.samples.base.MyApplication;
 import com.moon.samples.R;
 import com.moon.samples.base.BaseActivity;
-import com.moon.samples.utils.UDebug;
+import com.moon.samples.utils.Logger;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -85,13 +85,13 @@ public class JsoupActivity extends BaseActivity {
 
                     @Override
                     public void onNext(String s) {
-                        UDebug.i("s = " + s);
+                        Logger.i("s = " + s);
 
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        UDebug.i("??????报错了");
+                        Logger.i("??????报错了");
                     }
 
                     @Override
@@ -139,7 +139,7 @@ public class JsoupActivity extends BaseActivity {
                             Elements bannerElements = parse.getElementsByClass("banner");
                             for (Element e : bannerElements) {
                                 String png = e.getElementsByTag("img").attr("src");
-//                                UDebug.i("src = " + png);
+//                                Logger.i("src = " + png);
                                 mBannerUrls.add("http:" + png);
                             }
 

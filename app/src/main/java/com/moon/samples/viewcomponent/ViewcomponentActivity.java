@@ -10,7 +10,7 @@ import android.os.Message;
 
 import com.moon.samples.base.BaseActivity;
 import com.moon.samples.R;
-import com.moon.samples.utils.UDebug;
+import com.moon.samples.utils.Logger;
 
 public class ViewcomponentActivity extends BaseActivity {
 
@@ -21,7 +21,7 @@ public class ViewcomponentActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        UDebug.i("samples viewcomponentActivity onCreate");
+        Logger.i("samples viewcomponentActivity onCreate");
         setContentView(R.layout.activity_viewcomponent);
 
         handlerThread = new HandlerThread("myHandlerThread");
@@ -33,8 +33,8 @@ public class ViewcomponentActivity extends BaseActivity {
 
                 try {
                     Thread.sleep(2000);
-                    UDebug.i("curr" + Thread.currentThread().getName());
-                    UDebug.i("i = " + i);
+                    Logger.i("curr" + Thread.currentThread().getName());
+                    Logger.i("i = " + i);
                     i ++;
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -49,7 +49,7 @@ public class ViewcomponentActivity extends BaseActivity {
 
                 try {
                     Thread.sleep(2000);
-                    UDebug.i(">> = " + i);
+                    Logger.i(">> = " + i);
                     i ++;
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -67,7 +67,7 @@ public class ViewcomponentActivity extends BaseActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        UDebug.i("samples viewcomponentActivity onNewIntent");
+        Logger.i("samples viewcomponentActivity onNewIntent");
 
     }
 

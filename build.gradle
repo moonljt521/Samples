@@ -28,6 +28,7 @@ allprojects {
             url 'https://maven.google.com/'
             name 'Google'
         }
+
     }
     configurations.all {
         resolutionStrategy.force 'com.android.support:support-annotations:22.1.0'

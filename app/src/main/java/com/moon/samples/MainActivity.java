@@ -61,9 +61,9 @@ public class MainActivity extends BaseActivity{
             getSupportActionBar().setDisplayUseLogoEnabled(true);
         }
 
-//        getSupportFragmentManager().beginTransaction()
-//                .add(R.id.main_container,MainFragment.getInstance())
-//                .commit();
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.main_container,MainFragment.getInstance())
+                .commit();
     }
 
 
@@ -134,7 +134,6 @@ public class MainActivity extends BaseActivity{
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
 
                 new AlertDialog.Builder(MainActivity.this).setTitle("清理缓存？")
                         .setMessage("当前缓存大小为："+totalSize )

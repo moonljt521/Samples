@@ -4,7 +4,7 @@ import android.os.Looper;
 import android.widget.Toast;
 
 import com.moon.samples.base.MyApplication;
-import com.moon.samples.utils.UDebug;
+import com.moon.samples.utils.Logger;
 
 /**
  * author: moon
@@ -21,7 +21,7 @@ public class JniCallBack {
     public static void getJniCall(String str){
         if (Looper.getMainLooper() != Looper.myLooper() ){
 
-            UDebug.i("不是主线程。。。。。");
+            Logger.i("不是主线程。。。。。");
             return;
         }
 

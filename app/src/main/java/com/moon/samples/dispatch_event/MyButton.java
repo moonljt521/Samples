@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.Button;
 
-import com.moon.samples.utils.UDebug;
+import com.moon.samples.utils.Logger;
 
 /**
  * author: moon
@@ -33,11 +33,11 @@ public class MyButton extends Button {
         switch (ev.getAction()) {
 
             case MotionEvent.ACTION_DOWN:
-                UDebug.i( "button - onTouchEvent-ACTION_DOWN");
+                Logger.i( "button - onTouchEvent-ACTION_DOWN");
                 break;
 
             case MotionEvent.ACTION_UP:
-                UDebug.i("button - onTouchEvent-ACTION_UP");
+                Logger.i("button - onTouchEvent-ACTION_UP");
                 break;
 
             default:
@@ -55,11 +55,11 @@ public class MyButton extends Button {
         switch (ev.getAction()) {
 
             case MotionEvent.ACTION_DOWN:
-                UDebug.i( "button -dispatchTouchEvent-ACTION_DOWN");
+                Logger.i( "button -dispatchTouchEvent-ACTION_DOWN");
                 break;
 
             case MotionEvent.ACTION_UP:
-                UDebug.i("button -dispatchTouchEvent-ACTION_UP");
+                Logger.i("button -dispatchTouchEvent-ACTION_UP");
                 break;
 
             default:

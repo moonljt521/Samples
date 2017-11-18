@@ -3,7 +3,6 @@ package com.moon.samples.utils;
 import android.content.Context;
 import android.os.Environment;
 
-import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.cache.InternalCacheDiskCacheFactory;
 
 import java.io.File;
@@ -64,12 +63,12 @@ public class CacheDataManager {
     public static void clearAllCache(Context context) {
 
         //内部缓存
-        UDebug.i("cacheDir del 结果" + deleteDir(context.getCacheDir()));
+        Logger.i("cacheDir del 结果" + deleteDir(context.getCacheDir()));
 
         //sd卡缓存
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             ;
-            UDebug.i("sd卡 dir del 结果" + deleteDir(context.getExternalCacheDir()));
+            Logger.i("sd卡 dir del 结果" + deleteDir(context.getExternalCacheDir()));
 
         }
 
@@ -80,7 +79,7 @@ public class CacheDataManager {
 
     private static boolean deleteDir(File dir) {
 
-        UDebug.i("deleteDir->" + dir.getAbsolutePath());
+        Logger.i("deleteDir->" + dir.getAbsolutePath());
 
         if (dir != null && dir.isDirectory()) {
 

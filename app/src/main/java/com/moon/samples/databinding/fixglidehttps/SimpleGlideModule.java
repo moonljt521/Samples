@@ -2,21 +2,18 @@ package com.moon.samples.databinding.fixglidehttps;
 
 
 import android.content.Context;
-import android.util.Log;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.GlideBuilder;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.module.GlideModule;
-import com.moon.samples.utils.UDebug;
+import com.moon.samples.utils.Logger;
 
 import java.io.InputStream;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
-import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
@@ -98,7 +95,7 @@ public class SimpleGlideModule implements GlideModule
         }
         catch (Exception e)
         {
-            UDebug.i(SimpleGlideModule.class.getSimpleName()+"ssl出现异常");
+            Logger.i(SimpleGlideModule.class.getSimpleName()+"ssl出现异常");
             return null;
         }
     }
