@@ -19,6 +19,8 @@ import java.util.List;
  */
 public class DataRepository {
 
+    private List<MainBody> arr = new ArrayList<>();
+    private MutableLiveData<List<MainBody>> mutableLiveData = new MutableLiveData<>();
 
     private DataRepository(){
 
@@ -36,12 +38,9 @@ public class DataRepository {
 
     public LiveData<List<MainBody>> getMainItemList (String input){
         if (!"refresh".equals(input)){
-            Logger.i("refresh 不匹配。。。");
-            return null;
+            Logger.i("input = " + input);
+            return getChangeList();
         }
-
-
-        List<MainBody> arr = new ArrayList<>();
 
         MainBody body = new MainBody(0, "自定义view");
         arr.add(body);
@@ -72,50 +71,19 @@ public class DataRepository {
         body = new MainBody(13, "onMeasure onLayout");
         arr.add(body);
 
-        MutableLiveData<List<MainBody>> mutableLiveData = new MutableLiveData<>();
+
         mutableLiveData.setValue(arr);
         return mutableLiveData;
     }
 
-    //TEST
-    public List<MainBody> getMainItemList1 (String input){
-        if (!"refresh".equals(input)){
-            Logger.i("refresh 不匹配。。。");
-            return null;
+    public LiveData<List<MainBody>> getChangeList(){
+
+        if (arr.size()>0){
+            arr.get(0).title = "注解什么？";
         }
 
-        List<MainBody> arr = new ArrayList<>();
-
-        MainBody body = new MainBody(0, "自定义view");
-        arr.add(body);
-        body = new MainBody(1, "注解");
-        arr.add(body);
-        body = new MainBody(2, "rxJava2");
-        arr.add(body);
-        body = new MainBody(3, "DSBridge");
-        arr.add(body);
-        body = new MainBody(4, "rxjava2+retrofit2+JSOUP抓取html并解析");
-        arr.add(body);
-        body = new MainBody(5, "属性动画");
-        arr.add(body);
-        body = new MainBody(6, "bottomSheet");
-        arr.add(body);
-        body = new MainBody(7, "dataBinding");
-        arr.add(body);
-        body = new MainBody(8, "webView");
-        arr.add(body);
-        body = new MainBody(9, "定制RecyclerView");
-        arr.add(body);
-        body = new MainBody(10, "JNI和Java互调");
-        arr.add(body);
-        body = new MainBody(11, "android 事件分发机制");
-        arr.add(body);
-        body = new MainBody(12, "constraintLayout布局测试");
-        arr.add(body);
-        body = new MainBody(13, "onMeasure onLayout");
-        arr.add(body);
-
-        return  arr;
+        mutableLiveData.setValue(arr);
+        return mutableLiveData;
     }
 
 }

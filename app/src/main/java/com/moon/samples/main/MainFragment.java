@@ -131,9 +131,7 @@ public class MainFragment extends Fragment implements ItemDragListener,SwipeRefr
                 }
             }
         });
-//
-//
-        mainViewModel.refreshMainData();
+        mainViewModel.initMainData();
 
 
         // TODO: 17/11/18
@@ -149,6 +147,9 @@ public class MainFragment extends Fragment implements ItemDragListener,SwipeRefr
 
     @Override
     public void onRefresh() {
+
+        mainViewModel.refreshMainData();
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -156,7 +157,7 @@ public class MainFragment extends Fragment implements ItemDragListener,SwipeRefr
                     swipeRefreshLayout.setRefreshing(false);
                 }
             }
-        },1000);
+        },500);
 
     }
 

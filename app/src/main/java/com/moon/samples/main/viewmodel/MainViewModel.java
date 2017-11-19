@@ -41,9 +41,6 @@ public class MainViewModel extends AndroidViewModel {
             }
         });
 
-
-
-
     }
 
     public LiveData<List<MainBody>> getMainDataList() {
@@ -51,6 +48,10 @@ public class MainViewModel extends AndroidViewModel {
     }
 
     public void refreshMainData(){
+        mZhihuPageDate.setValue("change");
+    }
+
+    public void initMainData(){
         mZhihuPageDate.setValue("refresh");
     }
 
