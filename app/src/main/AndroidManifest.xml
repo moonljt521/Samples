@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".viewcomponent.ViewcomponentActivity"
+            android:name=".handler_thread.HandlerThreadActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="app1a1"/>

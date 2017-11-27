@@ -6,7 +6,6 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -39,7 +38,7 @@ import com.moon.samples.onmeasure_onlayout.OnMeasure2OnLayoutActivity;
 import com.moon.samples.propertyanimator.PropertyAnimatorActivity;
 import com.moon.samples.rxjava2.RxJava2Activity;
 import com.moon.samples.utils.Logger;
-import com.moon.samples.viewcomponent.ViewcomponentActivity;
+import com.moon.samples.handler_thread.HandlerThreadActivity;
 import com.moon.samples.webview.NativeWebViewActivity;
 
 import java.util.List;
@@ -166,7 +165,7 @@ public class MainFragment extends Fragment implements ItemDragListener, SwipeRef
         Intent intent = new Intent();
         switch (position) {
             case 0:
-                intent.setClass(activity, ViewcomponentActivity.class);
+                intent.setClass(activity, HandlerThreadActivity.class);
 
                 break;
 

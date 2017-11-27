@@ -122,7 +122,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
                 }
             });
 
-            numName.setOnClickListener(this);
+            view.setOnClickListener(this);
         }
 
         @Override

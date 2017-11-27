@@ -1,4 +1,4 @@
-package com.moon.samples.viewcomponent;
+package com.moon.samples.handler_thread;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
@@ -8,11 +8,11 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 
-import com.moon.samples.base.BaseActivity;
 import com.moon.samples.R;
+import com.moon.samples.base.BaseActivity;
 import com.moon.samples.utils.Logger;
 
-public class ViewcomponentActivity extends BaseActivity {
+public class HandlerThreadActivity extends BaseActivity {
 
     Handler handler ;
     private HandlerThread handlerThread;
@@ -21,8 +21,7 @@ public class ViewcomponentActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Logger.i("samples viewcomponentActivity onCreate");
-        setContentView(R.layout.activity_viewcomponent);
+        setContentView(R.layout.activity_handler_thread);
 
         handlerThread = new HandlerThread("myHandlerThread");
         handlerThread.start();
@@ -67,13 +66,12 @@ public class ViewcomponentActivity extends BaseActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        Logger.i("samples viewcomponentActivity onNewIntent");
 
     }
 
     @Override
     protected String getActionTitle() {
-        return "...";
+        return "测试handlerThread";
     }
 
 

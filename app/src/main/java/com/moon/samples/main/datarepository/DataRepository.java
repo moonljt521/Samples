@@ -47,7 +47,7 @@ public class DataRepository {
 
         arr.clear();
 
-        MainBody body = new MainBody(0, "自定义view");
+        MainBody body = new MainBody(0, "测试HandlerThread");
         arr.add(body);
         body = new MainBody(1, "注解");
         arr.add(body);
@@ -55,7 +55,7 @@ public class DataRepository {
         arr.add(body);
         body = new MainBody(3, "DSBridge");
         arr.add(body);
-        body = new MainBody(4, "rxjava2+retrofit2+JSOUP抓取html并解析");
+        body = new MainBody(4, "rxjava2+retrofit2+JSOUP");
         arr.add(body);
         body = new MainBody(5, "属性动画");
         arr.add(body);
