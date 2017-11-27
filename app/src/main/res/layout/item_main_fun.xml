@@ -8,10 +8,10 @@
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/item_main_textview"
-        android:layout_width="328dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        app:layout_constraintHorizontal_weight="1"
+              app:layout_constraintLeft_toLeftOf="parent"
         android:padding="10dp"
         android:textSize="16dp"
               android:textColor="@color/textColorPrimary"
@@ -19,17 +19,29 @@
         tools:layout_editor_absoluteX="8dp" />
 
 
+    <TextView
+              android:id="@+id/item_main_refreshCount"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              app:layout_constraintLeft_toRightOf="@+id/item_main_textview"
+              android:padding="10dp"
+              android:textSize="16dp"
+              android:text=""
+              android:textColor="@color/textColorPrimary"
+              tools:layout_editor_absoluteY="0dp"
+              tools:layout_editor_absoluteX="8dp" />
+
+
     <ImageView
         android:scaleType="centerInside"
         android:src="@mipmap/main_item_drag"
         android:id="@+id/item_main_dragview"
-        android:layout_width="0dp"
-        app:layout_constraintHorizontal_weight="5"
+        android:layout_width="wrap_content"
         android:padding="7dp"
+        app:layout_constraintRight_toRightOf="parent"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/item_main_textview"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         />
 
 </android.support.constraint.ConstraintLayout>

@@ -22,6 +22,9 @@ public class DataRepository {
     private List<MainBody> arr = new ArrayList<>();
     private MutableLiveData<List<MainBody>> mutableLiveData = new MutableLiveData<>();
 
+    private int refreshCount;
+
+
     private DataRepository(){
 
     }
@@ -41,6 +44,8 @@ public class DataRepository {
             Logger.i("input = " + input);
             return getChangeList();
         }
+
+        arr.clear();
 
         MainBody body = new MainBody(0, "自定义view");
         arr.add(body);
@@ -70,7 +75,8 @@ public class DataRepository {
         arr.add(body);
         body = new MainBody(13, "onMeasure onLayout");
         arr.add(body);
-
+        body = new MainBody(14, "messenger IPC");
+        arr.add(body);
 
         mutableLiveData.setValue(arr);
         return mutableLiveData;
@@ -79,7 +85,8 @@ public class DataRepository {
     public LiveData<List<MainBody>> getChangeList(){
 
         if (arr.size()>0){
-            arr.get(0).title = "注解什么？";
+            refreshCount ++ ;
+            arr.get(0).refreshCount = refreshCount;
         }
 
         mutableLiveData.setValue(arr);

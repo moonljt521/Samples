@@ -37,6 +37,7 @@ public class MainViewModel extends AndroidViewModel {
 
             @Override
             public LiveData<List<MainBody>> apply(String s)  {
+
                 return mDataRepository.getMainItemList(s);
             }
         });
@@ -72,6 +73,9 @@ public class MainViewModel extends AndroidViewModel {
             return (T) new MainViewModel(mApp,repository);
         }
     }
+
+
+
 
 
 }
