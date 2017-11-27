@@ -1,4 +1,4 @@
-package com.moon.samples.viewcomponent;
+package com.moon.samples.handler_thread;
 
 import android.os.Looper;
 

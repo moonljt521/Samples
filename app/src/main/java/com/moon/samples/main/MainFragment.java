@@ -6,7 +6,6 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -34,10 +33,12 @@ import com.moon.samples.main.adapter.MainAdapter;
 import com.moon.samples.main.datarepository.DataRepository;
 import com.moon.samples.main.listener.OnItemClickListener;
 import com.moon.samples.main.viewmodel.MainViewModel;
+import com.moon.samples.messenger_ipc.MessengerIPCActivity;
 import com.moon.samples.onmeasure_onlayout.OnMeasure2OnLayoutActivity;
 import com.moon.samples.propertyanimator.PropertyAnimatorActivity;
 import com.moon.samples.rxjava2.RxJava2Activity;
-import com.moon.samples.viewcomponent.ViewcomponentActivity;
+import com.moon.samples.utils.Logger;
+import com.moon.samples.handler_thread.HandlerThreadActivity;
 import com.moon.samples.webview.NativeWebViewActivity;
 
 import java.util.List;
@@ -47,8 +48,7 @@ import java.util.List;
  * created on: 17/11/17 下午4:09
  * description:
  */
-public class MainFragment extends Fragment implements ItemDragListener,SwipeRefreshLayout.OnRefreshListener
-    {
+public class MainFragment extends Fragment implements ItemDragListener, SwipeRefreshLayout.OnRefreshListener {
 
     private SwipeRefreshLayout swipeRefreshLayout;
 
@@ -70,7 +70,7 @@ public class MainFragment extends Fragment implements ItemDragListener,SwipeRefr
         }
     };
 
-    public static MainFragment getInstance(){
+    public static MainFragment getInstance() {
         return new MainFragment();
     }
 
@@ -78,12 +78,15 @@ public class MainFragment extends Fragment implements ItemDragListener,SwipeRefr
     public void onAttach(Context context) {
         super.onAttach(context);
         this.activity = (Activity) context;
+        Logger.i("onAttach...");
+
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main,container,false);
+        Logger.i("mainFragment -- onCreateView...");
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
         initViews(view);
         return view;
     }
@@ -92,17 +95,25 @@ public class MainFragment extends Fragment implements ItemDragListener,SwipeRefr
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        Logger.i("mainFragment..onActivity..");
         subscribeUI();
     }
 
 
-    private void initViews(View view){
+    @Override
+    public void onDetach() {
+        super.onDetach();
+
+        Logger.i("onDetach...");
+    }
+
+    private void initViews(View view) {
         swipeRefreshLayout = view.findViewById(R.id.fragment_swiperefreshlayout);
         swipeRefreshLayout.setOnRefreshListener(this);
         recyclerView = view.findViewById(R.id.fragment_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         recyclerView.addItemDecoration(new ItemDecoration(2));
-        recyclerView.setAdapter(adapter = new MainAdapter(activity, this,onItemClickListener));
+        recyclerView.setAdapter(adapter = new MainAdapter(activity, this, onItemClickListener));
 
         callBack = new MyItemTouchHelperCallBack(adapter);
 
@@ -113,30 +124,29 @@ public class MainFragment extends Fragment implements ItemDragListener,SwipeRefr
     }
 
 
-    private void subscribeUI(){
+    private void subscribeUI() {
         // 注册生命周期
 //        getLifecycle().addObserver(new MyLifecycleObserver());
 
         MainViewModel.Factory factory = new MainViewModel.Factory(activity.getApplication()
                 , DataRepository.getInstance());
 
-        mainViewModel = ViewModelProviders.of(this,factory).get(MainViewModel.class);
+        mainViewModel = ViewModelProviders.of(this, factory).get(MainViewModel.class);
 
         mainViewModel.getMainDataList().observe(this, new Observer<List<MainBody>>() {
             @Override
             public void onChanged(@Nullable List<MainBody> mainBodies) {
 
-                if (adapter!=null){
+                if (swipeRefreshLayout != null) {
+                    swipeRefreshLayout.setRefreshing(false);
+                }
+
+                if (adapter != null) {
                     adapter.refreshData(mainBodies);
                 }
             }
         });
         mainViewModel.initMainData();
-
-
-        // TODO: 17/11/18
-//        adapter.refreshData(DataRepository.getInstance().getMainItemList1("refresh"));
-
     }
 
 
@@ -149,98 +159,93 @@ public class MainFragment extends Fragment implements ItemDragListener,SwipeRefr
     public void onRefresh() {
 
         mainViewModel.refreshMainData();
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (swipeRefreshLayout.isRefreshing()){
-                    swipeRefreshLayout.setRefreshing(false);
-                }
-            }
-        },500);
-
     }
 
-        private void startIntent(int position) {
-            Intent intent = new Intent();
-            switch (position) {
-                case 0:
-                    intent.setClass(activity, ViewcomponentActivity.class);
+    private void startIntent(int position) {
+        Intent intent = new Intent();
+        switch (position) {
+            case 0:
+                intent.setClass(activity, HandlerThreadActivity.class);
 
-                    break;
+                break;
 
-                case 1:
-                    intent.setClass(activity, AnnotationActivity.class);
+            case 1:
+                intent.setClass(activity, AnnotationActivity.class);
 
-                    break;
+                break;
 
-                case 2:
-                    intent.setClass(activity, RxJava2Activity.class);
+            case 2:
+                intent.setClass(activity, RxJava2Activity.class);
 
-                    break;
-                case 3:
-                    intent.setClass(activity, DSBridgeActivity.class);
+                break;
+            case 3:
+                intent.setClass(activity, DSBridgeActivity.class);
 
-                    break;
+                break;
 
-                case 4:
-                    intent.setClass(activity, JsoupActivity.class);
+            case 4:
+                intent.setClass(activity, JsoupActivity.class);
 
-                    break;
-                case 5:
-                    intent.setClass(activity, PropertyAnimatorActivity.class);
+                break;
+            case 5:
+                intent.setClass(activity, PropertyAnimatorActivity.class);
 
-                    break;
-                case 6:
-                    intent.setClass(activity, BottomSheetActivity.class);
+                break;
+            case 6:
+                intent.setClass(activity, BottomSheetActivity.class);
 
-                    break;
+                break;
 
-                case 7:
-                    intent.setClass(activity, DataBindingDemoActivity.class);
+            case 7:
+                intent.setClass(activity, DataBindingDemoActivity.class);
 
-                    break;
+                break;
 
-                case 8:
-                    intent.setClass(activity, NativeWebViewActivity.class);
+            case 8:
+                intent.setClass(activity, NativeWebViewActivity.class);
 
-                    break;
+                break;
 
-                case 9:
-                    intent.setClass(activity, CustomRecyclerViewActivity.class);
+            case 9:
+                intent.setClass(activity, CustomRecyclerViewActivity.class);
 
-                    break;
+                break;
 
-                case 10:
+            case 10:
 
-                    intent.setClass(activity, JniActivity.class);
+                intent.setClass(activity, JniActivity.class);
 
-                    break;
+                break;
 
-                case 11:
+            case 11:
 
-                    intent.setClass(activity, TestDispatchTouchEventActivity.class);
+                intent.setClass(activity, TestDispatchTouchEventActivity.class);
 
-                    break;
+                break;
 
-                case 12:
+            case 12:
 
-                    intent.setClass(activity, ConstaintlayoutActivity.class);
+                intent.setClass(activity, ConstaintlayoutActivity.class);
 
-                    break;
+                break;
 
-                case 13:
-                    intent.setClass(activity, OnMeasure2OnLayoutActivity.class);
+            case 13:
+                intent.setClass(activity, OnMeasure2OnLayoutActivity.class);
 
-                    break;
+                break;
 
-                default:
-                    Toast.makeText(activity.getApplicationContext(), "不知道你点了什么，反正不起作用", Toast.LENGTH_SHORT).show();
+            case 14:
+                intent.setClass(activity, MessengerIPCActivity.class);
 
-                    break;
-            }
+                break;
 
-            startActivity(intent);
+            default:
+                Toast.makeText(activity.getApplicationContext(), "不知道你点了什么，反正不起作用", Toast.LENGTH_SHORT).show();
+
+                break;
         }
 
+        startActivity(intent);
     }
+
+}

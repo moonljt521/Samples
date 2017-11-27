@@ -1,45 +1,19 @@
 package com.moon.samples;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatDelegate;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.moon.samples.annotation.AnnotationActivity;
 import com.moon.samples.base.BaseActivity;
-import com.moon.samples.bottomsheet.BottomSheetActivity;
-import com.moon.samples.constraintlayout.ConstaintlayoutActivity;
-import com.moon.samples.databinding.DataBindingDemoActivity;
-import com.moon.samples.dispatch_event.TestDispatchTouchEventActivity;
-import com.moon.samples.dsbridge.DSBridgeActivity;
-import com.moon.samples.full_function_recyclerview.CustomRecyclerViewActivity;
-import com.moon.samples.itemtouchhelper.ItemDragListener;
-import com.moon.samples.itemtouchhelper.MyItemTouchHelperCallBack;
-import com.moon.samples.jni.JniActivity;
-import com.moon.samples.jsoupcrawler.JsoupActivity;
-import com.moon.samples.main.ItemDecoration;
 import com.moon.samples.main.MainFragment;
-import com.moon.samples.main.adapter.MainAdapter;
-import com.moon.samples.main.MainBody;
-import com.moon.samples.onmeasure_onlayout.OnMeasure2OnLayoutActivity;
-import com.moon.samples.propertyanimator.PropertyAnimatorActivity;
-import com.moon.samples.rxjava2.RxJava2Activity;
 import com.moon.samples.utils.CacheDataManager;
 import com.moon.samples.utils.SettingUtil;
-import com.moon.samples.viewcomponent.ViewcomponentActivity;
-import com.moon.samples.webview.NativeWebViewActivity;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends BaseActivity{
 
@@ -101,6 +75,11 @@ public class MainActivity extends BaseActivity{
     protected void onStop() {
         super.onStop();
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     @Override

@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".viewcomponent.ViewcomponentActivity"
+            android:name=".handler_thread.HandlerThreadActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="app1a1"/>
@@ -61,6 +61,22 @@
         </activity>
         <activity android:name=".constraintlayout.ConstaintlayoutActivity">
         </activity>
+
+        <!-- 开了个新进程 -->
+        <activity android:name=".messenger_ipc.MessengerIPCActivity"
+            android:process=".messengeripc">
+
+        </activity>
+
+        <!-- 远程调用的service （测试 messenger形式的 IPC） -->
+        <service android:name=".messenger_ipc.service.MessengerService">
+
+            <intent-filter>
+                <action android:name="com.moon.samples.test.messenger.ipc"></action>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

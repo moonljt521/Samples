@@ -55,6 +55,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.numName.setText(mList.get(position).title);
+        holder.count.setText("刷新次数："+mList.get(position).refreshCount);
     }
 
     @Override
@@ -100,6 +101,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
     class MyViewHolder extends ViewHolder implements OnClickListener {
 
         TextView numName;
+        TextView count;
 
         private ImageView dragView;
 
@@ -107,6 +109,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
             super(view);
 
             numName = (TextView) view.findViewById(R.id.item_main_textview);
+            count = (TextView) view.findViewById(R.id.item_main_refreshCount);
             dragView = (ImageView) view.findViewById(R.id.item_main_dragview);
 
             dragView.setOnTouchListener(new View.OnTouchListener() {
@@ -119,7 +122,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
                 }
             });
 
-            numName.setOnClickListener(this);
+            view.setOnClickListener(this);
         }
 
         @Override

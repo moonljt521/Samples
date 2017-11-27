@@ -22,6 +22,9 @@ public class DataRepository {
     private List<MainBody> arr = new ArrayList<>();
     private MutableLiveData<List<MainBody>> mutableLiveData = new MutableLiveData<>();
 
+    private int refreshCount;
+
+
     private DataRepository(){
 
     }
@@ -42,7 +45,9 @@ public class DataRepository {
             return getChangeList();
         }
 
-        MainBody body = new MainBody(0, "自定义view");
+        arr.clear();
+
+        MainBody body = new MainBody(0, "测试HandlerThread");
         arr.add(body);
         body = new MainBody(1, "注解");
         arr.add(body);
@@ -50,7 +55,7 @@ public class DataRepository {
         arr.add(body);
         body = new MainBody(3, "DSBridge");
         arr.add(body);
-        body = new MainBody(4, "rxjava2+retrofit2+JSOUP抓取html并解析");
+        body = new MainBody(4, "rxjava2+retrofit2+JSOUP");
         arr.add(body);
         body = new MainBody(5, "属性动画");
         arr.add(body);
@@ -70,7 +75,8 @@ public class DataRepository {
         arr.add(body);
         body = new MainBody(13, "onMeasure onLayout");
         arr.add(body);
-
+        body = new MainBody(14, "messenger IPC");
+        arr.add(body);
 
         mutableLiveData.setValue(arr);
         return mutableLiveData;
@@ -79,7 +85,8 @@ public class DataRepository {
     public LiveData<List<MainBody>> getChangeList(){
 
         if (arr.size()>0){
-            arr.get(0).title = "注解什么？";
+            refreshCount ++ ;
+            arr.get(0).refreshCount = refreshCount;
         }
 
         mutableLiveData.setValue(arr);
