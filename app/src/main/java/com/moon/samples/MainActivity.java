@@ -13,7 +13,14 @@ import android.widget.Toast;
 import com.moon.samples.base.BaseActivity;
 import com.moon.samples.main.MainFragment;
 import com.moon.samples.utils.CacheDataManager;
+import com.moon.samples.utils.Logger;
 import com.moon.samples.utils.SettingUtil;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import xiaofei.library.hermeseventbus.HermesEventBus;
 
 public class MainActivity extends BaseActivity{
 
@@ -24,10 +31,10 @@ public class MainActivity extends BaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
 
         notLoadSlide = true;
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        HermesEventBus.getDefault().register(this);
 
         // setactionbar icon
         if (getSupportActionBar()!=null){
@@ -77,10 +84,19 @@ public class MainActivity extends BaseActivity{
 
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void showAnotherProcess(String s){
+        Logger.i(">>>" + s);
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
+        HermesEventBus.getDefault().unregister(this);
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

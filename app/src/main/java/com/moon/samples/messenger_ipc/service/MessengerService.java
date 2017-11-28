@@ -22,7 +22,7 @@ public class MessengerService extends Service {
 
     private static int serserID;
 
-    private static Handler handler = new Handler(){
+    private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msgfromClient)
         {
@@ -79,11 +79,18 @@ public class MessengerService extends Service {
     };
 
     //最好换成HandlerThread的形式
-    private static Messenger mMessenger = new Messenger(handler);
+    private Messenger mMessenger = new Messenger(handler);
 
     @Override
     public IBinder onBind(Intent intent)
     {
         return mMessenger.getBinder();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        stopSelf();
+        Logger.i("messengerService onDestroy...");
     }
 }

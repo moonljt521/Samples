@@ -15,6 +15,7 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import xiaofei.library.hermeseventbus.HermesEventBus;
 
 /**
  * author: moon
@@ -37,6 +38,8 @@ public class MyApplication extends Application {
         super.onCreate();
 
         myApp = this;
+
+        HermesEventBus.getDefault().init(this);
 
         if (!BuildConfig.DEBUG){
             new CrashHandler(){

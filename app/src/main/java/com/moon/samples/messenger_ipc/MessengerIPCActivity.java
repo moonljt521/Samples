@@ -21,6 +21,8 @@ import com.moon.samples.base.BaseActivity;
 import com.moon.samples.utils.ExplictFromIntent;
 import com.moon.samples.utils.Logger;
 
+import xiaofei.library.hermeseventbus.HermesEventBus;
+
 public class MessengerIPCActivity extends BaseActivity implements View.OnClickListener{
 
     private Button button;
@@ -78,6 +80,7 @@ public class MessengerIPCActivity extends BaseActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messenger_ipc);
 
+        // TODO: 17/11/28
         button = findViewById(R.id.connect);
 
         textView = findViewById(R.id.showText);
@@ -103,7 +106,7 @@ public class MessengerIPCActivity extends BaseActivity implements View.OnClickLi
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unbindService(mConn);
+//        unbindService(mConn);
         android.os.Process.killProcess(android.os.Process.myPid());// 直接退出
     }
 
@@ -135,6 +138,8 @@ public class MessengerIPCActivity extends BaseActivity implements View.OnClickLi
                 e.printStackTrace();
             }
         }
+
+        HermesEventBus.getDefault().post("111");
     }
 
 

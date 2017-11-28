@@ -123,6 +123,8 @@ dependencies {
 //    annotationProcessor 'android.arch.lifecycle:compiler:1.0.0-alpha3'
 //    annotationProcessor 'android.arch.persistence.room:compiler:1.0.0-alpha3'
 
+    // elemers 跨进程通讯
+    compile 'xiaofei.library:hermes-eventbus:0.3.0'
 
     compile 'android.arch.lifecycle:runtime:1.0.3'
     compile 'android.arch.lifecycle:extensions:1.0.0-rc1'
