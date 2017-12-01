@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
+import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
 
 /**
@@ -15,7 +16,6 @@ import java.util.stream.Collectors;
 public class LambdaTest {
 
     public static void main(String[] args) {
-
         LambdaTest t = new LambdaTest();
 
 //        t.printIterable();
@@ -27,8 +27,11 @@ public class LambdaTest {
 
 //        t.printReduce();
 
-        t.printFilter();
+//        t.printFilter();
 
+//        t.printMatch();
+
+        t.printAnyStream();
     }
 
 
@@ -54,7 +57,6 @@ public class LambdaTest {
         list.stream().filter((a)-> a.startsWith("d")).forEach(
                 (x)-> System.out.println(x)
         );
-
     }
 
     private void filter(List list, Predicate predicate) {
@@ -78,9 +80,10 @@ public class LambdaTest {
         List<Integer> list = Arrays.asList(10, 33, 80);
         Optional<Integer> total = list.stream().map((a) -> a + 2).reduce((sum, a) -> sum + a);
 
-        System.out.println("加法合计 = " + total.get());
-    }
+        int result = total.get();
 
+        System.out.println("加法合计 = " + result);
+    }
 
     /**
      * 测试 过滤 filter  map  distinct
@@ -104,10 +107,34 @@ public class LambdaTest {
 //                .forEach(a -> System.out.println(a));
 
         Arrays.asList(10, 33, 80,3,55,15).stream()
-                .map(y -> y * y)  //犯了个智商上的错误  y的平方应该是y*y,  之前写成了y ^ 2, 这是异或的意思
+                .map(y -> y * 2)  //犯了个智商上的错误  y的平方应该是y*y,  之前写成了y ^ 2, 这是异或的意思
+                .map(y -> y +2)
+                .map(y -> new StringBuffer().append(y))
+                .filter(y -> y.toString().startsWith("2"))
                 .forEach(a -> System.out.println(a));
-
-
     }
 
+    /**
+     *  anymatch  allMatch  noneMatch
+     */
+    private void printMatch(){
+        boolean result = Arrays.asList(10, 33, 80,3,55,15).stream()
+//        .anyMatch(x -> x>5)
+//                .allMatch( x-> x>=3)
+        .noneMatch( x -> x>81)
+                ;
+        System.out.println(result);
+    }
+
+    /**
+     *  anymatch  allMatch  noneMatch
+     */
+    private void printAnyStream(){
+              int result =   Arrays.asList(10, 33, 80,3,55,15).stream()
+                .mapToInt( (value) -> value.intValue())
+                .min().getAsInt()
+                ;
+
+        System.out.println(result);
+    }
 }
