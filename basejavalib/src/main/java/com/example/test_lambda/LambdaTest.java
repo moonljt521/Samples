@@ -7,6 +7,7 @@ import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * author: moon
@@ -31,7 +32,11 @@ public class LambdaTest {
 
 //        t.printMatch();
 
-        t.printAnyStream();
+//        t.printAnyStream();
+
+//        t.testCalculateCount();
+
+        t.printFlatMap();
     }
 
 
@@ -137,4 +142,65 @@ public class LambdaTest {
 
         System.out.println(result);
     }
+
+    /**
+     * 测试 推导参数类型
+     */
+    private void 推导参数类型 (){
+
+//        new LambdaTest().test1(new Function<Long, Long>() {
+//            @Override
+//            public Long apply(Long aLong) {
+//                return null;
+//            }
+//
+//            @Override
+//            public Long apply(Long aLong, Long aLong2) {
+//                return null;
+//            }
+//        });
+
+        new LambdaTest().test1( (x,y) -> x +1);
+    }
+
+    private void test1(Function<Long,Long> function){
+
+    }
+
+    /**
+     * 学习 flatmap 功能
+     * 我理解是个合并的过程，
+     */
+    private void printFlatMap(){
+        Arrays.asList(10, 33, 80,3,55,15,3,55,15)
+            .stream()
+        ;
+
+        Stream<List<Integer>> inputStream = Stream.of(
+                Arrays.asList(1),
+                Arrays.asList(2, 3),
+                Arrays.asList(4, 5, 6)
+        );
+        Stream<Integer> outputStream = inputStream.
+                flatMap((childList) -> childList.stream());
+
+
+        outputStream.forEach( x -> System.out.print(x +","));
+
+    }
+
+
+    /**
+     * 练习  从一个int数组集合中 得到大于50的元素的个数
+     */
+    private void testCalculateCount(){
+        List<Integer> list = Arrays.asList(10, 33, 80,3,55,15,3,55,15);
+
+        long count = list.stream().filter(x -> x>50).count();
+
+        System.out.println("计算集合长度 = "+ count);
+
+    }
+
+
 }
