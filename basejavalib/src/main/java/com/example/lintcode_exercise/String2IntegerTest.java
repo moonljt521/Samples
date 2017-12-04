@@ -1,4 +1,4 @@
-package com.example.other_algorithm;
+package com.example.lintcode_exercise;
 
 /**
  * author: moon
