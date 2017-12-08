@@ -7,13 +7,13 @@ import java.util.Arrays;
 
 /**
  * Created by moon on 2017/11/20.
+ * 测试主类
  */
-
 public class TestDynaProxy implements Shopping {
 
     public static void main(String[] args) {
 
-        Shopping me = new TestDynaProxy();
+        TestDynaProxy me = new TestDynaProxy();
 
         MyInvocationHandler handler = new MyInvocationHandler(me);
 
@@ -21,6 +21,7 @@ public class TestDynaProxy implements Shopping {
             ,handler);
 
         System.out.println(me1.getClass().getName());
+        System.out.println(me.getClass().getName());
 
         me1.buy(1000);
     }
@@ -33,12 +34,18 @@ public class TestDynaProxy implements Shopping {
 
 }
 
+/**
+ *  购物接口
+ */
 interface Shopping {
 
     void buy(long money);
 
 }
 
+/**
+ *  代理类
+ */
 class MyInvocationHandler implements InvocationHandler {
 
     private Object o;

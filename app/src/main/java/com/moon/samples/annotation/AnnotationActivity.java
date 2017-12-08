@@ -5,6 +5,9 @@ import android.os.Bundle;
 import com.moon.samples.R;
 import com.moon.samples.base.BaseActivity;
 
+import dalvik.system.BaseDexClassLoader;
+import dalvik.system.PathClassLoader;
+
 public class AnnotationActivity extends BaseActivity {
 
     @Override
@@ -13,7 +16,7 @@ public class AnnotationActivity extends BaseActivity {
         setContentView(R.layout.activity_annotation);
 
 //        new TestCar();
-
+        
 
 //        Toast.makeText(this, new GeneratedClass().getValue() ,Toast.LENGTH_LONG).show();
 

@@ -1,4 +1,4 @@
-package com.example.lintcode_exercise;
+package com.example.lint_code;
 
 /**
  * author: moon

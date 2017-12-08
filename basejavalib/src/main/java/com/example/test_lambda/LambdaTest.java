@@ -112,7 +112,7 @@ public class LambdaTest {
 //                .forEach(a -> System.out.println(a));
 
         Arrays.asList(10, 33, 80,3,55,15).stream()
-                .map(y -> y * 2)  //犯了个智商上的错误  y的平方应该是y*y,  之前写成了y ^ 2, 这是异或的意思
+                .map(y -> y * 2)                    //犯了个智商上的错误  y的平方应该是y*y,  之前写成了y ^ 2, 这是异或的意思
                 .map(y -> y +2)
                 .map(y -> new StringBuffer().append(y))
                 .filter(y -> y.toString().startsWith("2"))
