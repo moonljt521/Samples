@@ -1,10 +1,13 @@
 package com.example.encode;
 
-public class MyClass {
+public class YiHuoJiaMi {
 
     public static void main(String [] args){
 
         String source = "I am a fu";
+
+        System.out.println("加密前： "+ source);
+
         int key = 0x10;
 
         char[] chars = source.toCharArray();
