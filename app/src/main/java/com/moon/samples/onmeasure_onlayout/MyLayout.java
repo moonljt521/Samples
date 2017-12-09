@@ -5,11 +5,10 @@ import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
-import com.moon.samples.utils.UDebug;
+import com.moon.samples.utils.Logger;
 
 /**
  * Created by moon on 2017/11/9.
@@ -134,7 +133,7 @@ public class MyLayout extends LinearLayout {
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
 
-        UDebug.i("left = "+ left +"，top = "+ top + ",right = "+right + ",bottom = "+ bottom);
+        Logger.i("left = "+ left +"，top = "+ top + ",right = "+right + ",bottom = "+ bottom);
 
         WindowManager wm = (WindowManager) getContext()
                 .getSystemService(Context.WINDOW_SERVICE);
@@ -146,7 +145,7 @@ public class MyLayout extends LinearLayout {
         int mTotalHeight = 0;
         // 遍历所有子视图
         int childCount = getChildCount();
-        UDebug.i("childCount = " + childCount);
+        Logger.i("childCount = " + childCount);
         for (int i = 0; i < childCount; i++) {
             View childView = getChildAt(i);
 
@@ -155,10 +154,10 @@ public class MyLayout extends LinearLayout {
 
             int measureHeight = childView.getMeasuredHeight();
 
-            UDebug.i("...."+ measuredWidth + "," + measureHeight);
+            Logger.i("...."+ measuredWidth + "," + measureHeight);
 
 //            childView.layout(left + (width-200)/2 , top , measuredWidth, measureHeight);
-            UDebug.i("自定义偏移 = "+(width-200)/2 );
+            Logger.i("自定义偏移 = "+(width-200)/2 );
             childView.layout(left + (width-200)/2  , top , measuredWidth+ (width-200)/2, measureHeight);
 
 //            mTotalHeight += measureHeight;

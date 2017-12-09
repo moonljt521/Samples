@@ -2,7 +2,7 @@ package com.moon.samples.databinding;
 
 import android.view.View;
 
-import com.moon.samples.utils.UDebug;
+import com.moon.samples.utils.Logger;
 
 /**
  * author: moon
@@ -23,7 +23,7 @@ public class MyHandlers {
 
     public void onClickHandler(View view){
 //        this.binding.setName1(this.nameBody);
-        UDebug.i("@@@@@######");
+        Logger.i("@@@@@######");
 
     }
 

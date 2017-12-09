@@ -1,4 +1,4 @@
-package com.example.other_algorithm;
+package com.example.lint_code;
 
 /**
  * author: moon
@@ -26,7 +26,7 @@ public class String2IntegerTest {
         for (int i = 0; i < len; i++) {
             char c = str.charAt(i);
             if (!Character.isDigit(c)) {
-                if (flag == true) {   //当遇到数字后，中途再次遇到的是非数字，则将之前的值返回
+                if (flag ) {   //当遇到数字后，中途再次遇到的是非数字，则将之前的值返回
                     return isOutOfRange(sum);
                 }
                 continue;

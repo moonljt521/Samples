@@ -4,8 +4,7 @@ import android.os.Bundle;
 import android.webkit.WebView;
 
 import com.moon.samples.R;
-import com.moon.samples.BaseActivity;
-import com.moon.samples.utils.UDebug;
+import com.moon.samples.base.BaseActivity;
 
 public class NativeWebViewActivity extends BaseActivity {
 

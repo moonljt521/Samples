@@ -1,10 +1,12 @@
-package com.moon.samples;
+package com.moon.samples.base;
 
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Debug;
+import android.support.multidex.MultiDex;
 
+import com.moon.samples.BuildConfig;
+import com.moon.samples.MainActivity;
 import com.moon.samples.uncaughthandler.CrashHandler;
 
 import java.util.concurrent.TimeUnit;
@@ -13,6 +15,7 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import xiaofei.library.hermeseventbus.HermesEventBus;
 
 /**
  * author: moon
@@ -35,6 +38,8 @@ public class MyApplication extends Application {
         super.onCreate();
 
         myApp = this;
+
+        HermesEventBus.getDefault().init(this);
 
         if (!BuildConfig.DEBUG){
             new CrashHandler(){
@@ -87,6 +92,6 @@ public class MyApplication extends Application {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        start = System.currentTimeMillis();
+//        MultiDex.install(this);
     }
 }

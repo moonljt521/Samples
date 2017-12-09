@@ -7,7 +7,7 @@ import android.util.Log;
  * created on: 17/9/6 下午3:48
  * description:
  */
-public class UDebug {
+public class Logger {
     private static final String TAG = "moon";
 
     public static void i(String value) {

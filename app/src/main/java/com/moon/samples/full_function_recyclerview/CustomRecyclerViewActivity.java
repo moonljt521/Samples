@@ -5,8 +5,7 @@ import android.os.Handler;
 import android.view.View;
 
 import com.moon.samples.R;
-import com.moon.samples.BaseActivity;
-import com.moon.samples.utils.UDebug;
+import com.moon.samples.base.BaseActivity;
 import com.moon.xultrarecycle.EmptyLayout;
 import com.moon.xultrarecycle.XRecyclerView;
 

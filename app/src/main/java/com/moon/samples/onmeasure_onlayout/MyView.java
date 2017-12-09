@@ -10,7 +10,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.moon.samples.utils.UDebug;
+import com.moon.samples.utils.Logger;
 
 /**
  * Created by moon on 2017/11/9.
@@ -74,7 +74,7 @@ public class MyView extends View {
         int mode = MeasureSpec.getMode(measureSpec);
         int size = MeasureSpec.getSize(measureSpec);
 
-        UDebug.i("myview, width ------------> " + "mode = " + mode + ",size = " + size);
+        Logger.i("myview, width ------------> " + "mode = " + mode + ",size = " + size);
 
         switch (mode) {
             case MeasureSpec.UNSPECIFIED: {//如果没有指定大小，就设置为默认大小
@@ -101,7 +101,7 @@ public class MyView extends View {
         int mode = MeasureSpec.getMode(measureSpec);
         int size = MeasureSpec.getSize(measureSpec);
 
-        UDebug.i("myview,height =============> " + "mode = " + mode + ",size = " + size);
+        Logger.i("myview,height =============> " + "mode = " + mode + ",size = " + size);
 
         switch (mode) {
             case MeasureSpec.UNSPECIFIED: {//如果没有指定大小，就设置为默认大小

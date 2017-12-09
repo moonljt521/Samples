@@ -1,4 +1,4 @@
-package com.moon.samples;
+package com.moon.samples.base;
 
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;

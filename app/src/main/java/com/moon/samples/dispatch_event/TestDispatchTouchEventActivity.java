@@ -1,13 +1,12 @@
 package com.moon.samples.dispatch_event;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.moon.samples.BaseActivity;
+import com.moon.samples.base.BaseActivity;
 import com.moon.samples.R;
-import com.moon.samples.utils.UDebug;
+import com.moon.samples.utils.Logger;
 
 public class TestDispatchTouchEventActivity extends BaseActivity {
 
@@ -21,7 +20,7 @@ public class TestDispatchTouchEventActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
 
-                UDebug.i("button click ...");
+                Logger.i("button click ...");
 
             }
         });
@@ -33,10 +32,10 @@ public class TestDispatchTouchEventActivity extends BaseActivity {
 //
 //                switch (event.getAction()) {
 //                    case MotionEvent.ACTION_DOWN:
-//                        UDebug.i( "CustomButton-onTouch-ACTION_DOWN");
+//                        Logger.i( "CustomButton-onTouch-ACTION_DOWN");
 //                        break;
 //                    case MotionEvent.ACTION_UP:
-//                        UDebug.i( "CustomButton-onTouch-ACTION_UP");
+//                        Logger.i( "CustomButton-onTouch-ACTION_UP");
 //                        break;
 //                    default:
 //                        break;
@@ -57,10 +56,10 @@ public class TestDispatchTouchEventActivity extends BaseActivity {
     public boolean dispatchTouchEvent(MotionEvent ev) {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                UDebug.i( "MainActivity-dispatchTouchEvent-ACTION_DOWN");
+                Logger.i( "MainActivity-dispatchTouchEvent-ACTION_DOWN");
                 break;
             case MotionEvent.ACTION_UP:
-                UDebug.i(  "MainActivity-dispatchTouchEvent-ACTION_UP");
+                Logger.i(  "MainActivity-dispatchTouchEvent-ACTION_UP");
                 break;
             default:
                 break;
@@ -75,10 +74,10 @@ public class TestDispatchTouchEventActivity extends BaseActivity {
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                UDebug.i( "MainActivity-onTouchEvent-ACTION_DOWN");
+                Logger.i( "MainActivity-onTouchEvent-ACTION_DOWN");
                 break;
             case MotionEvent.ACTION_UP:
-                UDebug.i( "MainActivity-onTouchEvent-ACTION_UP");
+                Logger.i( "MainActivity-onTouchEvent-ACTION_UP");
                 break;
             default:
                 break;

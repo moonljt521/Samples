@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.moon.samples.BaseActivity;
+import com.moon.samples.base.BaseActivity;
 import com.moon.samples.R;
-import com.moon.samples.utils.UDebug;
+import com.moon.samples.utils.Logger;
 
 import wendu.dsbridge.DWebView;
 import wendu.dsbridge.OnReturnValue;
@@ -31,7 +31,7 @@ public class DSBridgeActivity extends BaseActivity {
                 webView.callHandler("addValue",new Object[]{1,"hello"},new OnReturnValue(){
                     @Override
                     public void onValue(String retValue) {
-                        UDebug.i("call succeed,return value is "+retValue);
+                        Logger.i("call succeed,return value is "+retValue);
                     }
                 });
 

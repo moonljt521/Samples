@@ -3,7 +3,7 @@ package com.moon.samples.onmeasure_onlayout;
 import android.os.Bundle;
 
 import com.moon.samples.R;
-import com.moon.samples.BaseActivity;
+import com.moon.samples.base.BaseActivity;
 
 public class OnMeasure2OnLayoutActivity extends BaseActivity {
 

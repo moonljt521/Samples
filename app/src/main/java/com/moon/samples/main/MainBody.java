@@ -10,6 +10,8 @@ public class MainBody {
 
     public String title;
 
+    public int refreshCount;
+
     public MainBody(int index, String title) {
         this.index = index;
         this.title = title;

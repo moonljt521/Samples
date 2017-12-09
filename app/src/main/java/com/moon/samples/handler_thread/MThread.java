@@ -1,8 +1,8 @@
-package com.moon.samples.viewcomponent;
+package com.moon.samples.handler_thread;
 
 import android.os.Looper;
 
-import com.moon.samples.utils.UDebug;
+import com.moon.samples.utils.Logger;
 
 /**
  * author: moon
@@ -16,7 +16,7 @@ public class MThread extends Thread{
     @Override
     public void run() {
 
-        UDebug.i("zi : " + Thread.currentThread());
+        Logger.i("zi : " + Thread.currentThread());
 
         Looper.prepare();//创建该子线程的Looper
         looper = Looper.myLooper();//取出该子线程的Looper

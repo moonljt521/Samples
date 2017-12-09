@@ -3,8 +3,8 @@ package com.moon.samples.jni.util;
 import android.os.Looper;
 import android.widget.Toast;
 
-import com.moon.samples.MyApplication;
-import com.moon.samples.utils.UDebug;
+import com.moon.samples.base.MyApplication;
+import com.moon.samples.utils.Logger;
 
 /**
  * author: moon
@@ -27,11 +27,11 @@ public class JniUtil {
     public static native String callNativeAndJniCallJava(String str);
 
     public static void getNativeCallNonParam(){
-        UDebug.i("java - > getNativeCallNonParam" );
+        Logger.i("java - > getNativeCallNonParam" );
 
         if (Looper.getMainLooper() != Looper.myLooper() ){
 
-            UDebug.i("不是主线程。。。。。");
+            Logger.i("不是主线程。。。。。");
             return;
         }
 
@@ -39,11 +39,11 @@ public class JniUtil {
     }
 
     public static void getNativeCall(String value){
-        UDebug.i("java - > getNativeCall" + value);
+        Logger.i("java - > getNativeCall" + value);
 
         if (Looper.getMainLooper() != Looper.myLooper() ){
 
-            UDebug.i("不是主线程。。。。。");
+            Logger.i("不是主线程。。。。。");
             return;
         }
 

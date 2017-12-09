@@ -1,4 +1,4 @@
-package com.moon.samples.viewcomponent;
+package com.moon.samples.handler_thread;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
@@ -7,13 +7,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-import android.support.v4.view.ViewPager;
 
-import com.moon.samples.BaseActivity;
 import com.moon.samples.R;
-import com.moon.samples.utils.UDebug;
+import com.moon.samples.base.BaseActivity;
+import com.moon.samples.utils.Logger;
 
-public class ViewcomponentActivity extends BaseActivity {
+public class HandlerThreadActivity extends BaseActivity {
 
     Handler handler ;
     private HandlerThread handlerThread;
@@ -22,8 +21,7 @@ public class ViewcomponentActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        UDebug.i("samples viewcomponentActivity onCreate");
-        setContentView(R.layout.activity_viewcomponent);
+        setContentView(R.layout.activity_handler_thread);
 
         handlerThread = new HandlerThread("myHandlerThread");
         handlerThread.start();
@@ -34,8 +32,8 @@ public class ViewcomponentActivity extends BaseActivity {
 
                 try {
                     Thread.sleep(2000);
-                    UDebug.i("curr" + Thread.currentThread().getName());
-                    UDebug.i("i = " + i);
+                    Logger.i("curr" + Thread.currentThread().getName());
+                    Logger.i("i = " + i);
                     i ++;
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -50,7 +48,7 @@ public class ViewcomponentActivity extends BaseActivity {
 
                 try {
                     Thread.sleep(2000);
-                    UDebug.i(">> = " + i);
+                    Logger.i(">> = " + i);
                     i ++;
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -68,13 +66,12 @@ public class ViewcomponentActivity extends BaseActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        UDebug.i("samples viewcomponentActivity onNewIntent");
 
     }
 
     @Override
     protected String getActionTitle() {
-        return "...";
+        return "测试handlerThread";
     }
 
 

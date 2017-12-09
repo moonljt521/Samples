@@ -2,7 +2,7 @@ package com.moon.samples.constraintlayout;
 
 import android.os.Bundle;
 
-import com.moon.samples.BaseActivity;
+import com.moon.samples.base.BaseActivity;
 import com.moon.samples.R;
 
 public class ConstaintlayoutActivity extends BaseActivity {

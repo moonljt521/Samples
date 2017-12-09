@@ -6,9 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.moon.samples.MainActivity;
 import com.moon.samples.R;
-import com.moon.samples.utils.UDebug;
+import com.moon.samples.utils.Logger;
 import com.moon.samples.utils.UiUtils;
 
 public class BottomSheetActivity extends AppCompatActivity implements View.OnClickListener {
@@ -36,7 +35,7 @@ public class BottomSheetActivity extends AppCompatActivity implements View.OnCli
             }
         });
 
-        UDebug.i("深度 = " + UiUtils.getViewDpeth(this,R.id.bottom_sheet_layout));
+        Logger.i("深度 = " + UiUtils.getViewDpeth(this,R.id.bottom_sheet_layout));
 
     }
 

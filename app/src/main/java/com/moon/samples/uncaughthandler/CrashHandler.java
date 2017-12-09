@@ -13,7 +13,7 @@ import android.support.v4.util.ArrayMap;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.moon.samples.utils.UDebug;
+import com.moon.samples.utils.Logger;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -25,7 +25,6 @@ import java.lang.Thread.UncaughtExceptionHandler;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -193,12 +192,12 @@ public class CrashHandler implements UncaughtExceptionHandler ,Runnable{
             final String fileName = "crash-" + time + "-" + timestamp + ".log";
 
             if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-                UDebug.i("没有挂载sd卡");
+                Logger.i("没有挂载sd卡");
                 return ;
             }
 
             if (!requestSDPermission()) {
-                UDebug.i("没有写卡权限");
+                Logger.i("没有写卡权限");
                 return ;
             }
 
@@ -217,7 +216,7 @@ public class CrashHandler implements UncaughtExceptionHandler ,Runnable{
         String path = Environment.getExternalStorageDirectory().getPath()
                 + File.separator + LOG_PATH;
 
-        UDebug.i("log文件路径 = " + path);
+        Logger.i("log文件路径 = " + path);
 
         File dir = new File(path);
 

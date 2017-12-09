@@ -15,7 +15,8 @@
         android:icon="@android:drawable/ic_delete"
         app:showAsAction="ifRoom"
         android:showAsAction="ifRoom"
-        android:title="清除缓存"/>
+        android:title="清除缓存"
+        tools:ignore="AppCompatResource" />
 
     <item
         android:id="@+id/action_night_Mode"

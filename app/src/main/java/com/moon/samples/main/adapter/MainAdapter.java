@@ -1,4 +1,4 @@
-package com.moon.samples.main;
+package com.moon.samples.main.adapter;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
@@ -11,13 +11,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.moon.samples.MainActivity;
 import com.moon.samples.R;
 import com.moon.samples.itemtouchhelper.ItemDragListener;
 import com.moon.samples.itemtouchhelper.ItemMoveListener;
+import com.moon.samples.main.MainBody;
+import com.moon.samples.main.listener.OnItemClickListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -32,19 +32,19 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
 
     private List<MainBody> mList;
 
-    private ViewItemListener mcListener;
 
     private ItemDragListener itemDragListener;
 
-    public void setMcListener(ViewItemListener mcListener) {
-        this.mcListener = mcListener;
-    }
+
+    private OnItemClickListener<MainBody> itemClickListener = null;
 
 
-    public MainAdapter(Activity context, List<MainBody> list, ItemDragListener itemDragListener) {
+    public MainAdapter(Activity context, ItemDragListener itemDragListener,
+                       OnItemClickListener<MainBody> itemClickListener) {
         this.mContext = context;
-        this.mList = list;
+        this.mList = new ArrayList<>();
         this.itemDragListener = itemDragListener;
+        this.itemClickListener = itemClickListener;
     }
 
     @Override
@@ -54,11 +54,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-
-
         holder.numName.setText(mList.get(position).title);
-
-
+        holder.count.setText("刷新次数："+mList.get(position).refreshCount);
     }
 
     @Override
@@ -87,10 +84,24 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
         return true;
     }
 
+    /**
+     * 清空后 从新加入数据
+     * @param list
+     */
+    public void refreshData(List<MainBody> list){
+        if (list == null || list.size() == 0){
+            return;
+        }
+
+        mList.clear();
+        mList.addAll(list);
+        notifyDataSetChanged();
+    }
 
     class MyViewHolder extends ViewHolder implements OnClickListener {
 
         TextView numName;
+        TextView count;
 
         private ImageView dragView;
 
@@ -98,6 +109,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
             super(view);
 
             numName = (TextView) view.findViewById(R.id.item_main_textview);
+            count = (TextView) view.findViewById(R.id.item_main_refreshCount);
             dragView = (ImageView) view.findViewById(R.id.item_main_dragview);
 
             dragView.setOnTouchListener(new View.OnTouchListener() {
@@ -110,19 +122,16 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
                 }
             });
 
-            numName.setOnClickListener(this);
+            view.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            if (mcListener != null) {
-                mcListener.itemClick(v, getLayoutPosition());
+            if (itemClickListener != null) {
+                itemClickListener.onClick(mList.get(getLayoutPosition()));
             }
         }
-
     }
 
-    public interface ViewItemListener {
-        void itemClick(View v, int position);
-    }
+
 }
