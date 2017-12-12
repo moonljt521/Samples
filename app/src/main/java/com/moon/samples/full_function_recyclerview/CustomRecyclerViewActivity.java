@@ -3,6 +3,7 @@ package com.moon.samples.full_function_recyclerview;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 
 import com.moon.samples.R;
 import com.moon.samples.base.BaseActivity;
@@ -34,11 +35,9 @@ public class CustomRecyclerViewActivity extends BaseActivity {
 
         emptyLayout = (EmptyLayout) findViewById(R.id.emptyView);
 
-//        emptyLayout = View.inflate(this,R.layout.view_error_layout,null);
 
-//        recyclerView.setEmptyLayout(emptyLayout);
-
-        findViewById(R.id.mulRecyclerViewwClearBtn).setOnClickListener(new View.OnClickListener() {
+        Button clearDataBtn = genericFindViewById(R.id.mulRecyclerViewwClearBtn);
+        clearDataBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 list.clear();

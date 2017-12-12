@@ -3,6 +3,7 @@ package com.moon.samples.base;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.komi.slider.ISlider;
 import com.komi.slider.SliderConfig;
@@ -18,6 +19,11 @@ public abstract class BaseActivity extends AppCompatActivity {
             .edge(true)
             .build();
     protected ISlider iSlider;
+
+    protected <T extends View> T genericFindViewById(int id) {
+        //return返回view时,加上泛型T
+        return (T) findViewById(id);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
