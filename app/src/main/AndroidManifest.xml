@@ -55,6 +55,10 @@
         <activity android:name=".dispatch_event.TestDispatchTouchEventActivity"></activity>
         <activity android:name=".constraintlayout.ConstaintlayoutActivity"></activity>
 
+        <activity android:name=".bindservice.BindServiceActivity"></activity>
+        <service android:name=".bindservice.MyBindedService"
+            ></service>
+
         <!-- 开了个新进程 -->
         <activity
             android:name=".messenger_ipc.MessengerIPCActivity"

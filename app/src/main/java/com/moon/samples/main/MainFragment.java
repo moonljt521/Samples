@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.moon.samples.R;
 import com.moon.samples.annotation.AnnotationActivity;
+import com.moon.samples.bindservice.BindServiceActivity;
 import com.moon.samples.bottomsheet.BottomSheetActivity;
 import com.moon.samples.constraintlayout.ConstaintlayoutActivity;
 import com.moon.samples.databinding.DataBindingDemoActivity;
@@ -241,6 +242,11 @@ public class MainFragment extends Fragment implements ItemDragListener, SwipeRef
                 break;
             case 15:
                 intent.setClass(activity, ScrollerDemoActivity.class);
+
+                break;
+
+            case 16:
+                intent.setClass(activity, BindServiceActivity.class);
 
                 break;
             default:

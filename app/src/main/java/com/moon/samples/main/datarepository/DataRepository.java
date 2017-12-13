@@ -80,6 +80,8 @@ public class DataRepository {
         arr.add(body);
         body = new MainBody(15, "学习Scroller用法");
         arr.add(body);
+        body = new MainBody(16, "bindservice");
+        arr.add(body);
 
         mutableLiveData.setValue(arr);
         return mutableLiveData;

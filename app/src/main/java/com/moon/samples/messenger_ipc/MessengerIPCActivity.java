@@ -4,20 +4,19 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
-import android.os.Parcelable;
 import android.os.RemoteException;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.moon.samples.R;
 import com.moon.samples.base.BaseActivity;
+import com.moon.samples.messenger_ipc.service.MessengerService;
 import com.moon.samples.utils.ExplictFromIntent;
 import com.moon.samples.utils.Logger;
 
@@ -38,6 +37,8 @@ public class MessengerIPCActivity extends BaseActivity implements View.OnClickLi
     private boolean isConn;
 
     private int intID;
+
+    private MessengerService relService;
 
     private Messenger messenger = new Messenger(new Handler(){
 
@@ -64,6 +65,9 @@ public class MessengerIPCActivity extends BaseActivity implements View.OnClickLi
             mService = new Messenger(service);
             isConn = true;
             stateTv.setText("connected");
+
+//            relService = (MessengerService) service;
+            //
         }
 
         @Override
@@ -71,6 +75,8 @@ public class MessengerIPCActivity extends BaseActivity implements View.OnClickLi
             mService = null;
             isConn = false;
             stateTv.setText("disConnected");
+
+            relService = null;
         }
     };
 
@@ -88,6 +94,17 @@ public class MessengerIPCActivity extends BaseActivity implements View.OnClickLi
         stateTv = findViewById(R.id.connectState);
 
         button.setOnClickListener(this);
+
+        findViewById(R.id.callServiceMethod).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (relService != null){
+                    relService.testCall();
+                }
+
+
+            }
+        });
 
         //---------
         bindService();
