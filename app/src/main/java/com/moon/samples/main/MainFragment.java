@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.moon.samples.R;
 import com.moon.samples.annotation.AnnotationActivity;
+import com.moon.samples.bindservice.BindServiceActivity;
 import com.moon.samples.bottomsheet.BottomSheetActivity;
 import com.moon.samples.constraintlayout.ConstaintlayoutActivity;
 import com.moon.samples.databinding.DataBindingDemoActivity;
@@ -37,6 +38,7 @@ import com.moon.samples.messenger_ipc.MessengerIPCActivity;
 import com.moon.samples.onmeasure_onlayout.OnMeasure2OnLayoutActivity;
 import com.moon.samples.propertyanimator.PropertyAnimatorActivity;
 import com.moon.samples.rxjava2.RxJava2Activity;
+import com.moon.samples.scroller.ScrollerDemoActivity;
 import com.moon.samples.utils.Logger;
 import com.moon.samples.handler_thread.HandlerThreadActivity;
 import com.moon.samples.webview.NativeWebViewActivity;
@@ -238,7 +240,15 @@ public class MainFragment extends Fragment implements ItemDragListener, SwipeRef
                 intent.setClass(activity, MessengerIPCActivity.class);
 
                 break;
+            case 15:
+                intent.setClass(activity, ScrollerDemoActivity.class);
 
+                break;
+
+            case 16:
+                intent.setClass(activity, BindServiceActivity.class);
+
+                break;
             default:
                 Toast.makeText(activity.getApplicationContext(), "不知道你点了什么，反正不起作用", Toast.LENGTH_SHORT).show();
 

@@ -47,7 +47,8 @@ public class DataRepository {
 
         arr.clear();
 
-        MainBody body = new MainBody(0, "测试HandlerThread");
+        MainBody body;
+        body = new MainBody(0, "测试HandlerThread");
         arr.add(body);
         body = new MainBody(1, "注解");
         arr.add(body);
@@ -76,6 +77,10 @@ public class DataRepository {
         body = new MainBody(13, "onMeasure onLayout");
         arr.add(body);
         body = new MainBody(14, "messenger IPC");
+        arr.add(body);
+        body = new MainBody(15, "学习Scroller用法");
+        arr.add(body);
+        body = new MainBody(16, "bindservice");
         arr.add(body);
 
         mutableLiveData.setValue(arr);

@@ -8,6 +8,7 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
+import android.widget.Toast;
 
 import com.moon.samples.messenger_ipc.MessengerIPCBean;
 import com.moon.samples.utils.Logger;
@@ -85,6 +86,11 @@ public class MessengerService extends Service {
     public IBinder onBind(Intent intent)
     {
         return mMessenger.getBinder();
+    }
+
+
+    public void testCall(){
+        Toast.makeText(getApplicationContext(),"被外部调用。。",Toast.LENGTH_SHORT).show();
     }
 
     @Override

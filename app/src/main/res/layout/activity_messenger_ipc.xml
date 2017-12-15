@@ -14,6 +14,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+
+    <Button
+        app:layout_constraintLeft_toRightOf="@+id/connect"
+        android:text="调用service方法"
+        android:id="@+id/callServiceMethod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <TextView
         android:id="@+id/connectState"
         app:layout_constraintTop_toBottomOf="@+id/connect"

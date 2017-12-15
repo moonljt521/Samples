@@ -17,6 +17,7 @@ public class EqualsAndHashCodeTest {
         Bean b2 = new Bean();
         b1.setIdentino("111");
         b2.setIdentino("111");
+
         b1.setStuid(1);
         b2.setStuid(1);
 
