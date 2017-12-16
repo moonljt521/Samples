@@ -2,8 +2,8 @@ package com.moon.samples.jsoupcrawler.presenter;
 
 import com.ljq.mvpframework.presenter.BaseMvpPresenter;
 import com.moon.samples.base.MyApplication;
-import com.moon.samples.jsoupcrawler.IJSoupAPI;
-import com.moon.samples.jsoupcrawler.JSoupBody;
+import com.moon.samples.jsoupcrawler.model.IJSoupAPI;
+import com.moon.samples.jsoupcrawler.model.JSoupBody;
 import com.moon.samples.jsoupcrawler.view.JSoupView;
 
 import org.jsoup.Jsoup;

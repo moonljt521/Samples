@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.moon.samples.jsoupcrawler.JsoupActivity">
+    tools:context="com.moon.samples.jsoupcrawler.view.JsoupActivity">
 
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"

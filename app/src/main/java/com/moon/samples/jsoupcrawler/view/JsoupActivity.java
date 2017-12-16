@@ -1,4 +1,4 @@
-package com.moon.samples.jsoupcrawler;
+package com.moon.samples.jsoupcrawler.view;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -6,10 +6,11 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.ljq.mvpframework.factory.CreatePresenter;
+import com.ljq.mvpframework.factory.PresenterMvpFactoryImpl;
 import com.ljq.mvpframework.view.AbstractMvpAppCompatActivity;
-import com.moon.samples.base.MyApplication;
 import com.moon.samples.R;
-import com.moon.samples.base.BaseActivity;
+import com.moon.samples.jsoupcrawler.model.JSoupAdapter;
+import com.moon.samples.jsoupcrawler.model.JSoupBody;
 import com.moon.samples.jsoupcrawler.presenter.JsoupPresenter;
 import com.moon.samples.jsoupcrawler.view.JSoupView;
 import com.moon.samples.utils.Logger;
@@ -20,7 +21,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -29,7 +29,6 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.ResponseBody;
 
 /**
  * jsoup 爬虫

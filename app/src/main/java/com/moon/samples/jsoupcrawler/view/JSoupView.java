@@ -1,11 +1,9 @@
 package com.moon.samples.jsoupcrawler.view;
 
 import com.ljq.mvpframework.view.BaseMvpView;
-import com.moon.samples.jsoupcrawler.JSoupBody;
+import com.moon.samples.jsoupcrawler.model.JSoupBody;
 
 import java.util.List;
-
-import okhttp3.ResponseBody;
 
 /**
  * author: moon

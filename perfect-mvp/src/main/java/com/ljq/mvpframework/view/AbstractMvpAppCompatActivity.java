@@ -16,7 +16,8 @@ import com.ljq.mvpframework.proxy.PresenterProxyInterface;
  * @date 2017/11/20
  * @description
  */
-public class AbstractMvpAppCompatActivity<V extends BaseMvpView, P extends BaseMvpPresenter<V>> extends AppCompatActivity implements PresenterProxyInterface<V,P> {
+public abstract class AbstractMvpAppCompatActivity<V extends BaseMvpView, P extends BaseMvpPresenter<V>> extends
+        AppCompatActivity implements PresenterProxyInterface<V,P> {
     private static final String PRESENTER_SAVE_KEY = "presenter_save_key";
     /**
      * 创建被代理对象,传入默认Presenter的工厂
@@ -36,15 +37,9 @@ public class AbstractMvpAppCompatActivity<V extends BaseMvpView, P extends BaseM
         if (getSupportActionBar()!=null){
             getSupportActionBar().setTitle(getActionTitle());
         }
-
-
-
     }
 
-    protected  String getActionTitle(){
-        return "";
-    };
-
+    protected  abstract String getActionTitle();
     @Override
     protected void onResume() {
         super.onResume();

@@ -1,6 +1,5 @@
-package com.moon.samples.jsoupcrawler;
+package com.moon.samples.jsoupcrawler.model;
 
-import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;

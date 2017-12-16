@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.moon.samples.jsoupcrawler.JsoupActivity">
+    tools:context="com.moon.samples.jsoupcrawler.view.JsoupActivity">
 
     <!--<com.youth.banner.Banner-->
         <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->

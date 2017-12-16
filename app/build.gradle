@@ -107,6 +107,12 @@ dependencies {
     compile 'android.arch.persistence.room:runtime:1.0.0-rc1'
     annotationProcessor 'android.arch.lifecycle:compiler:1.0.0-rc1'
     annotationProcessor 'android.arch.persistence.room:compiler:1.0.0-rc1'
+
+    //leakcanary
+    //leakcanary
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+
     implementation project(':perfect-mvp')
 }
 
