@@ -18,6 +18,7 @@ import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
 import com.youth.banner.loader.ImageLoader;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -28,7 +29,6 @@ import java.util.List;
  */
 public class JSoupAdapter extends RecyclerView.Adapter<ViewHolder> {
 
-    private Activity mContext;
 
     private List<String> mBannerList;
 
@@ -43,18 +43,29 @@ public class JSoupAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     public void setMcListener(ViewItemListener mcListener) {
         this.mcListener = mcListener;
+
+        mBannerList = new ArrayList<>();
+        mDataList = new ArrayList<>();
     }
 
 
-    public void refreshData(){
+
+
+    public void refreshData(List<String> mBannerList, List<JSoupBody> mDataList){
+
+        this.mBannerList.clear();
+        this.mDataList.clear();
+
+        this.mBannerList.addAll(mBannerList);
+        this.mDataList.addAll(mDataList);
+
         notifyDataSetChanged();
-        mBanner.start();
     }
 
-    public JSoupAdapter(Activity context, List<String> bannerList, List<JSoupBody> dataList) {
-        this.mContext = context;
-        this.mBannerList = bannerList;
-        this.mDataList = dataList;
+
+    public JSoupAdapter() {
+        this.mBannerList = new ArrayList<>();
+        this.mDataList = new ArrayList<>();
     }
 
     @Override
@@ -79,9 +90,10 @@ public class JSoupAdapter extends RecyclerView.Adapter<ViewHolder> {
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         if (viewType == BANNER_TYPE){
-            return new BannerHolder(LayoutInflater.from(mContext).inflate(R.layout.activity_jsoup_banner,parent,false));
+            return new BannerHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_jsoup_banner,parent,
+                    false));
         }else {
-            return new ItemHolder(LayoutInflater.from(mContext).
+            return new ItemHolder(LayoutInflater.from(parent.getContext()).
                     inflate(R.layout.item_jsoup_data, parent, false));
         }
     }

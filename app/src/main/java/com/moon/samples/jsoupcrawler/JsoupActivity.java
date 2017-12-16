@@ -3,10 +3,15 @@ package com.moon.samples.jsoupcrawler;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
+import com.ljq.mvpframework.factory.CreatePresenter;
+import com.ljq.mvpframework.view.AbstractMvpAppCompatActivity;
 import com.moon.samples.base.MyApplication;
 import com.moon.samples.R;
 import com.moon.samples.base.BaseActivity;
+import com.moon.samples.jsoupcrawler.presenter.JsoupPresenter;
+import com.moon.samples.jsoupcrawler.view.JSoupView;
 import com.moon.samples.utils.Logger;
 
 import org.jsoup.Jsoup;
@@ -29,13 +34,8 @@ import okhttp3.ResponseBody;
 /**
  * jsoup 爬虫
  */
-public class JsoupActivity extends BaseActivity {
-
-    private List<String> mBannerUrls = new ArrayList<>();
-
-    private IJSoupAPI api;
-
-    private List<JSoupBody> dataList = new ArrayList<>();
+@CreatePresenter(JsoupPresenter.class)
+public class JsoupActivity extends AbstractMvpAppCompatActivity<JSoupView,JsoupPresenter> implements JSoupView{
 
     private JSoupAdapter adapter;
 
@@ -48,15 +48,15 @@ public class JsoupActivity extends BaseActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.jSoupRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter = new JSoupAdapter(this, mBannerUrls, dataList));
+        recyclerView.setAdapter(adapter = new JSoupAdapter());
 
 
+    }
 
-        initConfig();
-
-        retrofit2Request();
-
-//        test();
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getMvpPresenter().requestHttp();
 
     }
 
@@ -101,19 +101,6 @@ public class JsoupActivity extends BaseActivity {
                 });
 
 
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-                System.out.println(111);
-                System.out.println(111222);
-
-            }
-        });
-
-
-
     }
 
     @Override
@@ -121,74 +108,6 @@ public class JsoupActivity extends BaseActivity {
         return "JSoup爬取数据并解析成列表";
     }
 
-    private void retrofit2Request() {
-
-        api.getList()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<ResponseBody>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(ResponseBody responseBody) {
-                        try {
-                            Document parse = Jsoup.parse(responseBody.string());
-                            Elements bannerElements = parse.getElementsByClass("banner");
-                            for (Element e : bannerElements) {
-                                String png = e.getElementsByTag("img").attr("src");
-//                                Logger.i("src = " + png);
-                                mBannerUrls.add("http:" + png);
-                            }
-
-                            Elements contentElements = parse.getElementsByClass("content");
-                            for (Element e : contentElements) {
-                                JSoupBody body = new JSoupBody();
-                                body.setTitle(e.getElementsByClass("title").text());
-                                body.setContent(e.getElementsByClass("abstract").text());
-                                dataList.add(body);
-                            }
-
-                            if (adapter != null) {
-                                adapter.notifyDataSetChanged();
-                            }
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
-    }
-
-    private void initConfig() {
-        //沉浸式状态栏
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-//            //透明状态栏
-//            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-//            //透明导航栏
-//            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-//        }
-//
-//        //隐藏状态栏
-//        if (getSupportActionBar()!=null){
-//            getSupportActionBar().hide();
-//        }
-
-        //初始化 retrofit
-        api = MyApplication.getMyApp().getRetrofit().create(IJSoupAPI.class);
-
-    }
 
     @Override
     protected void onStart() {
@@ -204,5 +123,23 @@ public class JsoupActivity extends BaseActivity {
         if (adapter != null) {
             adapter.stopBanner();
         }
+    }
+
+    @Override
+    public void requestLoading() {
+        Toast.makeText(getApplicationContext(),"数据加载中...",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void requestSuccess(List<String> mBannerList, List<JSoupBody> mDataList) {
+        if (adapter !=null){
+            adapter.refreshData(mBannerList,mDataList);
+        }
+
+    }
+
+    @Override
+    public void fail() {
+        Toast.makeText(getApplicationContext(),"加载失败",Toast.LENGTH_SHORT).show();
     }
 }
