@@ -1,12 +1,10 @@
-package com.example.test_lambda;
+package com.example.lambda;
 
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
-import java.util.function.ToIntFunction;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -36,12 +34,27 @@ public class LambdaTest {
 
 //        t.testCalculateCount();
 
-        t.printFlatMap();
+//        t.printFlatMap();
+
+        t.test();
     }
 
 
+
+    private void test(){
+
+        Arrays.asList(3,5,6,7,2,3).stream().filter(
+                x -> x == 3
+        ).forEach(
+                y -> System.out.println(y + 20)
+
+        );
+    }
+
+
+
     /**
-     * 测试 lambda 的迭代器 (报错误也能执行么。。。)
+     * 测试 lambda 的迭代器
      */
     private void printIterable() {
         List<String> list = Arrays.asList("a", "b", "dddc");
