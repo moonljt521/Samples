@@ -8,6 +8,8 @@ import android.support.multidex.MultiDex;
 import com.moon.samples.BuildConfig;
 import com.moon.samples.MainActivity;
 import com.moon.samples.uncaughthandler.CrashHandler;
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
 
 import java.util.concurrent.TimeUnit;
 
@@ -55,10 +57,7 @@ public class MyApplication extends Application {
             }.init(this);
         }
 
-
-
-
-
+        configLeakCanary();
 //        Gson gson = new GsonBuilder()
 //                //配置你的Gson
 //                .set
@@ -74,7 +73,13 @@ public class MyApplication extends Application {
                 .build();
 
         //让Glide能用HTTPS
+    }
 
+    private void configLeakCanary(){
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return ;
+        }
+        LeakCanary.install(this);
     }
 
     public Retrofit getRetrofit() {
@@ -92,6 +97,6 @@ public class MyApplication extends Application {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-//        MultiDex.install(this);
+        MultiDex.install(this);
     }
 }

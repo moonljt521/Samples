@@ -1,4 +1,4 @@
-package com.example.test_lambda;
+package com.example.lambda;
 
 /**
  * author: moon

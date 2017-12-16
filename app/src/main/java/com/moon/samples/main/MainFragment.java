@@ -29,7 +29,7 @@ import com.moon.samples.full_function_recyclerview.CustomRecyclerViewActivity;
 import com.moon.samples.itemtouchhelper.ItemDragListener;
 import com.moon.samples.itemtouchhelper.MyItemTouchHelperCallBack;
 import com.moon.samples.jni.JniActivity;
-import com.moon.samples.jsoupcrawler.JsoupActivity;
+import com.moon.samples.jsoupcrawler.view.JsoupActivity;
 import com.moon.samples.main.adapter.MainAdapter;
 import com.moon.samples.main.datarepository.DataRepository;
 import com.moon.samples.main.listener.OnItemClickListener;

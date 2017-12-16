@@ -3,7 +3,7 @@ package com.example.default_interface;
 /**
  * author: moon
  * created on: 17/12/11 下午5:40
- * description:  java 8 的接口里的方法 如果加了default 修饰，可以写方法主题了 ！！！
+ * description:  java 8 的接口里的方法 如果加了default 修饰，可以写方法主体了 ！！！
  */
 public class TestDufaultInterFace implements IA ,IB{
 

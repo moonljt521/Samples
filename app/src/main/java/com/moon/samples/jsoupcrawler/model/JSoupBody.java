@@ -1,4 +1,4 @@
-package com.moon.samples.jsoupcrawler;
+package com.moon.samples.jsoupcrawler.model;
 
 /**
  * author: moon
