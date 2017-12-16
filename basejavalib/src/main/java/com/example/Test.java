@@ -16,26 +16,34 @@ import java.util.concurrent.Executors;
 public class Test {
     public static void main(String[] args) {
 
-        Test test = new Test();
+//        Test test = new Test();
+//
+//        Object [] arr = {"lsgel" , 122, 2.2f,new Integer(1)};
+//        for (Object o : arr){
+//           test.write(o);
+//        }
+//
+//        System.out.println(Integer.MAX_VALUE);
+//        System.out.println(Integer.MIN_VALUE);
+//
+//        long s = 499999999 * 499999999 ;
+//        System.out.println("s = "+s);
+//        Integer integer  = new Integer(12);
+//        integer.intValue();
+//
+//        int a  = 0;
 
-        Object [] arr = {"lsgel" , 122, 2.2f,new Integer(1)};
-        for (Object o : arr){
-           test.write(o);
-        }
 
-        System.out.println(Integer.MAX_VALUE);
-        System.out.println(Integer.MIN_VALUE);
-
-        long s = 499999999 * 499999999 ;
-        System.out.println("s = "+s);
-        Integer integer  = new Integer(12);
-        integer.intValue();
-
-        int a  = 0;
+        String x = new String("goeasyway");
+        change(x);
+        System.out.println(x);
 
 
     }
 
+    public static void change(String x) {
+        x = "even";
+    }
 
 
     public void write(String s){
