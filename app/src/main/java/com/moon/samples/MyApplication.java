@@ -1,15 +1,12 @@
-package com.moon.samples.base;
+package com.moon.samples;
 
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.support.multidex.MultiDex;
 
-import com.moon.samples.BuildConfig;
-import com.moon.samples.MainActivity;
 import com.moon.samples.uncaughthandler.CrashHandler;
 import com.squareup.leakcanary.LeakCanary;
-import com.squareup.leakcanary.RefWatcher;
 
 import java.util.concurrent.TimeUnit;
 
