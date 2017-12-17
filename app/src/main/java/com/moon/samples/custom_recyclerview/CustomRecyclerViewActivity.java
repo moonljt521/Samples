@@ -1,4 +1,4 @@
-package com.moon.samples.full_function_recyclerview;
+package com.moon.samples.custom_recyclerview;
 
 import android.os.Bundle;
 import android.os.Handler;

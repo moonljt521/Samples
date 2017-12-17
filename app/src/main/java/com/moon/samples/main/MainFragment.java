@@ -25,7 +25,7 @@ import com.moon.samples.constraintlayout.ConstaintlayoutActivity;
 import com.moon.samples.databinding.DataBindingDemoActivity;
 import com.moon.samples.dispatch_event.TestDispatchTouchEventActivity;
 import com.moon.samples.dsbridge.DSBridgeActivity;
-import com.moon.samples.full_function_recyclerview.CustomRecyclerViewActivity;
+import com.moon.samples.custom_recyclerview.CustomRecyclerViewActivity;
 import com.moon.samples.itemtouchhelper.ItemDragListener;
 import com.moon.samples.itemtouchhelper.MyItemTouchHelperCallBack;
 import com.moon.samples.jni.JniActivity;

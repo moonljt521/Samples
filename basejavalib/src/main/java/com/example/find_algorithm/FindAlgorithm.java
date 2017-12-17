@@ -13,8 +13,9 @@ public class FindAlgorithm {
 
         FindAlgorithm findAlgorithm = new FindAlgorithm();
 
-        int[] arr = {1,2,4,6,13,22,111,136};
-        int searchKey = 23;
+//        int[] arr = {3,4,5,8,8,8,8,10,13,14};
+        int[] arr = {4,5,9,9,12,13,14,15,15,18};
+        int searchKey = 10 ;
 
         findAlgorithm.binarySearch(arr,searchKey);
     }
@@ -28,11 +29,12 @@ public class FindAlgorithm {
 
 
     /**
-     * 二分查找
+     * 二分查找  这个方法因为不能对含有重复数字的数组起作用，所以弃用
      * @param arr
      * @param key
      */
-    private void binarySearch(int[] arr, int key){
+    @Deprecated
+    private void binarySearch1(int[] arr, int key){
 
         int low = 0;
         int high = arr.length -1;
@@ -66,6 +68,52 @@ public class FindAlgorithm {
         System.out.println("角标=" + middle);
     }
 
+
+    /**
+     * 对于数据组中含有重复数据的也能有作用
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int binarySearch(int[] nums, int target) {
+        //write your code here
+        if (nums == null || nums.length == 0){
+            return -1;
+        }
+
+        int low = 0;
+        int high = nums.length - 1;
+
+        int middle = - 1;
+
+        while (low <= high){
+
+            middle = (high + low )/2;
+
+            if ( target == nums[middle]){
+
+                //你查到的数据不一定是第一次出现的
+                while((middle>=1)&&(nums[middle]==nums[middle-1])){
+                    middle--;
+                }
+
+                return middle ;
+            }
+
+            if ( target< nums[middle]){
+
+                high = middle - 1;
+            }else {
+                low = middle + 1;
+            }
+        }
+
+        if (nums[middle] != target){
+            return -1;
+        }
+
+        return middle;
+    }
 
 
 
