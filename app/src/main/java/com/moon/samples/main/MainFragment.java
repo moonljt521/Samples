@@ -17,8 +17,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.moon.samples.MainActivity;
 import com.moon.samples.R;
 import com.moon.samples.annotation.AnnotationActivity;
+import com.moon.samples.arouter_a.ARouter_A_Activity;
 import com.moon.samples.bindservice.BindServiceActivity;
 import com.moon.samples.bottomsheet.BottomSheetActivity;
 import com.moon.samples.constraintlayout.ConstaintlayoutActivity;
@@ -249,12 +251,22 @@ public class MainFragment extends Fragment implements ItemDragListener, SwipeRef
                 intent.setClass(activity, BindServiceActivity.class);
 
                 break;
+
+            case 17:
+                intent.setClass(activity, ARouter_A_Activity.class);
+
+                break;
             default:
                 Toast.makeText(activity.getApplicationContext(), "不知道你点了什么，反正不起作用", Toast.LENGTH_SHORT).show();
 
                 break;
+
+
         }
 
+        if (intent.getComponent() == null){
+            intent.setClass(activity, MainActivity.class);
+        }
         startActivity(intent);
     }
 

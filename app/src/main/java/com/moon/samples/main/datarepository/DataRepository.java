@@ -82,6 +82,8 @@ public class DataRepository {
         arr.add(body);
         body = new MainBody(16, "bindservice");
         arr.add(body);
+        body = new MainBody(17, "测试ARouter的用法");
+        arr.add(body);
 
         mutableLiveData.setValue(arr);
         return mutableLiveData;

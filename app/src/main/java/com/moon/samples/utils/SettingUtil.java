@@ -3,7 +3,7 @@ package com.moon.samples.utils;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import com.moon.samples.base.MyApplication;
+import com.moon.samples.MyApplication;
 
 /**
  * author: moon

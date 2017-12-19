@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="dongyin.com.arouter_moudle">
+
+    <application>
+        <activity android:name=".router_b.Router_B_Activity">
+        </activity>
+    </application>
+
+</manifest>

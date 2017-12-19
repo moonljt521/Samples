@@ -3,7 +3,7 @@ package com.moon.samples.jni.util;
 import android.os.Looper;
 import android.widget.Toast;
 
-import com.moon.samples.base.MyApplication;
+import com.moon.samples.MyApplication;
 import com.moon.samples.utils.Logger;
 
 /**
