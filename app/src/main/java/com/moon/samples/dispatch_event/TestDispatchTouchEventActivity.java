@@ -67,7 +67,7 @@ public class TestDispatchTouchEventActivity extends BaseActivity {
         return super.dispatchTouchEvent(ev);
 
 //        return onTouchEvent(ev);
-//        return true;
+//        return false;
     }
 
     @Override

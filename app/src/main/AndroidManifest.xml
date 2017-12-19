@@ -51,7 +51,7 @@
 
         <activity android:name=".webview.NativeWebViewActivity"/>
         <activity android:name=".support_annotations.SupportAnnotationDemoActivity"/>
-        <activity android:name=".full_function_recyclerview.CustomRecyclerViewActivity"/>
+        <activity android:name=".custom_recyclerview.CustomRecyclerViewActivity"/>
         <activity android:name=".jni.JniActivity"/>
         <activity android:name=".dispatch_event.TestDispatchTouchEventActivity"/>
         <activity android:name=".constraintlayout.ConstaintlayoutActivity"/>

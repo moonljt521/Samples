@@ -1,4 +1,4 @@
-package com.moon.samples.full_function_recyclerview;
+package com.moon.samples.custom_recyclerview;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;

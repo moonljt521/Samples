@@ -3,6 +3,7 @@ package com.moon.samples;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.Menu;
@@ -27,6 +28,8 @@ public class MainActivity extends BaseActivity{
 
     private String totalSize;
 
+    Handler handler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -45,6 +48,7 @@ public class MainActivity extends BaseActivity{
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.main_container,MainFragment.getInstance())
                 .commit();
+
     }
 
 
