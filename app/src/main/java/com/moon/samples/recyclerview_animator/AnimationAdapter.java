@@ -59,7 +59,7 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.MyVi
         }
         mList.clear();
 
-        notifyItemRangeInserted(0,list.size());
+        notifyItemRangeRemoved(0,list.size());
 
         mList.addAll(list);
 
