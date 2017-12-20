@@ -39,6 +39,7 @@ import com.moon.samples.main.viewmodel.MainViewModel;
 import com.moon.samples.messenger_ipc.MessengerIPCActivity;
 import com.moon.samples.onmeasure_onlayout.OnMeasure2OnLayoutActivity;
 import com.moon.samples.propertyanimator.PropertyAnimatorActivity;
+import com.moon.samples.recyclerview_animator.RecyclerViewAnimatorActivity;
 import com.moon.samples.rxjava2.RxJava2Activity;
 import com.moon.samples.scroller.ScrollerDemoActivity;
 import com.moon.samples.utils.Logger;
@@ -254,6 +255,11 @@ public class MainFragment extends Fragment implements ItemDragListener, SwipeRef
 
             case 17:
                 intent.setClass(activity, ARouter_A_Activity.class);
+
+                break;
+
+            case 18:
+                intent.setClass(activity, RecyclerViewAnimatorActivity.class);
 
                 break;
             default:
