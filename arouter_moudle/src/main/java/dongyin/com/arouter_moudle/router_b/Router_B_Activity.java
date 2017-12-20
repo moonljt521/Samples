@@ -1,6 +1,5 @@
 package dongyin.com.arouter_moudle.router_b;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -27,7 +26,7 @@ public class Router_B_Activity extends AppCompatActivity implements View.OnClick
     public ObjParcelable objParcelable;
 
     @Autowired(name = "keyinterceptor")
-    public String interceper;
+    public String interceperValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,14 +47,13 @@ public class Router_B_Activity extends AppCompatActivity implements View.OnClick
             sb.append(aRouter.toString());
         }
 
-        if (interceper !=null){
-            sb.append(interceper);
+        if (interceperValue !=null){
+            sb.append(interceperValue);
         }
 
+        ((TextView)findViewById(R.id.arouter_module_content)).setText("params = "+sb.toString());
 
-
-        ((TextView)findViewById(R.id.arouter_module_content)).setText(sb.toString());
-
+        Toast.makeText(getApplicationContext(),sb.toString(),Toast.LENGTH_SHORT).show();
 
     }
 

@@ -69,18 +69,21 @@ public class ARouter_A_Activity extends BaseActivity implements View.OnClickList
             case R.id.arouter_btn2:
                 // activity 直跳 有参数
 
+                //Serializable 序列化
                 ARouterBody aRouterBody = new ARouterBody();
                 aRouterBody.setAge(12);
                 aRouterBody.setId(102);
                 aRouterBody.setName("xiaomi");
 
+                //Parcelable 序列化
                 ObjParcelable objParcelable = new ObjParcelable();
                 objParcelable.setAge(1992);
 
                 ARouter.getInstance().build("/routerb/RouterBActivity")
                         .withString("key1","ljt")
-                        .withSerializable("key2",  aRouterBody)
+                        .withObject("key2",  aRouterBody)
                         .withParcelable("key3",objParcelable)
+                        .greenChannel()
                         .navigation();
 
                 break;
@@ -94,28 +97,28 @@ public class ARouter_A_Activity extends BaseActivity implements View.OnClickList
 
             case R.id.arouter_btn4:
                 // activity 跳转  动画
-//                ARouter.getInstance().build("/routerb/RouterBActivity")
-//                        .withTransition(R.anim.slide_in_bottom,R.anim.slide_out_bottom)
-//                        .greenChannel()
-//                        .navigation();
+                ARouter.getInstance().build("/routerb/RouterBActivity")
+                        .withTransition(R.anim.slide_in_bottom,R.anim.slide_out_bottom)
+                        .greenChannel()
+                        .navigation();
 
 //                Intent intent = new Intent(this, Router_B_Activity.class);
 //                startActivity(intent);
 //                overridePendingTransition(R.anim.slide_in_bottom,R.anim.slide_out_bottom);
 
-
-                if (Build.VERSION.SDK_INT >= 16) {
-                    ActivityOptionsCompat compat = ActivityOptionsCompat.
-                            makeScaleUpAnimation(v, v.getWidth() / 2, v.getHeight() / 2, 0, 0);
-
-                    ARouter.getInstance()
-                            .build("/routerb/RouterBActivity")
-                            .withOptionsCompat(compat)
-                            .greenChannel()
-                            .navigation();
-                } else {
-                    Toast.makeText(getApplicationContext(), "API < 16,不支持新版本动画", Toast.LENGTH_SHORT).show();
-                }
+//
+//                if (Build.VERSION.SDK_INT >= 16) {
+//                    ActivityOptionsCompat compat = ActivityOptionsCompat.
+//                            makeScaleUpAnimation(v, v.getWidth() / 2, v.getHeight() / 2, 0, 0);
+//
+//                    ARouter.getInstance()
+//                            .build("/routerb/RouterBActivity")
+//                            .withOptionsCompat(compat)
+//                            .greenChannel()
+//                            .navigation();
+//                } else {
+//                    Toast.makeText(getApplicationContext(), "API < 16,不支持新版本动画", Toast.LENGTH_SHORT).show();
+//                }
 
 
                 break;

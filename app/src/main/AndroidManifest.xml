@@ -38,7 +38,7 @@
         </activity>
         <activity android:name=".annotation.AnnotationActivity"/>
         <activity android:name=".rxjava2.RxJava2Activity"/>
-        <activity android:name=".dsbridge.DSBridgeActivity"/>
+        <!--<activity android:name=".dsbridge.DSBridgeActivity"/>-->
         <activity android:name=".onmeasure_onlayout.OnMeasure2OnLayoutActivity"/>
         <activity android:name=".jsoupcrawler.view.JsoupActivity"/>
         <activity android:name=".propertyanimator.PropertyAnimatorActivity"/>
