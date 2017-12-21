@@ -44,7 +44,7 @@ public class LinkedListReverseTest {
     /**
      * 方式1 ： 递归
      * @param node
-     * @return
+     * @return  消耗内存太多
      */
     private static Node reverseNode(Node node){
         if (node == null || node.getNext() == null){

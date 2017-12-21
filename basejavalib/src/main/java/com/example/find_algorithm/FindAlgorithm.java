@@ -26,10 +26,8 @@ public class FindAlgorithm {
     private void frequencySearch(){
         //略....
     }
-
-
     /**
-     * 二分查找  这个方法因为不能对含有重复数字的数组起作用，所以弃用
+     * 二分查找  这个方法因为不能对含有重复数字的数组起作用，所以弃用 ！！！！！！
      * @param arr
      * @param key
      */
@@ -67,7 +65,6 @@ public class FindAlgorithm {
 
         System.out.println("角标=" + middle);
     }
-
 
     /**
      * 对于数据组中含有重复数据的也能有作用
@@ -108,6 +105,7 @@ public class FindAlgorithm {
             }
         }
 
+        //
         if (nums[middle] != target){
             return -1;
         }
