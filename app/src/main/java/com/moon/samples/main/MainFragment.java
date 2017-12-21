@@ -37,6 +37,7 @@ import com.moon.samples.main.datarepository.DataRepository;
 import com.moon.samples.main.listener.OnItemClickListener;
 import com.moon.samples.main.viewmodel.MainViewModel;
 import com.moon.samples.messenger_ipc.MessengerIPCActivity;
+import com.moon.samples.nested_scrolling.NestedScrollingActivity;
 import com.moon.samples.onmeasure_onlayout.OnMeasure2OnLayoutActivity;
 import com.moon.samples.propertyanimator.PropertyAnimatorActivity;
 import com.moon.samples.recyclerview_animator.RecyclerViewAnimatorActivity;
@@ -260,6 +261,10 @@ public class MainFragment extends Fragment implements ItemDragListener, SwipeRef
 
             case 18:
                 intent.setClass(activity, RecyclerViewAnimatorActivity.class);
+
+                break;
+            case 19:
+                intent.setClass(activity, NestedScrollingActivity.class);
 
                 break;
             default:

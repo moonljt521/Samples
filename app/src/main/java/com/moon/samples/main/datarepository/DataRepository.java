@@ -86,6 +86,8 @@ public class DataRepository {
         arr.add(body);
         body = new MainBody(18, "recyclerView动画");
         arr.add(body);
+        body = new MainBody(19, "学习下嵌套滚动");
+        arr.add(body);
 
         mutableLiveData.setValue(arr);
         return mutableLiveData;
