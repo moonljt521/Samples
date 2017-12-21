@@ -34,6 +34,13 @@ android {
 //        jackOptions {
 //            enabled true   //启用jack编译器
 //        }
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+
     }
     buildTypes {
         release {
@@ -83,8 +90,8 @@ dependencies {
     compile project(':xultrarecycle')
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:recyclerview-v7:26.1.0'
-//    compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'com.github.wendux:DSBridge-Android:2.0-SNAPSHOT'
+    //    compile 'com.android.support:appcompat-v7:26.1.0'
+//    compile 'com.github.wendux:DSBridge-Android:2.0-SNAPSHOT'
     compile 'org.jsoup:jsoup:1.10.1'
     compile 'com.youth.banner:banner:1.4.9'
     compile 'com.github.bumptech.glide:glide:3.7.0'
@@ -108,12 +115,17 @@ dependencies {
     annotationProcessor 'android.arch.lifecycle:compiler:1.0.0-rc1'
     annotationProcessor 'android.arch.persistence.room:compiler:1.0.0-rc1'
 
+    compile 'com.alibaba:arouter-api:1.3.0'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
     //leakcanary
     //leakcanary
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
-
     implementation project(':perfect-mvp')
+    implementation project(':arouter_moudle')
+
+//    compile 'com.alibaba:arouter-api:1.3.0'
+//    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
 }
 
 
@@ -165,6 +177,8 @@ public class BuildTimeListener implements TaskExecutionListener, BuildListener {
     }
 
 }
+
+
 
 
 

@@ -1,1 +1,1 @@
-include ':app', ':annotationlib', ':basejavalib', ':xultrarecycle', ':perfect-mvp'
+include ':app', ':annotationlib', ':basejavalib', ':xultrarecycle', ':perfect-mvp', ':arouter_moudle'

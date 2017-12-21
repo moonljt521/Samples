@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.moon.samples">
+          package="com.moon.samples">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
-    <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"/>
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".MyApplication"
@@ -19,61 +19,65 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
+            android:launchMode="singleTask"
             android:logo="@android:drawable/ic_menu_today">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".handler_thread.HandlerThreadActivity"
             android:launchMode="singleTask">
             <intent-filter>
-                <action android:name="app1a1" />
+                <action android:name="app1a1"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".annotation.AnnotationActivity" />
-        <activity android:name=".rxjava2.RxJava2Activity" />
-        <activity android:name=".dsbridge.DSBridgeActivity" />
-        <activity android:name=".onmeasure_onlayout.OnMeasure2OnLayoutActivity" />
-        <activity android:name=".jsoupcrawler.view.JsoupActivity" />
-        <activity android:name=".propertyanimator.PropertyAnimatorActivity" />
-        <activity android:name=".bottomsheet.BottomSheetActivity" />
-        <activity android:name=".databinding.DataBindingDemoActivity"></activity>
+        <activity android:name=".annotation.AnnotationActivity"/>
+        <activity android:name=".rxjava2.RxJava2Activity"/>
+        <!-- <activity android:name=".dsbridge.DSBridgeActivity"/> -->
+        <activity android:name=".onmeasure_onlayout.OnMeasure2OnLayoutActivity"/>
+        <activity android:name=".jsoupcrawler.view.JsoupActivity"/>
+        <activity android:name=".propertyanimator.PropertyAnimatorActivity"/>
+        <activity android:name=".bottomsheet.BottomSheetActivity"/>
+        <activity android:name=".databinding.DataBindingDemoActivity"/>
 
         <meta-data
             android:name="com.moon.samples.databinding.fixglidehttps.SimpleGlideModule"
-            android:value="GlideModule" />
+            android:value="GlideModule"/>
 
-        <activity android:name=".webview.NativeWebViewActivity"></activity>
-        <activity android:name=".support_annotations.SupportAnnotationDemoActivity"></activity>
-        <activity android:name=".custom_recyclerview.CustomRecyclerViewActivity"></activity>
-        <activity android:name=".jni.JniActivity"></activity>
-        <activity android:name=".dispatch_event.TestDispatchTouchEventActivity"></activity>
-        <activity android:name=".constraintlayout.ConstaintlayoutActivity"></activity>
+        <activity android:name=".webview.NativeWebViewActivity"/>
+        <activity android:name=".support_annotations.SupportAnnotationDemoActivity"/>
+        <activity android:name=".custom_recyclerview.CustomRecyclerViewActivity"/>
+        <activity android:name=".jni.JniActivity"/>
+        <activity android:name=".dispatch_event.TestDispatchTouchEventActivity"/>
+        <activity android:name=".constraintlayout.ConstaintlayoutActivity"/>
+        <activity android:name=".bindservice.BindServiceActivity"/>
 
-        <activity android:name=".bindservice.BindServiceActivity"></activity>
-        <service android:name=".bindservice.MyBindedService"
-            ></service>
+        <service android:name=".bindservice.MyBindedService"/>
 
         <!-- 开了个新进程 -->
         <activity
             android:name=".messenger_ipc.MessengerIPCActivity"
-            android:process=".messengeripc"></activity>
+            android:process=".messengeripc"/>
 
         <!-- 远程调用的service （测试 messenger形式的 IPC） -->
         <service android:name=".messenger_ipc.service.MessengerService">
             <intent-filter>
-                <action android:name="com.moon.samples.test.messenger.ipc" />
+                <action android:name="com.moon.samples.test.messenger.ipc"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </service>
 
-        <activity android:name=".scroller.ScrollerDemoActivity"></activity>
+        <activity android:name=".scroller.ScrollerDemoActivity"/>
+        <activity android:name=".arouter_a.ARouter_A_Activity">
+        </activity>
+        <activity android:name=".recyclerview_animator.RecyclerViewAnimatorActivity">
+        </activity>
     </application>
 
 </manifest>

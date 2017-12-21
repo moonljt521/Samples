@@ -17,14 +17,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.moon.samples.MainActivity;
 import com.moon.samples.R;
 import com.moon.samples.annotation.AnnotationActivity;
+import com.moon.samples.arouter_a.ARouter_A_Activity;
 import com.moon.samples.bindservice.BindServiceActivity;
 import com.moon.samples.bottomsheet.BottomSheetActivity;
 import com.moon.samples.constraintlayout.ConstaintlayoutActivity;
 import com.moon.samples.databinding.DataBindingDemoActivity;
 import com.moon.samples.dispatch_event.TestDispatchTouchEventActivity;
-import com.moon.samples.dsbridge.DSBridgeActivity;
+//import com.moon.samples.dsbridge.DSBridgeActivity;
 import com.moon.samples.custom_recyclerview.CustomRecyclerViewActivity;
 import com.moon.samples.itemtouchhelper.ItemDragListener;
 import com.moon.samples.itemtouchhelper.MyItemTouchHelperCallBack;
@@ -37,6 +39,7 @@ import com.moon.samples.main.viewmodel.MainViewModel;
 import com.moon.samples.messenger_ipc.MessengerIPCActivity;
 import com.moon.samples.onmeasure_onlayout.OnMeasure2OnLayoutActivity;
 import com.moon.samples.propertyanimator.PropertyAnimatorActivity;
+import com.moon.samples.recyclerview_animator.RecyclerViewAnimatorActivity;
 import com.moon.samples.rxjava2.RxJava2Activity;
 import com.moon.samples.scroller.ScrollerDemoActivity;
 import com.moon.samples.utils.Logger;
@@ -181,7 +184,7 @@ public class MainFragment extends Fragment implements ItemDragListener, SwipeRef
 
                 break;
             case 3:
-                intent.setClass(activity, DSBridgeActivity.class);
+//                intent.setClass(activity, DSBridgeActivity.class);
 
                 break;
 
@@ -249,12 +252,27 @@ public class MainFragment extends Fragment implements ItemDragListener, SwipeRef
                 intent.setClass(activity, BindServiceActivity.class);
 
                 break;
+
+            case 17:
+                intent.setClass(activity, ARouter_A_Activity.class);
+
+                break;
+
+            case 18:
+                intent.setClass(activity, RecyclerViewAnimatorActivity.class);
+
+                break;
             default:
                 Toast.makeText(activity.getApplicationContext(), "不知道你点了什么，反正不起作用", Toast.LENGTH_SHORT).show();
 
                 break;
+
+
         }
 
+        if (intent.getComponent() == null){
+            intent.setClass(activity, MainActivity.class);
+        }
         startActivity(intent);
     }
 

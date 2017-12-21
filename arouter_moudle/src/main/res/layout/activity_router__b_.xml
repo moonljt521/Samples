@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="dongyin.com.arouter_moudle.router_b.Router_B_Activity">
+
+    <Button
+        android:id="@+id/arouter_module_btn1"
+        android:text="关闭回传参数"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@+id/arouter_module_btn1"
+        android:id="@+id/arouter_module_content"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:hint="收到的参数"
+        android:layout_height="wrap_content"/>
+
+</android.support.constraint.ConstraintLayout>

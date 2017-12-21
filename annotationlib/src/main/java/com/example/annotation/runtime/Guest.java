@@ -21,6 +21,8 @@ public class Guest {
         this.name = name;
     }
 
+
+    //实例化的入口
     public static void main(String[] args){
 
         System.setProperty("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
