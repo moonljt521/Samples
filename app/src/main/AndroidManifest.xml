@@ -74,9 +74,10 @@
         </service>
 
         <activity android:name=".scroller.ScrollerDemoActivity" />
-        <activity android:name=".arouter_a.ARouter_A_Activity"></activity>
-        <activity android:name=".recyclerview_animator.RecyclerViewAnimatorActivity"></activity>
-        <activity android:name=".nested_scrolling.NestedScrollingActivity"></activity>
+        <activity android:name=".arouter_a.ARouter_A_Activity" />
+        <activity android:name=".recyclerview_animator.RecyclerViewAnimatorActivity" />
+        <activity android:name=".nested_scrolling.NestedScrollingActivity" />
+        <activity android:name=".FileDownloaderActivity"></activity>
     </application>
 
 </manifest>

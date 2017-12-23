@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.moon.samples.FileDownloaderActivity;
 import com.moon.samples.MainActivity;
 import com.moon.samples.R;
 import com.moon.samples.annotation.AnnotationActivity;
@@ -265,6 +266,11 @@ public class MainFragment extends Fragment implements ItemDragListener, SwipeRef
                 break;
             case 19:
                 intent.setClass(activity, NestedScrollingActivity.class);
+
+                break;
+
+            case 20:
+                intent.setClass(activity, FileDownloaderActivity.class);
 
                 break;
             default:
