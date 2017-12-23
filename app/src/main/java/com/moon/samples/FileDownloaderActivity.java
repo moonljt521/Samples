@@ -2,6 +2,7 @@ package com.moon.samples;
 
 import android.Manifest;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +27,8 @@ public class FileDownloaderActivity extends BaseActivity {
     private String filePath;
     private String llsApkFilePathDir;
 
+    private String fileName;
+
     private int downloadId;
     private TextView content , filePathTv;
 
@@ -38,8 +41,16 @@ public class FileDownloaderActivity extends BaseActivity {
 
         FileDownloader.setup(this);
 
+        if (!TextUtils.isEmpty(url)){
+            String [] arr = url.split("/");
+            if (arr.length>0){
+                fileName = arr[arr.length - 1];
+            }
+        }
+
+
         filePath = FileDownloadUtils.getDefaultSaveRootPath() + File.separator + "yundonghui" + File.separator +
-                "crm.apk";
+                fileName;
 
 //        RxPermissions.getInstance(this)
 //                .request(Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE)
