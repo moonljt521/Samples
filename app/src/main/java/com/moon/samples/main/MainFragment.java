@@ -24,7 +24,7 @@ import com.moon.samples.annotation.AnnotationActivity;
 import com.moon.samples.arouter_a.ARouter_A_Activity;
 import com.moon.samples.bindservice.BindServiceActivity;
 import com.moon.samples.bottomsheet.BottomSheetActivity;
-import com.moon.samples.constraintlayout.ConstaintlayoutActivity;
+import com.moon.samples.blockingqueue.BlockingQueueActivity;
 import com.moon.samples.databinding.DataBindingDemoActivity;
 import com.moon.samples.dispatch_event.TestDispatchTouchEventActivity;
 //import com.moon.samples.dsbridge.DSBridgeActivity;
@@ -232,7 +232,7 @@ public class MainFragment extends Fragment implements ItemDragListener, SwipeRef
 
             case 12:
 
-                intent.setClass(activity, ConstaintlayoutActivity.class);
+                intent.setClass(activity, BlockingQueueActivity.class);
 
                 break;
 

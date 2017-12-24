@@ -54,7 +54,7 @@
         <activity android:name=".custom_recyclerview.CustomRecyclerViewActivity" />
         <activity android:name=".jni.JniActivity" />
         <activity android:name=".dispatch_event.TestDispatchTouchEventActivity" />
-        <activity android:name=".constraintlayout.ConstaintlayoutActivity" />
+        <activity android:name=".blockingqueue.BlockingQueueActivity" />
         <activity android:name=".bindservice.BindServiceActivity" />
 
         <service android:name=".bindservice.MyBindedService" />

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.moon.samples.blockingqueue.BlockingQueueActivity">
+
+
+    <Button
+        android:id="@+id/blocking_add"
+        android:text="添加20条数据"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <Button
+        android:layout_marginLeft="10dp"
+        app:layout_constraintLeft_toRightOf="@+id/blocking_add"
+        android:id="@+id/blocking_addall"
+        android:text="不停循环添加20条数据"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <Button
+        android:layout_marginLeft="10dp"
+        app:layout_constraintLeft_toRightOf="@+id/blocking_addall"
+        android:id="@+id/blocking_clear"
+        android:text="清空"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_marginLeft="10dp"
+        app:layout_constraintLeft_toRightOf="@+id/blocking_clear"
+        android:id="@+id/blocking_tobottom"
+        android:text="滚到底"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/blocking_add"
+        android:id="@+id/stopQueue"
+        android:text="停止阻塞队列"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/blocking_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/stopQueue"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+</android.support.constraint.ConstraintLayout>
