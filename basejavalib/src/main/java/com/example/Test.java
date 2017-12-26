@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * author: moon
@@ -34,12 +36,34 @@ public class Test {
 //        int a  = 0;
 
 
-        String x = new String("goeasyway");
-        change(x);
-        System.out.println(x);
+//        String x = new String("goeasyway");
+//        change(x);
+//        System.out.println(x);
 
+        new Test().print();
 
     }
+
+    Lock lock = new ReentrantLock();
+
+    public void print(){
+        lock.lock();
+
+        innerPrint();
+
+        lock.unlock();
+
+    }
+
+
+    private void innerPrint(){
+        lock.lock();
+
+        System.out.println("inner....");
+
+        lock.unlock();
+    }
+
 
     public static void change(String x) {
         x = "even";
