@@ -18,6 +18,7 @@ import com.ljq.mvpframework.proxy.PresenterProxyInterface;
  */
 public abstract class AbstractMvpAppCompatActivity<V extends BaseMvpView, P extends BaseMvpPresenter<V>> extends
         AppCompatActivity implements PresenterProxyInterface<V,P> {
+
     private static final String PRESENTER_SAVE_KEY = "presenter_save_key";
     /**
      * 创建被代理对象,传入默认Presenter的工厂
