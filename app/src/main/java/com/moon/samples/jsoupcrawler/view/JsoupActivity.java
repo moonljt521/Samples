@@ -49,55 +49,12 @@ public class JsoupActivity extends AbstractMvpAppCompatActivity<JSoupView,JsoupP
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter = new JSoupAdapter());
 
-
+        getMvpPresenter().requestHttp();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        getMvpPresenter().requestHttp();
-
-    }
-
-    private void test() {
-
-        Observable.create((ObservableOnSubscribe<String>) o -> {
-
-            try {
-                Document parse = Jsoup.connect("http://www.jianshu.com/").get();
-                Elements bannerElements = parse.getElementsByClass("banner");
-                for (Element e : bannerElements) {
-                    String png = e.getElementsByTag("img").attr("src");
-                    o.onNext(png);
-                }
-            } catch (IOException e) {
-                o.onError(null);
-                e.printStackTrace();
-            }
-        }).subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<String>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(String s) {
-                        Logger.i("s = " + s);
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Logger.i("??????报错了");
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
 
 
     }
