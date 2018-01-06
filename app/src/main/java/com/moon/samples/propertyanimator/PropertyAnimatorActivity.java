@@ -27,35 +27,35 @@ public class PropertyAnimatorActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_property_animator);
 
-        propertyBtn = (Button) findViewById(R.id.propertyBtn);
-
-        propertyBtn.animate().rotationX(10f).translationX(200f).translationY(500f).alpha(0.8f).setDuration(5000);
-
-        view = new CirclePathProgressView(this);
-
-        argbEvaluatorView = new TestArgbEvaluatorView(this);
-
-        ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT);
-
-        addContentView(view,params);
-
-        startCircleAnimation();
-
-        propertyBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startCircleAnimation();
-            }
-        });
-
-        addContentView(argbEvaluatorView,params);
-
-//        ObjectAnimator o1 = ObjectAnimator.ofInt(argbEvaluatorView,"color",0xffff0000,0xff00ff00);
-        ObjectAnimator o1 = ObjectAnimator.ofArgb(argbEvaluatorView,"color", Color.BLUE, Color.GREEN);
-//        o1.setEvaluator(new ArgbEvaluator());
-        o1.setDuration(5000);
-        o1.start();
+//        propertyBtn = (Button) findViewById(R.id.propertyBtn);
+//
+//        propertyBtn.animate().rotationX(10f).translationX(200f).translationY(500f).alpha(0.8f).setDuration(5000);
+//
+//        view = new CirclePathProgressView(this);
+//
+//        argbEvaluatorView = new TestArgbEvaluatorView(this);
+//
+//        ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+//                ViewGroup.LayoutParams.MATCH_PARENT);
+//
+//        addContentView(view,params);
+//
+//        startCircleAnimation();
+//
+//        propertyBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startCircleAnimation();
+//            }
+//        });
+//
+//        addContentView(argbEvaluatorView,params);
+//
+////        ObjectAnimator o1 = ObjectAnimator.ofInt(argbEvaluatorView,"color",0xffff0000,0xff00ff00);
+//        ObjectAnimator o1 = ObjectAnimator.ofArgb(argbEvaluatorView,"color", Color.BLUE, Color.GREEN);
+////        o1.setEvaluator(new ArgbEvaluator());
+//        o1.setDuration(5000);
+//        o1.start();
 
 
 //        Glide.with(this).load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZxZcaaglkzRWSK7HeQiqGkDSSjV6qRyzOCaxbstxQmreUC2mxQg")

@@ -31,6 +31,7 @@ import com.moon.samples.dispatch_event.TestDispatchTouchEventActivity;
 import com.moon.samples.custom_recyclerview.CustomRecyclerViewActivity;
 import com.moon.samples.itemtouchhelper.ItemDragListener;
 import com.moon.samples.itemtouchhelper.MyItemTouchHelperCallBack;
+import com.moon.samples.java8datetime.Java8DateTimeActivity;
 import com.moon.samples.jni.JniActivity;
 import com.moon.samples.jsoupcrawler.view.JsoupActivity;
 import com.moon.samples.main.adapter.MainAdapter;
@@ -271,6 +272,10 @@ public class MainFragment extends Fragment implements ItemDragListener, SwipeRef
 
             case 20:
                 intent.setClass(activity, FileDownloaderActivity.class);
+
+                break;
+            case 21:
+                intent.setClass(activity, Java8DateTimeActivity.class);
 
                 break;
             default:

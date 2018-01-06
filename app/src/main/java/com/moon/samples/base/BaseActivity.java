@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.komi.slider.ISlider;
 import com.komi.slider.SliderConfig;
@@ -39,5 +40,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected abstract String getActionTitle();
+
+    protected void showToast(String msg){
+        Toast.makeText(getApplicationContext(), msg,Toast.LENGTH_SHORT).show();
+    }
 
 }
