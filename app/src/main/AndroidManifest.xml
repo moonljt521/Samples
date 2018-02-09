@@ -80,6 +80,8 @@
         <activity android:name=".FileDownloaderActivity"/>
         <activity android:name=".java8datetime.Java8DateTimeActivity">
         </activity>
+        <activity android:name=".customview_attr.CustomAttrActivity">
+        </activity>
     </application>
 
 </manifest>

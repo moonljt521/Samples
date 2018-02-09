@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 导航标题 -->
+    <dimen name="mainTitleSize">17dp</dimen>
+    <dimen name="global_locationText">20dp</dimen>
+    <dimen name="global_locationChangeText">12dp</dimen>
+
+    <dimen name="city_list">12dp</dimen>
+
+</resources>
