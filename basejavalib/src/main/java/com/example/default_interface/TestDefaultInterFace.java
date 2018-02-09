@@ -5,17 +5,18 @@ package com.example.default_interface;
  * created on: 17/12/11 下午5:40
  * description:  java 8 的接口里的方法 如果加了default 修饰，可以写方法主体了 ！！！
  */
-public class TestDufaultInterFace implements IA ,IB{
+public class TestDefaultInterFace implements IA ,IB{
 
     public static void main(String[] args) {
-        new TestDufaultInterFace().print1();
-        new TestDufaultInterFace().print();
-    }
 
-//    @Override
-//    public void print() {
-//        System.out.println("impl .. print ..");
-//    }
+        TestDefaultInterFace defaultInterFace = new TestDefaultInterFace();
+
+        int x =  defaultInterFace.getValue();
+        System.out.println("x = "+x);
+
+        defaultInterFace.getA();
+
+    }
 
     @Override
     public void print1() {
@@ -23,16 +24,30 @@ public class TestDufaultInterFace implements IA ,IB{
 
     }
 
+    @Override
+    public void getA() {
+        System.out.println(123);
+    }
 
 
 }
 interface IA {
     public void print1();
 
+//    void getA();
+
 }
 
 
 interface IB {
+
+    void getA();
+
+
+    default int getValue(){
+        return 11;
+    }
+
     default void print(){
         System.out.println("print.. default..");
     }
