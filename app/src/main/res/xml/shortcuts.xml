@@ -1,0 +1,21 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+	<shortcut
+		android:shortcutId="marketingpool"
+		android:enabled="true"
+		android:icon="@mipmap/ic_launcher"
+		android:shortcutShortLabel="@string/shortcuts_marketpool"
+		android:shortcutLongLabel="@string/shortcuts_marketpool"
+		android:shortcutDisabledMessage="@string/marketpool_disable_msg">
+
+		<intent
+			android:action="android.intent.action.MAIN"
+			android:targetPackage="com.moon.samples.rxjava2"
+			android:targetClass="com.moon.samples.rxjava2.RxJava2Activity" />
+
+		<!--<categories android:name="android.shortcut.conversation"/>-->
+	</shortcut>
+
+
+
+
+</shortcuts>

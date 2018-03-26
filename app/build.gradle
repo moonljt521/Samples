@@ -87,7 +87,9 @@ dependencies {
     compile project(':annotationlib')
     compile project(':basejavalib')
     // 加载更多
-    compile project(':xultrarecycle')
+//    compile project(':xultrarecycle')
+    compile 'com.doing.viewcomponent.xultrarecycle:xultrarecycle:1.0.0'
+
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:recyclerview-v7:26.1.0'
     //    compile 'com.android.support:appcompat-v7:26.1.0'

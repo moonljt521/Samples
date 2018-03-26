@@ -31,8 +31,7 @@ public class FileUtil {
         File temFile = new File(fileName);
         File[] childFiles = null;
 
-        if (temFile != null)
-            childFiles = temFile.listFiles();
+        childFiles = temFile.listFiles();
 
         if (childFiles == null) {
             return false;

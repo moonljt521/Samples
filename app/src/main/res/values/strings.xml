@@ -10,4 +10,8 @@
     <string name="error_view_network_error_click_to_refresh">没有可用的网络</string>
     <string name="tip_network_error">没有可用的网络</string>
 
+
+    <string name="shortcuts_marketpool">营销池</string>
+    <string name="marketpool_disable_msg">暂无营销池模块</string>
+
 </resources>
