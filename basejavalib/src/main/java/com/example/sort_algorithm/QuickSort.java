@@ -11,14 +11,6 @@ public class QuickSort {
 
     public static void main(String[] args) {
 
-//        int d = x + (int)(Math.random() * (y - x));
-//        int[] arr = {13, 32, 5, 10,1, 6, 10, 22, 13};
-//        int[] arr = new int[1000];
-//        for (int i = 0; i < 1000; i++) {
-////            arr[i]=i+ (0 + (int)(Math.random()*1000));
-//            arr[i] = i;
-//        }
-
         int [] arr = {2,14,5,6,8,1};
 
         System.out.println(Arrays.toString(arr));
@@ -26,16 +18,15 @@ public class QuickSort {
         long startTime = System.currentTimeMillis();
         System.out.println("start：" + startTime);
 
-        sort(arr);
+
+        // ------------
+        qsort(arr, 0, arr.length - 1);
+        // ------------
 
         System.out.println("end:" + (System.currentTimeMillis() - startTime));
 
         System.out.println(Arrays.toString(arr));
 
-    }
-
-    private static void sort(int[] a) {
-        qsort(a, 0, a.length - 1);
     }
 
     /**
