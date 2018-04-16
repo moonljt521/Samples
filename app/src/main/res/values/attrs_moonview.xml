@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--name 是自定义控件的类名-->
+    <declare-styleable name="CustomViewAttr">
+        <attr name="moonViewColor" format="color" />
+        <attr name="moonViewTextSize" format="dimension" />
+    </declare-styleable>
+</resources>

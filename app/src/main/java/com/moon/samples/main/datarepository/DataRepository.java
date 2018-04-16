@@ -92,6 +92,8 @@ public class DataRepository {
         arr.add(body);
         body = new MainBody(21, "学习java8新时间格式");
         arr.add(body);
+        body = new MainBody(22, "配置自定义view的attr属性");
+        arr.add(body);
 
         mutableLiveData.setValue(arr);
         return mutableLiveData;

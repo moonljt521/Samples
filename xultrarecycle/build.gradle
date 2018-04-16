@@ -1,12 +1,37 @@
 apply plugin: 'com.android.library'
 
+// 添加本地 maven ： 1
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
+// 添加本地 maven ： 2
+uploadArchives{
+    repositories.mavenDeployer{
+        // 本地仓库路径
+//        repository(url:"file:/Users/moon/Documents/local_maven")
+//        repository(url:"http://192.168.0.21:8081/repository/doing-rep/"){
+        repository(url:"http://192.168.0.21:8081/nexus/content/repositories/doing"){
+            authentication(userName: "admin", password:"admin123")
+        }
+        // 唯一标识
+        pom.groupId = "com.doing.viewcomponent.xultrarecycle"
+        // 项目名称
+        pom.artifactId = "xultrarecycle"
+        // 版本号
+        pom.version = "1.0.0"
+        //
+        pom.packaging = "aar"
+    }
+}
+
+
 android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
 //    buildToolsVersion '25.0.0'
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 18
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -31,4 +56,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:recyclerview-v7:26.1.0'
     compile 'in.srain.cube:ultra-ptr:1.0.11'
+
 }

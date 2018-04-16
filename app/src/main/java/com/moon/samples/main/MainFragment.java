@@ -25,6 +25,7 @@ import com.moon.samples.arouter_a.ARouter_A_Activity;
 import com.moon.samples.bindservice.BindServiceActivity;
 import com.moon.samples.bottomsheet.BottomSheetActivity;
 import com.moon.samples.blockingqueue.BlockingQueueActivity;
+import com.moon.samples.customview_attr.CustomAttrActivity;
 import com.moon.samples.databinding.DataBindingDemoActivity;
 import com.moon.samples.dispatch_event.TestDispatchTouchEventActivity;
 //import com.moon.samples.dsbridge.DSBridgeActivity;
@@ -276,6 +277,10 @@ public class MainFragment extends Fragment implements ItemDragListener, SwipeRef
                 break;
             case 21:
                 intent.setClass(activity, Java8DateTimeActivity.class);
+
+                break;
+            case 22:
+                intent.setClass(activity, CustomAttrActivity.class);
 
                 break;
             default:

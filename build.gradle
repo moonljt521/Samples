@@ -4,12 +4,16 @@ buildscript {
     repositories {
         jcenter()
         maven { url 'https://jitpack.io' }
-//        google()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
         google()
+//        maven {
+//            url 'https://maven.google.com/'
+//            name 'Google'
+//        }
+
+//        maven {
+//            url '/Users/moon/Documents/local_maven'
+//            url 'http://192.168.0.21:8081/nexus/content/repositories/doing'
+//        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.1'
@@ -24,11 +28,19 @@ allprojects {
     repositories {
         jcenter()
         maven { url 'https://jitpack.io' }
-//        google()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
+        google()
+//        maven {
+//            url 'https://maven.google.com/'
+//            name 'Google'
+//        }
+
+//        maven {
+//            url '/Users/moon/Documents/local_maven'
+//            url 'http://192.168.0.21:8081/nexus/content/repositories/doing'
+//        }
+
+        mavenLocal()
+
 
     }
     configurations.all {
