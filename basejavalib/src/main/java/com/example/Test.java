@@ -1,5 +1,6 @@
 package com.example;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -40,8 +41,12 @@ public class Test {
 //        change(x);
 //        System.out.println(x);
 
-        new Test().print();
+//        new Test().print();
 
+        double cangweibaifenbi = Double.valueOf((float)15000/(float)15000);
+        DecimalFormat df = new DecimalFormat("00.00%");
+
+        System.out.println(df.format(cangweibaifenbi));
     }
 
     Lock lock = new ReentrantLock();

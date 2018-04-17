@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/Android/!svn/ver/1626/Phone/iCaifu/trunk/src/com/jrj/android/pad/common
+END
+DesEncrypt.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/Android/!svn/ver/1626/Phone/iCaifu/trunk/src/com/jrj/android/pad/common/DesEncrypt.java
+END
+JSONObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/Android/!svn/ver/1626/Phone/iCaifu/trunk/src/com/jrj/android/pad/common/JSONObject.java
+END
+QueueConsumerTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/Android/!svn/ver/1626/Phone/iCaifu/trunk/src/com/jrj/android/pad/common/QueueConsumerTask.java
+END
+Utility.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/Android/!svn/ver/1626/Phone/iCaifu/trunk/src/com/jrj/android/pad/common/Utility.java
+END
+CleanTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/Android/!svn/ver/1626/Phone/iCaifu/trunk/src/com/jrj/android/pad/common/CleanTask.java
+END
+MD5.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/Android/!svn/ver/1626/Phone/iCaifu/trunk/src/com/jrj/android/pad/common/MD5.java
+END
+MD5File.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/Android/!svn/ver/1626/Phone/iCaifu/trunk/src/com/jrj/android/pad/common/MD5File.java
+END
+ReceiveTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/Android/!svn/ver/1626/Phone/iCaifu/trunk/src/com/jrj/android/pad/common/ReceiveTask.java
+END
+NetConnection.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/Android/!svn/ver/1626/Phone/iCaifu/trunk/src/com/jrj/android/pad/common/NetConnection.java
+END
+QueueProducerTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/Android/!svn/ver/1626/Phone/iCaifu/trunk/src/com/jrj/android/pad/common/QueueProducerTask.java
+END
+Constants.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/Android/!svn/ver/1626/Phone/iCaifu/trunk/src/com/jrj/android/pad/common/Constants.java
+END
+SendTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/Android/!svn/ver/1626/Phone/iCaifu/trunk/src/com/jrj/android/pad/common/SendTask.java
+END
+AbstrackTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/Android/!svn/ver/1626/Phone/iCaifu/trunk/src/com/jrj/android/pad/common/AbstrackTask.java
+END
+InQueueTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/Android/!svn/ver/1626/Phone/iCaifu/trunk/src/com/jrj/android/pad/common/InQueueTask.java
+END
