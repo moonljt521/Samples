@@ -15,10 +15,16 @@ public class LinkedListReverseTest {
         h2.setData(2);
         Node h3 = new Node();
         h3.setData(3);
+        Node h4 = new Node();
+        h4.setData(9);
+        Node h5 = new Node();
+        h5.setData(0);
 
         // 设置指针域,构成一个链表
         head.setNext(h2);
         h2.setNext(h3);
+        h3.setNext(h4);
+        h4.setNext(h5);
 
         Node h = head;
         while (null != h){
@@ -29,7 +35,7 @@ public class LinkedListReverseTest {
         }
 
 //        head = reverseNode(head);
-        head = reverseNode2(head);
+        head = reverseNode3(head);
 
 
         while (null != head){
@@ -84,6 +90,27 @@ public class LinkedListReverseTest {
 
         return pre;
     }
+
+    /**
+     * 方式3 ：最易懂 ！！！！
+     *  只需要遍历一遍链表，在遍历过程中，把遍历的节点依次插入到头部。
+     * @param node
+     * @return
+     */
+    private static Node reverseNode3(Node node){
+
+        Node pre = null;
+
+        while (node !=null){
+            Node tmp = node.getNext();
+
+            node.next = pre ;
+            pre = node;
+            node = tmp;
+        }
+        return pre;
+    }
+
 
 
     private static class Node{
