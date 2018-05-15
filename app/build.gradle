@@ -80,7 +80,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
 //        exclude group: 'com.android.support', module: 'support-annotations'
 //        exclude group: 'com.android.support'
     })
@@ -106,7 +106,7 @@ dependencies {
     implementation 'com.komi.slider:slider:0.4.0'
     implementation 'com.mylhyl:commonrefreshlayout:2.0'
     implementation 'in.srain.cube:ultra-ptr:1.0.11'
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
     compileOnly 'com.android.support:support-v4:26.1.0'
     implementation 'com.android.support:multidex:1.0.1'
     // elemers 跨进程通讯
@@ -125,8 +125,8 @@ dependencies {
     implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.8.2@aar'
     //leakcanary
     //leakcanary
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
     implementation project(':perfect-mvp')
     implementation project(':arouter_moudle')
 

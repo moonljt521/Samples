@@ -34,6 +34,7 @@ allprojects {
 //            name 'Google'
 //        }
 
+
 //        maven {
 //            url '/Users/moon/Documents/local_maven'
 //            url 'http://192.168.0.21:8081/nexus/content/repositories/doing'

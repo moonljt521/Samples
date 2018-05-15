@@ -54,7 +54,7 @@ dependencies {
     })
 
     implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
     implementation 'com.android.support:recyclerview-v7:26.1.0'
     implementation 'in.srain.cube:ultra-ptr:1.0.11'
 
