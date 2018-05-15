@@ -102,7 +102,7 @@ public class LinkedListReverseTest {
         Node pre = null;
 
         while (node !=null){
-            Node tmp = node.getNext();
+            Node tmp = node.next;
 
             node.next = pre ;
             pre = node;
