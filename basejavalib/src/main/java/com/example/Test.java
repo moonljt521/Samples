@@ -43,10 +43,19 @@ public class Test {
 
 //        new Test().print();
 
-        double cangweibaifenbi = Double.valueOf((float)15000/(float)15000);
-        DecimalFormat df = new DecimalFormat("00.00%");
+//        double cangweibaifenbi = Double.valueOf((float)15000/(float)15000);
+//        DecimalFormat df = new DecimalFormat("00.00%");
+//
+//        System.out.println(df.format(cangweibaifenbi));
 
-        System.out.println(df.format(cangweibaifenbi));
+        int [] a = {1,2,3,4,5,6};
+
+        int [] b = null;
+
+        System.out.println(" --> "+ Arrays.asList(a).contains(1));
+        System.out.println(b == null);
+
+
     }
 
     Lock lock = new ReentrantLock();
