@@ -9,6 +9,9 @@ public class Bridge {
     public static void main(String[] args) {
 
         new Bridge().test();
+
+//        List list;
+
     }
 
     public void test(){
