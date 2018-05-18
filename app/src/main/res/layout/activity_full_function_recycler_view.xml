@@ -24,6 +24,18 @@
             android:text="重新加载"
             android:layout_width="0dp"
             app:layout_constraintLeft_toRightOf="@+id/mulRecyclerViewwClearBtn"
+            app:layout_constraintRight_toRightOf="@+id/mulRecyclerViewLoadBigDataBtn"
+            app:layout_constraintHorizontal_weight="1"
+            android:layout_height="48dp"
+            />
+
+
+        <Button
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/mulRecyclerViewLoadBigDataBtn"
+            android:text="加载数据"
+            android:layout_width="0dp"
+            app:layout_constraintLeft_toRightOf="@+id/mulRecyclerViewwReLoadBtn"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintHorizontal_weight="1"
             android:layout_height="48dp"

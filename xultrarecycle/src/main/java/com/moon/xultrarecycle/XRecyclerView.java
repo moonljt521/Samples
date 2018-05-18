@@ -144,6 +144,13 @@ public class XRecyclerView extends FrameLayout implements LoadMoreRecyclerView.O
         }
     }
 
+    public void smoothScroll2Position(int position){
+        if (recyclerview != null) {
+            recyclerview.smoothScrollToPosition(position);
+        }
+    }
+
+
     public interface DataChangeListener {
 
         void change(boolean isEmpty) ;

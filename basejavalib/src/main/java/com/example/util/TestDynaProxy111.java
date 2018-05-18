@@ -17,7 +17,8 @@ public class TestDynaProxy111 {
 
         MyInvocationHandler handler = new MyInvocationHandler(me);
 
-        Shopping me1 = (Shopping) Proxy.newProxyInstance(me.getClass().getClassLoader(), me.getClass().getInterfaces()
+//        Shopping me1 = (Shopping) Proxy.newProxyInstance(me.getClass().getClassLoader(), me.getClass().getInterfaces()
+        Shopping me1 = (Shopping) Proxy.newProxyInstance(me.getClass().getClassLoader(), new Class[]{me.getClass()}
             ,handler);
 
         System.out.println(me1.getClass().getName());
@@ -29,19 +30,7 @@ public class TestDynaProxy111 {
     }
 }
 
-//class Impl extends Shopping {
-//
-//    @Override
-//    public void buy(long money) {
-//        System.out.println("买了" + money + "dollar");
-//    }
-//    @Override
-//    public void sell() {
-//        System.out.println("sell...");
-//    }
-//}
-
-class Impl implements Shopping {
+class Impl extends Shopping {
 
     @Override
     public void buy(long money) {
@@ -53,24 +42,36 @@ class Impl implements Shopping {
     }
 }
 
-///**
-// *  接口
-// */
-//abstract class Shopping {
+//class Impl implements Shopping {
 //
-//    abstract void buy(long money);
-//
-//    abstract void sell();
-//
+//    @Override
+//    public void buy(long money) {
+//        System.out.println("买了" + money + "dollar");
+//    }
+//    @Override
+//    public void sell() {
+//        System.out.println("sell...");
+//    }
 //}
 
 /**
  *  接口
  */
-interface Shopping {
-    void buy(long money);
-    void sell();
+abstract class Shopping {
+
+    abstract void buy(long money);
+
+    abstract void sell();
+
 }
+
+/**
+ *  接口
+ */
+//interface Shopping {
+//    void buy(long money);
+//    void sell();
+//}
 
 /**
  *  proxy

@@ -37,6 +37,8 @@ public class CustomRecyclerViewActivity extends BaseActivity {
 
 
         Button clearDataBtn = genericFindViewById(R.id.mulRecyclerViewwClearBtn);
+
+        // 清空数据
         clearDataBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,6 +50,7 @@ public class CustomRecyclerViewActivity extends BaseActivity {
             }
         });
 
+        // 重新加载
         findViewById(R.id.mulRecyclerViewwReLoadBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +58,19 @@ public class CustomRecyclerViewActivity extends BaseActivity {
                 recyclerView.autoRefresh();
             }
         });
+
+
+        // 加载大量数据
+        findViewById(R.id.mulRecyclerViewLoadBigDataBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                addLargeData();
+
+
+            }
+        });
+
 
         //  监听  刷新 和 加载更多
         recyclerView.setOnListListener(new XRecyclerView.OnListListener() {
@@ -91,6 +107,23 @@ public class CustomRecyclerViewActivity extends BaseActivity {
     protected String getActionTitle() {
         return "recyclerView";
     }
+
+
+    /**
+     * 加载大量数据
+     */
+    private void addLargeData() {
+
+        for (int i = 0; i < 100000; i++) {
+            list.add(i + ",,,");
+        }
+
+        adapter.notifyDataSetChanged();
+
+        recyclerView.smoothScroll2Position(adapter.getItemCount() - 1);
+
+    }
+
 
     private void addData() {
         totalSize = list.size();
