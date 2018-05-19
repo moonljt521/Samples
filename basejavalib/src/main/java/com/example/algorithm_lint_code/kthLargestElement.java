@@ -1,6 +1,6 @@
-package com.example.lint_code;
+package com.example.algorithm_lint_code;
 
-import com.example.sort_algorithm.QuickSort;
+import com.example.algorithm_many_sort.QuickSort;
 
 import java.util.Arrays;
 

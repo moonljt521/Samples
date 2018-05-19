@@ -1,4 +1,4 @@
-package com.example.sort_algorithm;
+package com.example.algorithm_many_sort;
 
 /**
  * author: moon

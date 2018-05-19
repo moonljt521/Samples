@@ -1,4 +1,4 @@
-package com.example.data_structure;
+package com.example.algorithm_print_bindarytree;
 
 import java.util.Stack;
 
@@ -176,15 +176,8 @@ public class BinaryTree {
             if (node.getLeftChild()!=null){
                 stack.push(node.getLeftChild());
             }
-
-
         }
-
-
-
     }
-
-
 }
 
 // 节点

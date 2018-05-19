@@ -1,6 +1,4 @@
-package com.example.lint_code;
-
-import com.example.sort_algorithm.MergeSort;
+package com.example.algorithm_lint_code;
 
 import java.util.Arrays;
 import java.util.HashMap;

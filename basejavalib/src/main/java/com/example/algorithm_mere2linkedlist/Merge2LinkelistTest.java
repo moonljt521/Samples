@@ -1,4 +1,4 @@
-package com.example.mere2linkedlist;
+package com.example.algorithm_mere2linkedlist;
 
 import java.util.Arrays;
 

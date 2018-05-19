@@ -1,6 +1,4 @@
-package com.example.sort_algorithm;
-
-import java.util.Arrays;
+package com.example.algorithm_many_sort;
 
 /**
  * author: moon

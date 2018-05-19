@@ -1,4 +1,4 @@
-package com.example.lint_code;
+package com.example.algorithm_lint_code;
 
 /**
  * Created by moon on 2017/12/24.

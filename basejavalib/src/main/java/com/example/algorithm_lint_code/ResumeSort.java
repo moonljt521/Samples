@@ -1,7 +1,6 @@
-package com.example.lint_code;
+package com.example.algorithm_lint_code;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**

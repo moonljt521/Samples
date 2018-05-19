@@ -1,4 +1,4 @@
-package com.example.linkedlist_reverse;
+package com.example.algorithm_reverse_linkedlist;
 
 /**
  * author: moon
