@@ -3,21 +3,21 @@ package com.example.algorithm_find;
 /**
  * author: moon
  * created on: 17/9/21 下午12:29
- * description:  查找算法，常用的包括1顺序查找，2二分查找，3分块查找
+ * description:  查找算法，常用的包括 1顺序查找，2二分查找，3分块查找
  */
 public class FindAlgorithm {
 
     public static void main(String[] args) {
 
-        System.out.println("~~~~~");
 
         FindAlgorithm findAlgorithm = new FindAlgorithm();
 
 //        int[] arr = {3,4,5,8,8,8,8,10,13,14};
         int[] arr = {4,5,9,9,12,13,14,15,15,18};
-        int searchKey = 10 ;
+        int searchKey = 9 ;
 
-        findAlgorithm.binarySearch(arr,searchKey);
+        System.out.println("索引 =  "+findAlgorithm.binarySearch(arr,searchKey));
+
     }
 
     /**
@@ -69,10 +69,10 @@ public class FindAlgorithm {
     /**
      * 对于数据组中含有重复数据的也能有作用
      * @param nums
-     * @param target
+     * @param key
      * @return
      */
-    public int binarySearch(int[] nums, int target) {
+    public int binarySearch(int[] nums, int key) {
         //write your code here
         if (nums == null || nums.length == 0){
             return -1;
@@ -87,7 +87,7 @@ public class FindAlgorithm {
 
             middle = (high + low )/2;
 
-            if ( target == nums[middle]){
+            if ( key == nums[middle]){
 
                 //你查到的数据不一定是第一次出现的
                 while((middle>=1)&&(nums[middle]==nums[middle-1])){
@@ -97,7 +97,7 @@ public class FindAlgorithm {
                 return middle ;
             }
 
-            if ( target< nums[middle]){
+            if ( key< nums[middle]){
 
                 high = middle - 1;
             }else {
@@ -106,7 +106,7 @@ public class FindAlgorithm {
         }
 
         //
-        if (nums[middle] != target){
+        if (nums[middle] != key){
             return -1;
         }
 

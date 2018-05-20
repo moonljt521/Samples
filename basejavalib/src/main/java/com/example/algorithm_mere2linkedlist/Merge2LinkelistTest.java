@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * author: moon
  * created on: 17/10/11 下午3:28
- * description: 合并有序链表
+ * description: 合并有序链表 （其实是归并排序的最后一步 ）
  */
 public class Merge2LinkelistTest {
 

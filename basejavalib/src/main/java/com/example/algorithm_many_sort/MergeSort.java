@@ -1,5 +1,7 @@
 package com.example.algorithm_many_sort;
 
+import java.util.Arrays;
+
 /**
  * author: moon
  * created on: 17/9/5 下午4:55
@@ -9,46 +11,54 @@ public class MergeSort {
 
     public static void main(String[] args) {
 
-        int a[] = {0,1,2,3,4,5,6,7,8,9,10};
-        int al = 11;
-        int b[] = {11,12,13,14,15,16,17,18,19};
-        int bl = 9;
+        int a[] = {67, 69, 75, 87, 101,89, 90, 99, 12};
 
-        int [] res = new int[20];
+        System.out.println("排序前 "+ Arrays.toString(a));
 
-        new MergeSort().merge(a,al-1,b,bl-1,res);
+        sort(a,0,a.length-1);
 
-        for (int x : res){
-            System.out.println(x);
-        }
-
+        System.out.println("排序后 "+ Arrays.toString(a));
     }
 
-    public void merge(int[] a, int alentth, int [] b, int blength, int [] result ){
-
-        if (a ==null || b == null){
-            return;
+    public static int[] sort(int[] a,int low,int high){
+        int mid = (low+high)/2;
+        if(low<high){
+            sort(a,low,mid);
+            sort(a,mid+1,high);
+            //左右归并
+            merge(a,low,mid,high);
         }
+        return a;
+    }
 
-        int i =0,j=0,k = 0;
-        while (i <= alentth && j<= blength){
-            if (a[i]< b[j]){
-                result [k++] = a[i++];
-            }else {
-                result [k++] = b[j++];
+    public static void merge(int[] a, int low, int mid, int high) {
+        int[] temp = new int[high-low+1];
+        int i= low;
+        int j = mid+1;
+        int k=0;
+        // 把较小的数先移到新数组中
+        while(i<=mid && j<=high){
+            if(a[i]<a[j]){
+                temp[k++] = a[i++];
+            }else{
+                temp[k++] = a[j++];
             }
         }
-
-        while (i<= alentth){
-            result [k++] = a[i++];
+        // 把左边剩余的数移入数组
+        while(i<=mid){
+            temp[k++] = a[i++];
         }
-
-        while (j<= blength){
-            result [k++] = b[j++];
+        // 把右边边剩余的数移入数组
+        while(j<=high){
+            temp[k++] = a[j++];
         }
-
-
-
+        // 把新数组中的数覆盖nums数组
+        for(int x=0;x<temp.length;x++){
+            a[x+low] = temp[x];
+        }
     }
+
+
+
 
 }
